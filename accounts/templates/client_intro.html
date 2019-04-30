@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+{% load staticfiles %}
+{% load widget_tweaks %}
+
+<html lang="en">
+<head>
+    <title>AudienceSutra</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+    <link rel="stylesheet" href="{% static 'css/intro.css' %}">
+    <link rel="icon" href="{% static 'img/fav.png' %}" />
+
+    <link href="https://cdn.bootcss.com/pixeden-stroke-7-icon/1.2.3/dist/pe-icon-7-stroke.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Material+Icons"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css"/>
+
+    <style>
+        ul.errorlist {
+            margin: -3px 0;
+        }
+
+        ul.errorlist li {
+            color: red;
+            display: -webkit-box;
+            border-top: solid;
+        }
+        .img-pic {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+            border-radius: 50%;
+        }
+        select {
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+        }
+        select option {
+            color: #495057;
+        }
+        .prof-head {
+            color: black;
+            border: 1px solid;
+            padding: 12px 0px;
+            width: 73%;
+            margin: 0px auto 23px;
+        }
+        .prof-pic {
+            color: black;
+            vertical-align: top;
+            margin-top: 18px;
+            display: block;
+        }
+        #btn-enable {
+            color: #282828;
+            float: right;
+            cursor: pointer;
+            font-size: 26px;
+        }
+
+        .avatar-wrapper {
+            overflow: hidden;
+            width: 125px;
+            height: 125px;
+            /*box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);*/
+            border-radius: 50%;
+        }
+
+        .avatar-picture {
+            width:100%;
+            vertical-align:top;
+            cursor: pointer;
+            height: 100%;
+        }
+
+        .avatar-wrapper {
+            position: relative;
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                height: 7px;
+                width: 35px;
+                background: #000;
+                transform: translate(-50%,-50%) rotate(90deg);
+                display: none;
+                pointer-events: none;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                height: 7px;
+                width: 35px;
+                background: #000;
+                transform: translate(-50%,-50%);
+               display: none;
+               pointer-events: none;
+            }
+        }
+        .avatar-wrapper:hover::before, .avatar-wrapper:hover::after {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <main>
+            <div class="cent">
+                <!--<h1>Steps to get started.</h1>-->
+                <div class="wrap">
+                    {% if profile %}
+                        <i id="btn-enable" class="fa fa-edit"></i>
+                    {% endif %}
+                    <div class="top">
+                        <!--<div class="num active one">1</div>-->
+                        <!--<div class="num two">2</div>-->
+                        <!--<div class="num three">3</div>-->
+                        <!--<div class="num four">4</div>-->
+                    </div><br>
+
+                    <div class="layer act" id="one">
+                        <div class="prof-head">
+                            {% if profile %}
+                                Profile Update
+                            {% else %}
+                                Requesting you to share a few important introduction details before we can get to work
+                            {% endif %}
+                        </div>
+
+                        <!--**********************-->
+                        <div class="avatar-wrapper" style="margin: 0 auto;">
+                            <img id="imgProfile" class="avatar-picture" src="/media/{{profile_src}}" onclick="javascript:document.getElementById('id_profile_pic').click()" onerror="this.src=null;this.src='/static/angular/assets/profile.jpg';"/>
+                        </div>
+                        <!--**********************-->
+
+                        <!--<img id="imgProfile" class="img-pic" src="/media/{{profile_src}}" onclick="javascript:document.getElementById('id_profile_pic').click()" onerror="this.src=null;this.src='/static/angular/assets/profile.jpg';"/>-->
+                        <span class="prof-pic">Add your photo or your organisations logo.</span>
+                        <!--<h2>Requesting you to share a few important introduction details before we can get to work</h2>-->
+                        <form action="" method="post" id="formOne" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <input type="hidden" value="{{skip}}" id="txt_skip">
+                            <input type="hidden" value="{{profile}}" id="show">
+                            <div class="row">
+                                <div class="col-lg-4" style="padding: 7px;">
+                                    <div class="part ">
+                                        {{form.first_name}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.first_name.errors}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4" style="padding: 7px;">
+                                   <div class="part">
+                                       {{form.middle_name}}
+                                   </div>
+                                   <div class="has-error">
+                                       {{form.middle_name.errors}}
+                                   </div>
+                                </div>
+                                <div class="col-lg-4" style="padding: 7px;">
+                                    <div class="part">
+                                        {{form.last_name}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.last_name.errors}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-4" style="padding: 7px; display: none;">
+                                    <div>
+                                        <span>Profile Pic</span>
+                                        <!--<img id="imgProfile" class="img-pic" src="/media/{{profile_src}}" onclick="javascript:document.getElementById('id_profile_pic').click()" onerror="this.src='/static/images/profile-default.png';"/>-->
+                                        <span class="file-field" style="display:none;">
+                                            {{form.profile_pic|attr:"onchange:readProURL(this)" }}
+                                        </span>
+                                        <script>
+                                            function readProURL(input) {
+
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
+
+                                                    reader.onload = function (e) {
+                                                        $('#imgProfile')
+                                                            .attr('src', e.target.result);
+                                                    };
+
+                                                    reader.readAsDataURL(input.files[0]);
+                                                }
+                                            }
+                                        </script>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6" style="padding: 7px;">
+                                    <div class="part" style="border-bottom: none;">
+                                        <!--{{form.country}}-->
+                                        <input type="hidden" value="{{form.country.value}}" id="country_hide">
+                                        <select id="id_country" name="country" onchange="getStates(this.value, 'true');" required>
+                                            <option value="">-----Select Country-----</option>
+                                            {% for country in countries %}
+                                                <option value="{{ country.country_id }}">
+                                                    {{ country.country_name }}
+                                                </option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.country.errors}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6" style="padding: 7px;">
+                                    <div class="part" style="border-bottom: none;">
+                                        <!--{{form.state}}-->
+                                        <input type="hidden" value="{{form.state.value}}" id="state_hide">
+                                        <select name="state" id="id_state" required>
+                                        </select>
+                                        <input type="text" required value="{{form.state.value}}" name="state" id="txt_state" placeholder="State" style="display:none;">
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.state.errors}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6" style="padding: 7px;">
+                                    <div class="part">
+                                        {{form.city}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.city.errors}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6" style="padding: 7px;">
+                                    <div class="part">
+                                        {{form.pincode}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.pincode.errors}}
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" value="Save" name="skip">NEXT <i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+
+                    <div class="layer" id="two">
+                        <!--<img src="{% static 'img/start2.png' %}">-->
+                        <div class="prof-head">
+                            Professional Details
+                        </div>
+                        <!--<img id="imgCompany" class="img-pic" src="/media/{{company_src}}" onclick="javascript:document.getElementById('id_company_logo').click()" onerror="this.src='/static/images/logo-default.jpg';"/>-->
+                        <!--<h2>Professional Details</h2>-->
+                        <!--<span class="prof-pic">Add your organization logo</span>-->
+                        <form action="" method="post" id="formTwo" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-4 right" style="padding: 7px;">
+                                    <div class="part">
+                                        {{form.company_name}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.company_name.errors}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4" style="padding: 7px;">
+                                    <div class="part">
+                                        {{form.email}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.email.errors}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-4" style="padding: 7px;">
+                                    <div class="part">
+                                        {{form.designation}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.designation.errors}}
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4" style="padding: 7px; display: none;">
+                                    <div>
+                                        <span>Company Logo</span>
+                                        <!--<img id="imgCompany" class="img-pic" src="/media/{{company_src}}" onclick="javascript:document.getElementById('id_company_logo').click()" onerror="this.src='/static/images/logo-default.jpg';"/>-->
+                                        <span class="file-field" style="display:none;">
+                                            {{form.company_logo|attr:"onchange:readURL(this)" }}
+                                        </span>
+                                        <script>
+                                            function readURL(input) {
+                                                if (input.files && input.files[0]) {
+                                                    var reader = new FileReader();
+
+                                                    reader.onload = function (e) {
+                                                        $('#imgCompany')
+                                                            .attr('src', e.target.result);
+                                                    };
+
+                                                    reader.readAsDataURL(input.files[0]);
+                                                }
+                                            }
+                                        </script>
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.company_logo.errors}}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-6" style="padding: 7px;">
+                                    <div class="part">
+                                        {{form.address}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.address.errors}}
+                                    </div>
+                                </div>
+                                <div class="col-lg-6" style="padding: 7px;">
+                                    <div class="part">
+                                        {{form.phone}}
+                                    </div>
+                                    <div class="has-error">
+                                        {{form.phone.errors}}
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <button type="submit" value="Save">NEXT <i class="fa fa-arrow-right"></i></button>
+                        </form>
+                    </div>
+
+                    <!--<div class="layer" id="three">-->
+                        <!--<img src="{% static 'img/start3.png' %}">-->
+                        <!--<h2>Get your first 100 bucks</h2>-->
+                        <!--<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus ea, nihil, numquam accusamus odio-->
+                            <!--officiis iure nulla laboriosam maiores impedit nostrum tenetur sequi provident corrupti quo quasi quis-->
+                            <!--dignissimos deleniti.</p>-->
+                        <!--<a onclick="skip(3)">-->
+                            <!--<button>NEXT <i class="fa fa-arrow-right"></i></button>-->
+                        <!--</a><br><br>-->
+                    <!--</div>-->
+
+                    <div class="layer" id="three">
+                        <!--<img src="{% static 'img/start3.png' %}">-->
+                        <h2>Thank you for sharing the details. Now let’s get to work!</h2>
+                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus ea, nihil, numquam accusamus odio
+                            officiis iure nulla laboriosam maiores impedit nostrum tenetur sequi provident corrupti quo quasi quis
+                            dignissimos deleniti.</p>
+                        <a href="/client/profile">
+                            <button>Yes, let’s get cracking</button>
+                            <!--<button>Go to Home</button>-->
+                        </a>
+                        <a href="/" style="margin-left:40px">
+                            <!--<button>Yes, let’s get cracking</button>-->
+                            <button>Go to Home</button>
+                        </a><br><br>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function(){
+
+            if($('#show').val() == 'True') {
+                $(".wrap").find('input, select, button').attr('disabled','true');
+            }
+            else {
+                $(".wrap").find('input, select, button').removeAttr('disabled');
+            }
+
+            $("#btn-enable").click(function() {
+                $(".wrap").find('input, select, button').removeAttr('disabled');
+            })
+
+            // ******************************
+
+            if($('#txt_skip').val() == "1") {
+                skip(1);
+            }
+            else if($('#txt_skip').val() == "2") {
+                skip(2);
+            }
+
+            var country = $('#country_hide').val();
+            $('#id_country option[value="' + country + '"]').attr("selected", true);
+            var name = $("#id_country option:selected").text().trim();
+            if(name=="india" || name=='India'){
+            $('#txt_state').removeAttr('required');
+            $('#txt_state').removeAttr('name');
+                if(country != "None" && country != "undefined" && country != ""){
+                    var state = $('#state_hide').val();
+                    getStates(country, state);
+                }
+            }
+            else{
+                $('#id_state').css({'display':'none'});
+                $('#txt_state').css({'display':'block'});
+                $('#id_state').parent().css({'border-bottom':'3px solid #2a0e3c'});
+                $('#id_state').removeAttr('name');
+                $('#txt_state').attr('name','state');
+                $('#id_state').removeAttr('required');
+
+            }
+        });
+
+
+        function skip(i) {
+            $(".layer").hide();
+            $($(".layer")[i]).toggle('left');
+
+            $(".num").removeClass("active");
+            $($(".num")[i]).addClass("active");
+        }
+
+        function getStates(country, flag) {
+
+            var name = $("#id_country option:selected").text().trim();
+            if(name=="india" || name == "India"){
+
+            $('#id_state').css({'display':'block'});
+            $('#txt_state').css({'display':'none'});
+            $('#id_state').parent().css({'border-bottom':'none'});
+
+            $('#txt_state').removeAttr('name');
+                $('#id_state').attr('name','state');
+                $('#id_state').attr('required');
+                $('#txt_state').removeAttr('required');
+
+            $.ajax({
+                url: "/state/" + country,
+                type: "GET",
+                data: "",
+                success: function(response) {
+                    var optionlist = "<option value=''>-----Select State-----</option>";
+                    $.each(response, function (index, d) {
+                        if(flag == d.state_id)
+                            optionlist += "<option selected value='" + d.state_id + "'>" + d.state_name + "</option>";
+                        else
+                            optionlist += "<option value='" + d.state_id + "'>" + d.state_name + "</option>";
+                    });
+                    $('#id_state').html(optionlist);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+            }
+            else{
+                $('#id_state').css({'display':'none'});
+                $('#txt_state').css({'display':'block'});
+                $('#id_state').parent().css({'border-bottom':'3px solid #2a0e3c'});
+                $('#id_state').removeAttr('name');
+                $('#id_state').removeAttr('required');
+                $('#txt_state').attr('name','state');
+                $('#txt_state').attr('required');
+
+                if($('#country_hide').val() == country){
+                    $('#txt_state').val($('#state_hide').val());
+                }
+                else{
+                    $('#txt_state').val('');
+                }
+            }
+        }
+        $('input[type="text"]').keypress(function (e) {
+           if(this.id != "id_email"){
+
+          if((e.which < 97 /* a */ || e.which > 122) && (e.which < 65 || e.which > 90) && (e.which < 31 || e.which > 33) && e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57) ) {
+              e.preventDefault();
+          }
+          }
+      });
+
+      $('#id_email').attr('type','email');
+    </script>
+</body>
+</html>

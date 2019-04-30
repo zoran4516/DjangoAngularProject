@@ -1,0 +1,74 @@
+.header {
+    width: 100%;
+    background: url('../../img/homepage/header.png');
+    background-size: cover;
+    height: 100vh;
+}
+
+.header .nav .logo img {
+    width: 70%;
+    margin-top: 15px;
+    margin-left: 30%;
+}
+
+.header .nav .nav-items {
+    display: inline-flex;
+    position: absolute;
+    right: 0%;
+    width: 60%;
+    margin-top: 40px;
+}
+
+.header .nav .nav-item {
+    text-align: center;
+    width: 100%;
+}
+
+.header .nav .nav-item a {
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: 'Adobe Caslon Pro';
+    font-size: 80%;
+    opacity: 0.5;
+}
+
+.header .scroll-indicator {
+    display: inline-flex;
+    position: absolute;
+    bottom: 18%;
+    right: -5%;
+    transform: rotate(-90deg);
+    width: 20%;
+    opacity: 0.5;
+}
+
+.header .scroll-indicator .line {
+    width: 20%;
+    height: 0%;
+    border: 1px solid white;
+    margin-top: 2%;
+}
+
+.header .scroll-indicator .scroll-down {
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: 'Adobe Caslon Pro';
+    font-size: 80%;
+    width: 40%;
+}
+
+.header .msg {
+    width: 35%;
+    color: white;
+    font-family: 'Proxima Nova';
+    position: absolute;
+    right: 5%;
+    top: 45%;
+}
+
+.header .msg p {
+    margin-top: 3%;
+    opacity: 0.5;
+}

@@ -1,0 +1,51 @@
+.viz {
+	margin: 0 auto;
+	margin-top: 150px;
+	width: 70%;
+}
+
+.viz-module {
+	margin: 0 auto;
+	margin-top: 30px;
+	background: white;
+	border-radius: 15px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.13);
+}
+
+.viz-module h1 {
+	color: #3c1b51;
+	font-size: 22px;
+	font-weight: 600;
+}
+
+.viz-module h2.qs-label {
+	color: #3c1b51;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+/** Nav Top **/
+nav {
+	width: 100%;
+	position: absolute;
+	top:0px;
+}
+/** NAv Top End **/
+
+.viz-module .wrap {
+	padding: 20px;
+}
+
+ g.highcharts-data-label {
+	display: none !important;
+}
+
+.highcharts-pie-series .highcharts-point {
+	stroke: #EDE;
+	stroke-width: 2px;
+}
+.highcharts-pie-series .highcharts-data-label-connector {
+	stroke: silver;
+	stroke-dasharray: 2, 2;
+	stroke-width: 2px;
+}

@@ -1,0 +1,836 @@
+
+*,:after,:before{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Proxima Nova';
+}
+body{
+  background: #f8f8f8;
+}
+.wrapper{
+  background: url(../images/header.png) no-repeat center top;
+  background-size: cover;
+}
+.navbar-default {
+  background-color: transparent;
+  border-color: transparent;
+}
+.navbar-header{
+  float: left;
+  width: 20%;
+  position: relative;
+}
+.container>.navbar-collapse{
+    float: left;
+    width: 80%;
+}
+.navbar>.container .navbar-brand{
+  display: inline-block;
+  height: auto;
+  padding: 10px 15px;
+}
+.navbar>.container .navbar-brand > img{
+  width: 100%;
+}
+.container>.navbar-collapse > ul.navbar-right{
+  padding: 15px 0;
+  margin-right: 0;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+    opacity: 0.5;
+}
+.navbar-default .navbar-nav>li>a:hover {
+    color: #fff;
+    background-color: transparent;
+}
+.navbar-header>.navbar-toggle {
+  position: absolute;
+  float: right;
+  padding: 0;
+  right: 20px;
+  top: 50%;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 8px;
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 0px;
+  margin-bottom: 0px;
+  transform: translateY(-50%);
+  padding: 5px;
+  border-radius: 3px;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: #560c4b;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+.banner-section{
+  height: calc(100vh - 100px);
+}
+.msg{
+  padding: 10px;
+  margin: 100px 0;
+}
+.msg h3{
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: .5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+
+}
+.msg p {
+margin-top: 3%;
+opacity: 0.5;
+font-size: 16px;
+color: #fff;
+}
+
+/********img-section css start***********/
+.mission-section{
+  padding: 190px 0px 160px;
+  padding: 10% 0 9% 2%;
+}
+.img-wrapper{
+  position: relative;
+  padding: 0 90px 0px 0;
+}
+.img-wrapper::before{
+  position: absolute;
+  content: '';
+  left: 21%;
+  top: -28px;
+  width: 80px;
+  height: 10%;
+  box-shadow: 0 0 50px #E4E4E4;
+  z-index: -1;
+}
+.img-wrapper::after{
+  position: absolute;
+  content: '';
+  left: 64%;
+  top: 66%;
+  background-color: #EB0570;
+  width: 288px;
+  height: 250px;
+  box-shadow: none;
+  z-index: -1;
+}
+.img-wrapper>img{
+  width: 100%;
+}
+.mission-text{
+  padding-left: 50px;
+  position: relative;
+}
+.mission-text::before{
+  content: '';
+  position: absolute;
+  box-shadow: 0 0 50px #E4E4E4;
+  z-index: -1;
+  width: 198px;
+  height: 157px;
+  top: -110px;
+  right: 86px;
+}
+.mission-text::after{
+  content: '';
+  position: absolute;
+  box-shadow: 0 0 50px #E4E4E4;
+  z-index: -1;
+  width: 113px;
+  height: 91px;
+  bottom: -75px;
+  left: 193px;
+}
+.mission-text h2{
+  font-family: 'Adobe Caslon Pro';
+  text-transform: uppercase;
+  margin-bottom: 7%;
+  padding-left: 1%;
+}
+.mission-text .mission-para-1 {
+    font-family: 'Proxima Nova';
+    margin-bottom: 5%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}
+.mission-text .mission-para-2 {
+    font-family: 'Proxima Nova';
+    opacity: 0.5;
+    margin-bottom: 5%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left;
+}
+.mission-text p.no-line-break {
+    margin-bottom: 0%;
+}
+.mission-text ul.no-bullets {
+    padding-left: 0%;
+    list-style: none;
+}
+.mission-text ul.no-bullets li {
+    display: block;
+    list-style: none;
+}
+.mission-text ul.no-padding {
+    padding-left: 20px;
+}
+
+
+/*****************************/
+/* .inspration_img-wrapper{
+  position: relative;
+} */
+.inspiration-section{
+  position: relative;
+  padding: 85px 0;
+  padding: 5% 0 5% 1%;
+}
+.inspiration-msg{
+  padding: 3% 21%;
+}
+.inspiration-section .inspiration-msg-position{
+  position: absolute;
+  right: -1%;
+  top: 0%;
+  width: 66%;
+  padding: 115px 10% 115px 25%;
+  background-color: white;
+  box-shadow: 0 0 50px #D4D4D4;
+  z-index: -1;
+  height: 100%;
+}
+.inspration_img-wrapper img{
+  width: 100%;
+}
+/* h2.img-caption{
+  position: absolute;
+  bottom: 144px;
+  right: -97px;
+  margin-bottom: .5rem;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: #212629;
+} */
+/* .inspiration-msg{
+  padding-left: 28%;
+} */
+.inspiration-msg h2 {
+    font-family: 'Adobe Caslon Pro';
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: inherit;
+    font-size: 32px;
+    text-transform: uppercase;
+    /* padding-left: 1%; */
+    margin-top: 0;
+}
+
+.inspiration-msg .insp-para-1 {
+    font-family: 'Proxima Nova';
+    margin-bottom: 21px;
+    font-size: 16px;
+     font-weight: 400;
+     line-height: 1.5;
+     color: #212529;
+     text-align: left;
+         color: #212529;
+}
+.inspiration-msg .insp-para-2 {
+    font-family: 'Proxima Nova';
+    opacity: 0.5;
+    margin-bottom: 21px;
+    font-size: 16px;
+     font-weight: 400;
+     line-height: 1.5;
+     color: #212529;
+     text-align: left;
+         color: #212529;
+}
+
+/****************************************/
+
+.sect-howdoes{
+  padding: 100px 0;
+}
+#howdoesitwork{
+  text-align: center;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  font-size: 32px;
+  text-transform: uppercase;
+  color: #212629;
+}
+
+/*************************************************************/
+.sec-our-service{
+  margin-bottom: 140px;
+  padding: 0 0 0 3%;
+}
+.sec-our-service h2 {
+text-align: center;
+font-family: inherit;
+font-weight: 500;
+line-height: 1.2;
+font-size: 32px;
+text-transform: uppercase;
+color: #212629;
+margin: 0 0 140px 0;
+}
+.servic-col .servimg-wrapper img{
+  width:100%;
+  margin: -50px 0 37px 0;
+}
+.servic-col .servic-col-wrapper{
+  background: #E8E8E8;
+  padding: 0 25px 10px;
+}
+.servimg-wrapper h3{
+  text-align: center;
+  font-family: "Adobe Caslon Pro";
+  margin-bottom: 70px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: inherit;
+  font-size: 32px;
+  margin-bottom: 70px;
+  word-wrap: break-word;
+}
+.servimg-wrapper p {
+    font-family: "Proxima Nova";
+    opacity: 0.5;
+    margin-bottom: 30px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    min-height: 100px;
+    text-align: center;
+}
+/* .Competition-wrapper p{
+margin-bottom: 54px;
+} */
+
+button.custom-button, button.template-button{
+  font-family: "Adobe Caslon Pro";
+    font-size: 130%;
+    border: 2px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    display: block;
+    margin: 0 0 18px 0;
+    width: 100%;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+}
+
+
+/************************key-benifits********************************/
+
+.row.text-gallery .row{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.row.text-gallery [class*='col-']{
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.key-benifits{
+  padding: 0 5%;
+  margin-bottom: 150px;
+
+}
+
+.benifits-wrapper{
+  background-color: white;
+  box-shadow: 0 0 50px #D4D4D4;
+  position: relative;
+  padding: 5% 7.5%;
+}
+.key-benifits h2{
+  font-family: 'Adobe Caslon Pro';
+  text-transform: uppercase;
+  font-size: 32px;
+  margin-bottom: 90px;
+  font-family: inherit;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #212529;
+  text-align: center;
+
+}
+.text-turnaround h5,
+.text-interactive h5,
+.text-transparency h5,
+.text-dashboard_analytics h5,
+.text-quality-control h5,
+.text-pan-india-service h5,
+.text-approach h5,
+.text-rio h5{
+  background: url(../images/kb-quick-turn.png)no-repeat center;
+  background-size: cover;
+  padding: 85px 0;
+  text-align: center;
+  font-family: "Adobe Caslon Pro";
+  color: #d7d3dc;
+  font-size: 16px;
+  border: 2px solid #fff;
+  margin: 0;
+}
+.text-interactive h5, .text-approach h5{
+  background: url(../images/kb-interactive.png)no-repeat center;
+  padding-top: 115px;
+  padding-bottom: 115px;
+  background-size: cover;
+}
+
+.text-transparency h5,
+.text-dashboard_analytics h5,
+.text-quality-control h5,
+.text-pan-india-service h5{
+  background: url(../images/kb-interactive.png)no-repeat center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background-size: cover;
+}
+.text-dashboard_analytics h5{
+  background: url(../images/kb-dashboard.png)no-repeat center;
+  background-size: cover;
+}
+.text-quality-control h5{
+  background: url(../images/kb-quality.png)no-repeat center;
+  background-size: cover;
+}
+.text-pan-india-service h5{
+  background: url(../images/kb-pan-india.png)no-repeat center;
+  background-size: cover;
+}
+.text-approach h5{
+  background: url(../images/kb-flexible.png)no-repeat center;
+  background-size: cover;
+}
+.text-rio h5{
+  background: url(../images/kb-roi.png)no-repeat center;
+  background-size: cover;
+}
+
+/***********************form-section*********************************/
+.form-section{
+  margin-bottom: 150px;
+  padding: 0 0 0 3%;
+}
+.input-grid{
+width: 100%;
+background-color: #fff;
+padding: 50px 80px 50px 80px;
+box-shadow: 0 0 50px #D4D4D4;
+}
+.input-grid h3{
+  font-family: "Adobe Caslon Pro";
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 30px;
+  color: #212529;
+  line-height: 1.2;
+  font-size: 28px;
+  float: left;
+  width: 40%;
+}
+.input-grid p{
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  line-height: 1.5;
+  opacity: 0.8;
+  float: left;
+  width: 60%;
+  padding-top: 7px;
+}
+.get-in-touch{
+  width: 100%;
+  display: inline-block;
+}
+.form-group {
+    margin-bottom: 60px;
+}
+.form input.form-control{
+  background: transparent;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  border-bottom: 1px solid #a9a9a9;
+  border-radius: 0;
+}
+.form input.form-control::placeholder {
+font-size: 16px;
+
+}
+label.form-control-label{
+  color: #212529;
+  line-height: 1.2;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 50px;
+}
+label.texarea-label{
+  margin-bottom: 30px;
+}
+textarea.form-textarea{
+width: 100%;
+line-height: 200%;
+padding: 10px 10px 10px 10px;
+border: none;
+background-color: #f5f5f5;
+resize: none;
+}
+textarea.form-textarea::placeholder{
+  color: #ccc;
+}
+button.form-submit-btn{
+  margin-bottom: 8px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #fff;
+    font-size: 24px;
+    padding: 13px 70px;
+    border: 0;
+    text-transform: capitalize;
+    float: right;
+        background-color: #11304a;
+}
+/*******************footer*******************************/
+
+.footer{
+  border-top: 2px solid #a9a9a9;
+  padding: 50px 3% 50px 7%;
+}
+.footer .footer-message h4 {
+    font-family: "Adobe Caslon Pro";
+    font-size: 100%;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 500;
+    line-height: 1.2;
+    color: #212629;
+}
+.footer .footer-message p {
+    font-family: "Proxima Nova";
+    opacity: 0.8;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212629;
+    text-align: left;
+}
+.footer-menu{
+  display: inline-block;
+  width: 100%;
+}
+.footer-menu li{
+  list-style: none;
+  width: 33.333%;
+  display: inline-block;
+  float: left;
+}
+.footer-menu li a{
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  display: inline-block;
+  text-align: right;
+  vertical-align: bottom;
+  font-family: "Adobe Caslon Pro";
+  opacity: 0.8;
+  margin-bottom: 16px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.footer-logo img{
+  width: 100%;
+}
+
+
+/*******************************************************/
+.sticky-action-bar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 4.5%;
+    height: 100vh;
+    background: white;
+        z-index: 11;
+}
+.sab-menu {
+    top: 2vh;
+    left: 0%;
+}
+.sab-menu img {
+    width: 60%;
+    /*height: 60%;*/
+}
+.sab-contactus {
+    left: 0%;
+    top: 40vh;
+}
+.sab-action {
+    text-align: center;
+    position: fixed;
+    width: 4.5%;
+}
+.sab-action p {
+    font-family: "Adobe Caslon Pro";
+    text-transform: uppercase;
+    opacity: 0.8;
+    white-space: nowrap;
+    transform: rotate(-90deg);
+    margin-bottom: 100px;
+}
+.sab-action p a {
+    text-decoration: none;
+    color: black;
+}
+.sab-tryus {
+    left: 0%;
+    top: 55vh;
+}
+.sab-takesurvey {
+    left: 0%;
+    top: 92vh;
+}
+/********************************************************/
+/***************************************************/
+@media (max-width: 1284px){
+  .servimg-wrapper h3 {
+      font-size: 23px;
+      margin-bottom: 25px;
+  }
+  .text-turnaround h5,
+  .text-interactive h5,
+  .text-transparency h5,
+  .text-dashboard_analytics h5,
+  .text-quality-control h5,
+  .text-pan-india-service h5,
+  .text-approach h5,
+  .text-rio h5{
+    font-size: 13px;
+  }
+}
+@media (max-width: 1170px){
+  .img-wrapper::after {
+      left: 57%;
+      top: 62%;
+  }
+  .mission-text::before {
+    width: 180px;
+    height: 120px;
+    top: -71px;
+    right: 22px;
+  }
+}
+
+@media (max-width: 992px){
+  .container>.navbar-collapse > ul.navbar-right {
+      padding: 10px 0;
+  }
+  .nav>li>a {
+    padding: 10px 7px;
+  }
+  .servic-col .servic-col-wrapper {
+    margin-bottom: 80px;
+  }
+  .Competition-wrapper p {
+    margin-bottom: 30px;
+  }
+  .img-wrapper::after {
+    left: 28%;
+    top: 65%;
+    width: 70%;
+    height: 170px;
+}
+.mission-text::after {
+    left: 150px;
+}
+.mission-text {
+    padding-left: 30px;
+
+}
+.inspiration-msg {
+    padding: 3% 15%;
+}
+.img-wrapper::before {
+    top: -15px;
+}
+.navbar-default{
+      padding-left: 3%;
+}
+}
+@media (max-width: 767px){
+  .container #myNavbar{
+    position: absolute;
+    width: 100%;
+    padding: 0 20px;
+    background: #5c1353;
+    z-index: 11;
+    top: 70px;
+    left: 9%;
+  }
+  .navbar-header {
+    float: left;
+    width: 100%;
+  }
+  .navbar>.container .navbar-brand {
+    width: 30%;
+  }
+  .navbar-toggle {
+      /* margin-top: 20px; */
+      /* transform: translateY(-5px); */
+  }
+  .container>.navbar-collapse {
+      float: left;
+      width: 100%;
+      border: 0;
+  }
+  .inspiration-section .inspiration-msg-position {
+    right: 0;
+    width: 100%;
+    left: 0;
+    padding: 0;
+  }
+  .mission-text::before {
+    width: 134px;
+    height: 65px;
+    top: 0px;
+    right: 42px;
+  }
+  .mission-section {
+    padding: 80px 0px 130px;
+  }
+  .mission-text::after {
+      bottom: -66px;
+      left: 60%;
+  }
+  .img-wrapper {
+    padding: 0 0px 0px 0;
+    margin-bottom: 35px;
+  }
+  .img-wrapper::after {
+    left: 50%;
+    top: 75%;
+    width: 50%;
+
+  }
+  .input-grid {
+    padding: 50px 25px;
+}
+.footer {
+    padding: 25px 3% 25px 7%;
+}
+.footer-logo img {
+    margin-bottom: 20px;
+}
+address, .footer .footer-message p{
+  text-align: center;
+}
+.footer-menu li {
+    width: 100%;
+    text-align: center;
+}
+.key-benifits h2 {
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+#howdoesitwork, .inspiration-msg h2 {
+    font-size: 18px;
+}
+.sec-our-service h2 {
+    font-size: 18px;
+    margin: 0 0 90px 0;
+}
+.inspiration-msg .insp-para-1 {
+    font-size: 14px;
+  }
+  .msg {
+    padding: 10px;
+    margin: 70px 0 70px 3%;
+}
+.text-turnaround h5, .text-interactive h5, .text-transparency h5, .text-dashboard_analytics h5, .text-quality-control h5, .text-pan-india-service h5, .text-approach h5, .text-rio h5 {
+    font-size: 16px;
+    padding: 50px 0;
+}
+.sec-our-service {
+    margin-bottom: 50px;
+}
+}
+@media (max-width: 575px){
+  .navbar>.container .navbar-brand {
+    width: 45%;
+}
+.img-wrapper::after {
+    height: 111px;
+    top: 77%;
+}
+.mission-text::before {
+    height: 46px;
+    width: 87px;
+    right: 30px;
+}
+.massege-form-wrapper{
+  padding: 0 0 0 0;
+}
+.input-grid h3 {
+    margin-bottom: 20px;
+    font-size: 12px;
+    width: 30%;
+}
+.input-grid p {
+    font-size: 11px;
+    width: 70%;
+    padding-top: 0;
+}
+.form-group {
+    margin-bottom: 30px;
+}
+label.form-control-label {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+.massege-form-wrapper{
+  background-color: #fff;
+  box-shadow: 0 0 50px #D4D4D4;
+}
+button.form-submit-btn {
+    font-size: 14px;
+    padding: 10px 35px;
+
+}
+.form input.form-control::placeholder {
+font-size: 12px;
+
+}
+}

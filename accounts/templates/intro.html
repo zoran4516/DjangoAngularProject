@@ -1,0 +1,85 @@
+{% load staticfiles %}
+<!doctype>
+<html>
+    <head>
+        <title>AudienceSutra</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" />
+        <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/intro.css' %}">
+        <link rel="icon" href="{% static 'img/fav.png' %}" />
+    </head>
+    <body>
+
+        <header>
+            <main>
+                <div class="cent">
+                    <h1>Steps to get started.</h1>
+                    <div class="wrap">
+                        <div class="top">
+                            <div class="num active one">1</div>
+                            <div class="num two">2</div>
+                            <div class="num three">3</div>
+                        </div><br>
+
+                        <div class="layer act" id="one">
+                            <img src="{% static 'img/start1.png' %}">
+                            <h2>Fill your details</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus ea, nihil, numquam accusamus odio officiis iure nulla laboriosam maiores impedit nostrum tenetur sequi provident corrupti quo quasi quis dignissimos deleniti.</p>
+                            <a onclick="skip(1)"><button>NEXT <i class="fa fa-arrow-right"></i></button></a><br><br>
+                            <a href="#">skip tutorials</a>
+                        </div>
+                        <div class="layer" id="two">
+                            <img src="{% static 'img/start2.png' %}">
+                            <h2>Get your first 100 bucks</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus ea, nihil, numquam accusamus odio officiis iure nulla laboriosam maiores impedit nostrum tenetur sequi provident corrupti quo quasi quis dignissimos deleniti.</p>
+                            <a onclick="skip(2)"><button>NEXT <i class="fa fa-arrow-right"></i></button></a><br><br>
+                            <a href="#">skip tutorials</a>
+                        </div>
+                        <div class="layer" id="three">
+                            <img src="{% static 'img/start3.png' %}">
+                            <h2>Begin your survey</h2>
+                            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus ea, nihil, numquam accusamus odio officiis iure nulla laboriosam maiores impedit nostrum tenetur sequi provident corrupti quo quasi quis dignissimos deleniti.</p>
+                            <a href="/form"><button>START YOUR JOURNEY</button></a><br><br>
+                            <a href="#">skip tutorials</a>
+                        </div>
+                    </div>
+            </main>
+        </header>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.num').click(function(){
+                    var item = $(this).html();
+                    var num = ['one', 'two', 'three'];
+                    var slide = '#'+num[item-1];
+                    $('.act').toggle('left');
+                    $('.num').removeClass('active');
+                    $(this).addClass('active');
+                    $('.act').removeClass('act');
+                    $(slide).toggle('left');
+                    $(slide).addClass('act');
+                    
+                });
+            });
+
+            function skip(i) {
+                $(document).ready(function(){
+                    var num = ['one', 'two', 'three'];
+                    var thisSlide = '#'+num[i-1];
+                    var nextSlide = '#'+num[i];
+                    var next = '.'+num[i];
+                    $(thisSlide).toggle('left');
+                    $('.act').removeClass('act');
+                    $('.num').removeClass('active');
+                    $(next).addClass('active');
+                    $(nextSlide).toggle('left');
+                    $(nextSlide).addClass('act');
+                });
+            }
+        </script>
+    </body>
+</html>

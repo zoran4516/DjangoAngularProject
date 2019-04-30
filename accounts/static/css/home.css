@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto:900,600,500');
+
+*{
+  padding:0;
+  margin: 0;
+  color:#fff;
+}
+
+body {
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto';
+  overflow-x: hidden;
+  background: white;
+}
+
+html, body {
+  height: 100%;
+}
+
+*:focus {
+  outline: none;
+}
+
+a, a:hover, a:focus, a:clicked {
+  color: #fff;
+}
+
+.time__current {
+  color:white;
+}
+
+.center-area {
+  position: absolute;
+  height: 750px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+}
+
+
+.center-area:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+main {
+  position: relative;
+  height: 90%;
+  width: 100%;
+  overflow: none;
+}
+
+main div.cent {
+  color: white;
+  text-align: center;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  padding: 20px;
+  overflow: none;
+}
+
+header {
+    width: 100%;
+    height: 100%;
+}
+
+.nav {
+    position: fixed;
+    width:5%;
+    top:0px;
+    left: 0px;  
+    height: 100%;
+    background: #100b33;
+}
+
+
+.nav .opt {
+    width: 100%; 
+    padding: 20px 0px;   
+    font-size: 32px;
+}
+
+.nav .opt i, .nav .opt p  {
+    color: #B7B7B7E6;
+}
+
+.nav .opt.active i, .nav .opt.active p {
+    color: white;
+}
+
+.nav .opt:hover > .nav .opt a {
+    color:white !important;
+}
+
+.nav .opt a {
+    text-decoration: none;
+}
+
+.active {
+    background: #F70065;
+}
+
+.nav .opt p {
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family:'Roboto';
+    font-weight: 900;
+}
+
+.main {
+    position: fixed;
+    top:0px;
+    right: 0px;
+    width: 95%;
+    height: 100%;
+    background: #F5F5F5;
+}
+
+nav {
+    position: fixed;
+    width: 95%;
+    top: 0px;
+    right: 0px;
+    padding: 18px 0px;
+    background: white;
+    box-shadow: 0px 1px 10px #C6C6C6;
+}
+
+nav h1 {
+    font-size: 30px;
+    margin-left: 50px;
+    font-weight: 600;
+    color: #100b33;
+}
+
+nav p {
+    font-size: 20px;
+    color: #C6C6C6;
+    font-weight: 500;
+    margin-left: 50px;
+}
+
+nav p i {
+    color: #C6C6C6;
+    margin-right: 10px;
+}
+
+.wrap {
+    display: inline-block;
+}
+
+.main h1 {
+    font-size: 150px;
+    color: #100b33;
+    font-weight: 500;
+}
+
+.main h1 span {
+    color: #F70065 !important;
+    font-size: 65px;
+    padding-right: 20px;
+    vertical-align: super;
+}
+
+.main .content-adj p {
+    color: #F70065 !important;
+    font-size: 30px;
+    font-weight: 900;
+    margin-top: -30px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.content-adj {
+    width: max-content;
+    width: -moz-max-content;
+    width: -webkit-max-content;
+    margin: 0 auto;
+}
+
+.content-adj span.survey {
+    color: #C6C6C6;
+    font-size: 15px;
+    margin-right: 10px;
+    float: right;
+    font-weight: bold;
+}
+
+.main button {
+    width: 350px;
+    padding: 20px;
+    border: none;
+    background: #F70065;
+    border-radius: 30px;
+    color:#fff;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 2px 3px 5px #BDBDBD;
+    text-transform: uppercase;
+    transition: 0.3s all linear;
+    cursor: pointer;
+}
+
+.main button:active {
+    transition: 0.3s all linear;
+    box-shadow: 1px 1px 1px #D2D2D2;
+}
+
+.nav-opt {
+    display: inline-block;
+}
+
+.nav-opt i {
+    font-size: 50px;
+    color: #E5E5E5;
+    margin-top: 9px;
+    padding: 0px 20px;
+}
+
+.float {
+    display: none;
+}
+
+.grey {
+    display: none;
+}
+
+.wrap.current {
+    width: 80% !important;
+}
+
+@media screen and (max-width:1700px)
+{
+    .main {
+        width: 94%;
+    }
+
+    nav {
+        width: 94%;
+        padding: 18px 0px;
+    }
+
+    .nav .opt i {
+        font-size: 20px;
+    }
+
+    .nav .opt p {
+        font-size: 9px;
+    }
+
+    .nav {
+        width: 6%;
+    }
+
+    nav h1{
+        font-size: 24px;
+    }
+    
+    nav p {
+        font-size: 14px;
+    }
+
+    .content-adj h1 {
+        font-size: 90px;
+    }
+
+    .content-adj h1 span {
+        font-size: 40px;
+        padding-right: 10px;
+    }
+
+    .main button {
+        width: 300px;
+        padding: 17px 0px;
+    }
+
+    .main .content-adj p {
+        font-size: 20px;
+    }
+    
+    .main .content-adj span.survey {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width:900px)
+{
+    .nav {
+        z-index: 9999999;
+        width: 30%;
+        display: none;
+        overflow-y: auto;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 15px 0px;
+    }
+
+    nav h1 {
+        font-size: 25px;
+        margin-left: 10px !important;
+    }
+
+    nav p {
+        font-size: 15px;
+        margin-left: 10px !important;
+    }
+
+    .main h1 {
+        font-size: 80px;
+    }
+
+    .main h1 span {
+        font-size: 35px;
+        padding-right: 5px;
+    }
+
+    .main .content-adj p {
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .main .content-adj span.survey {
+        text-align: center;
+        margin: 0 auto;
+        float: none !important;
+    }
+
+    .content-adj {
+        width: auto;
+    }
+
+    .main button {
+        width: 80%;
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .float{
+        display:inline-block;
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:20px;
+        left:20px;
+        background-color:#100b33    ;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+        box-shadow: 2px 2px 3px #999;
+    }
+    
+    .my-float{
+        margin-top:22px;
+    }
+
+    .grey {
+        position: fixed;
+        top:0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.62);
+    }
+}

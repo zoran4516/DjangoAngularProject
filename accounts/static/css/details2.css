@@ -1,0 +1,430 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto:400,500,600,700,900');
+
+*{
+  padding:0;
+  margin: 0;
+  color:#fff;
+}
+
+body {
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto';
+  overflow-x: hidden;
+  background: #F5F5F5;
+}
+
+html, body {
+  height: 100%;
+}
+
+*:focus {
+  outline: none;
+}
+
+a, a:hover, a:focus, a:clicked {
+  color: #fff;
+}
+
+.time__current {
+  color:white;
+}
+
+.center-area {
+  position: absolute;
+  height: 750px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+}
+
+
+.center-area:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+main {
+  position: relative;
+  height: 90%;
+  width: 100%;
+  overflow: none;
+}
+
+main div.cent {
+  color: white;
+  text-align: center;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  padding: 20px;
+  overflow: none;
+}
+
+header {
+    width: 100%;
+    height: 100%;
+    background:#F5F5F5;
+    position: relative;
+}
+
+.left, .right {
+    width: 70%;
+    height: 100%;
+    position: absolute;
+    top:0px;
+    background: #F5F5F5;
+}
+
+.left {
+    height: auto;
+}
+
+.right {
+    background:url('../img/login.jpg');
+    background-size: cover;
+    right: 0px;
+    width:30%;
+    position: fixed;
+    box-shadow: 0px 1px 20px #B6B6B6;
+}
+
+.right h1 {
+    font-family: 'Oswald';
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 120%;
+}
+
+mainhead {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    padding: 150px 0px;
+}
+
+.left {
+    left: 0px;
+}
+
+.wrap {
+    margin-top:30px !important;
+}
+
+.wrap-form {
+    padding: 40px 10px;
+    background: white;
+    box-shadow: 0px 1px 10px #B6B6B6;
+    width: 70%;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+.left p {
+    color: #B6B6B6;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 20px;
+}
+
+.left p a {
+    color: #100b33;
+    text-decoration:none;
+    margin-left: 10px;
+    border-bottom: #100b33 1px solid;
+    padding: 0px 1px;
+}
+
+.wrap {
+    width: 42%;
+}
+
+.right img {
+    width: 400px;
+}
+
+.back {
+    position: absolute;
+    top:30px;
+    left: 30px;
+    width:50px;
+}
+
+.wrap {
+    display: inline-block;
+    text-align: left;
+    margin: 0px 10px;
+}
+
+.left span, .left span strong {
+    font-size:15px;
+    color: #100b33;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.left i {
+    color:#100b33;
+    padding: 15px;
+    font-size: 18px;
+}
+
+.left input[type=text], .left input[type=password], .left input[type=email], .left select {
+    width: 80%;
+    border: none;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-weight: 600;
+    color:#B6B6B6;
+}
+
+.child_text, .vehicle_text {
+    width: 30px !important;
+    padding: 2px 0px;
+    border-bottom: 2px solid #100b33;
+    border: none;
+    border-bottom: 2px solid #100b33 !important;
+    
+}
+
+.left input[type=radio]:not(old) {
+    width: 2em;
+    margin: 0;
+    padding: 0;
+    font-size: 1em;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.left input[type=radio]:not(old) + label {
+    display: inline-block;
+    margin-left: -2em;
+    line-height: 1.5em;
+} 
+
+.left input[type=radio]:not(old) + label > span {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin: 2px;
+    border: 3px #100b33 solid;
+    border-radius: 100%;
+    background:white;
+    cursor: pointer;
+    vertical-align: bottom;
+}
+
+.left input[type=radio]:not(old):checked + label > span > span {
+    display: block;
+    width: 6px;
+    cursor: pointer;
+    height: 6px;
+    margin: 2px 1.9px;
+    border: 3px #100b33 solid;
+    border-radius: 100%;
+    background:#100b33;
+    vertical-align: bottom;
+}
+
+.left label {
+    padding: 12px 0px;
+    margin: 0px 10px;
+}
+
+.left .label {
+    font-size: 15px;
+    font-weight: 400;
+    color: #100b33;
+    display: inline-block;
+    margin-left: 3px;
+}
+
+.left select {
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;      
+    appearance: none;
+    color: #9D9D9D;
+}
+
+.left select option {
+    color: black;
+}
+
+.left select::-ms-expand {
+    display: none;
+}
+
+.left input[type=submit], .left button {
+    width: 350px;
+    padding: 20px;
+    border: none;
+    background: #F70065;
+    border-radius: 30px;
+    color:#fff;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 2px 3px 5px #BDBDBD;
+    text-transform: uppercase;
+    transition: 0.3s all linear;
+    cursor: pointer;
+}
+
+.left input[type=submit]:active {
+    transition: 0.3s all linear;
+    box-shadow: 1px 1px 1px #D2D2D2;
+}
+
+.left .wrap-o {
+    border-bottom: 3px solid #100b33;
+}
+
+.wrap-md {
+    width:220px;
+}
+
+.wrap-md input[type=text] {
+    width: 150px;
+}
+
+.wrap-sm {
+    width:100px;
+}
+
+.wrap-sm input[type=text] {
+    width: 45px;
+}
+
+.main-part2, .main-part3 , .main-part4, .main-part5{
+    display: none;
+}
+
+.left ul, .left li {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.left  li.active {
+    color: white;
+    background: #100b33;
+    font-weight: bolder;
+    border: 2px solid #100b33;
+}
+
+
+.left li {
+    margin: 7px;
+    padding: 8px 11px;
+    font-weight: bold;
+    color: #100b33;
+    cursor: pointer;
+    font-size: 13px;
+    border: 2px solid #100b33;
+    border-radius: 100%;
+}
+
+
+
+.wrap.current {
+    width: 85% !important;
+}
+
+.sub {
+    display: none;
+}
+
+@media screen and (max-width:1700px)
+{
+    .wrap-form {
+        width: 350px;
+    }
+
+    .left input[type="text"], .left input[type="password"], .left input[type="email"] {
+        width: 70%;
+    }
+    .left input[type="submit"] {
+        width: 80%;
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .left span, .left span strong {
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .right img {
+        width:250px;
+    }
+    
+}
+
+@media screen and (max-width:900px)
+{
+    .left input[type=submit], .left button {
+        width: 90%;
+        font-size: 13px;
+        padding: 12px;
+        margin-top: -30px;
+    }
+
+    .left {
+        width: 100%;
+    }
+    .right {
+        display: none;
+    }
+
+    .wrap-form {
+        width: 85%;
+        padding: 20px 10px;
+    }
+    .wrap {
+        width: 85%;
+    }
+    .left input[type="text"], .left input[type="password"], .left input[type="email"] {
+        width: 70%;
+    }
+    .left input[type="submit"] {
+        width: 80%;
+        padding: 13px;
+        font-size: 12px;
+    }
+    .left span, .left span strong {
+        font-weight: bold;
+        font-size: 15px;
+    }
+    .back {
+        top:10px;
+        left:10px;
+        width: 40px;
+    }
+
+    mainhead {
+        padding: 40px 0px;
+    }
+
+    .left input[type="text"], .left input[type="password"], .left input[type="email"], .left select {
+        width: 70%;
+    }
+
+    .main-part5 .wrap .wrap-o input[type="radio"]:not(old) + label {
+        margin: 0px !important;
+    }
+
+    .left .label {
+        font-size: 13px;
+    }
+
+}

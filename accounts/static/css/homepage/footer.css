@@ -1,0 +1,51 @@
+.footer {
+    margin-top: 100px;
+    border-top: 2px solid darkgray;
+    padding: 50px 3% 50px 7%;
+    display: inline-flex;
+    width: 100%;
+}
+
+.footer .footer-logo {
+    width: 25%;
+}
+
+.footer .footer-message {
+    width: 40%;
+}
+
+.footer .footer-message h4 {
+    font-family: "Adobe Caslon Pro";
+    font-size: 100%;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.footer .footer-message p {
+    font-family: "Proxima Nova";
+    opacity: 0.8;
+    margin-bottom: 8px;
+}
+
+.footer .footer-links {
+    width: 35%;
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto auto auto;
+}
+
+.footer .footer-links .footer-link-grid-item {
+    text-align: right;
+    display: table-cell;
+    vertical-align: bottom;
+    font-family:"Adobe Caslon Pro";
+    font-size: 80%;
+    opacity: 0.8;
+}
+
+.bottom-aligner {
+    display: inline-block;
+    height: 100%;
+    vertical-align: bottom;
+    width: 0px;
+}

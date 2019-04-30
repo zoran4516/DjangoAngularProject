@@ -1,0 +1,100 @@
+{#{% extends "accounts/base.html" %}#}
+
+{% load i18n %}
+{% load staticfiles %}
+
+{% block head_title %}{% trans "AudienceSutra Respondent Sign-Up" %}{% endblock %}
+
+{% block extra_head %}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/signup-form.css' %}">
+    <link rel="icon" href="{% static 'img/fav.png' %}"/>
+{% endblock %}
+
+{% block body %}
+    <header>
+        <img src="{% static 'img/logo.png' %}" alt="AudienceSutra">
+        <h1>Respondent Signup</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'account_login' %}">Login Here</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="wrap-form">
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup_respondent' %}">
+            {% if form.errors %}
+                {% for error in form.non_field_errors %}
+                    <div>
+                        <strong style="color: red">{{ error|escape }}</strong>
+                    </div>
+                {% endfor %}
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <div>
+                            <strong style="color: red">{{ field.label }} : {{ error|escape }}</strong>
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <br><br>
+            {% endif %}
+
+
+            {% csrf_token %}
+            <div class="row">
+                <div class="row-1 col-2">
+                    <div class="wrap">
+                        <span>Username</span><br>
+                        <div class="wrap-o">
+                            {{ form.username }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row-1 col-4">
+                    <div class="wrap">
+                        <span>Email</span><br>
+                        <div class="wrap-o">
+                            {{ form.email }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="row-1 col-2">
+                    <div class="wrap">
+                        <span>Password</span><br>
+                        <div class="wrap-o">
+                            {{ form.password1 }}
+                        </div>
+                    </div>
+                </div>
+                <div class="row-1 col-4">
+                    <div class="wrap">
+                        <span>Confirm Password</span><br>
+                        <div class="wrap-o">
+                            {{ form.password2 }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row-submit">
+                {% if redirect_field_value %}
+                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                {% endif %}
+                <div class="row-1 col-2">
+                    <input type="submit" value="{% trans 'Sign Up' %}&raquo;">
+                </div>
+            </div><br>
+        <h1 style="color: black;">Or</h1><br>
+            <a href="{% url 'facebook_login' %}" title="Sign in with Facebook">
+                <img style="width: 200px; height: 40px" src="{% static 'img/facebook.png' %}">
+            </a><br>
+            <a href="{% url 'google_login' %}" title="Sign in with Google">
+                <img style="width: 200px; height: 40px" src="{% static 'img/google.png' %}">
+            </a>
+        </form>
+    </div>
+{% endblock %}

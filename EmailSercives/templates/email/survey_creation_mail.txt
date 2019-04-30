@@ -1,0 +1,10 @@
+{% load i18n %}
+
+Hi {{username}},
+
+{{message}}
+
+{{ protocol }}://{{ domain }}{% url 'my_account_login' %}
+
+Sincerely,
+AudienceSutra Team

@@ -1,0 +1,180 @@
+<!doctype>
+ {% load staticfiles %}
+<html>
+<head>
+    <title>AudienceSutra Sign-In</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'angular/assets/css/style.css' %}"/>
+<link rel="icon" href="{% static 'img/fav.png' %}"/>
+    <style>
+        #mySideNavbar{
+            position: fixed;
+            top: 19vh;
+            z-index: 11111;
+            color: #333;
+            width: 5%;
+            display:none;
+        }
+        #mySideNavbar ul li{
+            margin-bottom:40px;
+            padding:0 8px;
+        }
+        #mySideNavbar ul li a{
+            display:block;
+            color:#333;
+            /*opacity: 0.5;*/
+            font-size: 14px;
+            text-decoration:none;
+            text-align:center;
+        }
+    </style>
+</head>
+<body style="font-family:'Nanum Gothic', sans-serif;">
+    <header>
+        <div class="left">
+            <main>
+                <div class="cent">
+                    <div class="wrap-form">
+                        <!--<form method="POST" action="{% url 'my_account_login' %}">-->
+                        <form id="login_form" method="POST" action="{% url 'my_account_login' %}">
+                            {% if form.errors %}
+                                {% for error in form.non_field_errors %}
+                                    <div>
+                                        <strong style="color: red">{{ error|escape }}</strong>
+                                    </div>
+                                {% endfor %}
+                                {% for field in form %}
+                                    {% for error in field.errors %}
+                                        <div>
+                                            <strong style="color: red">{{ field.label }} : {{ error|escape }}</strong>
+                                        </div>
+                                    {% endfor %}
+                                {% endfor %}
+                                <br><br>
+                            {% endif %}
+                            {% csrf_token %}
+
+                            <div class="wrap">
+                                <span style="color:darkgray;text-transform:none;">Username</span><br>
+                                <div class="wrap-o">
+                                    <!--<i class="fa fa-envelope"></i>-->
+                                    <input type="text" placeholder="Enter Username" name="login" id="login" style="width:100%;height: 30px;color:#333;">
+                                </div>
+                            </div><br><br>
+                            <div class="wrap">
+                                <span style="color:darkgray;text-transform:none;">Password</span><br>
+                                <div class="wrap-o">
+                                    <!--<i class="fa fa-lock"></i>-->
+                                    <input type="password" placeholder="Enter Password" name="password" id="password" style="width:100%;height: 30px;color:#333;">
+                                </div>
+                            </div>
+                            <br><br>
+
+                            <div class="wrap" style="width: 67.3%;">
+                                <span style="color:darkgray;text-transform:none;">
+                                  <input id="remember" style="width:16px;height:16px;" type="checkbox" name="remember_me"> Remember Me
+                                </span>
+                            </div>
+
+                            <br><br><br>
+                            <input type="submit" value="LOGIN">
+                        </form><br>
+                        <!--<p>New Here? <a href="{% url 'account_signup' %}">Register</a></p>-->
+                        <p><span style="color:#333;text-transform:none;">New Here?</span>
+                            <a style="color:darkgray;" href="{% url 'account_signup_client' %}">Create an Account</a></p>
+                        <p><a style="color:darkgray;" href="{% url 'account_reset_password' %}">Forgot My Password</a></p>
+                        <br><br>
+                        <a href="{% url 'facebook_login' %}" title="Sign in with Facebook">
+                            <img style="width:40px;height:40px;border-radius:50%;" src="{% static 'img/fb-icon.png' %}">
+                        </a>
+                        <a href="{% url 'google_login' %}" title="Sign in with Google">
+                            <img style="width: 40px; height: 40px" src="{% static 'img/gplus-icon.png' %}">
+                        </a>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <div class="right">
+            <main>
+                <div class="cent">
+                    <a href="/">
+                        <img src="{% static 'img/logo.png' %}" alt="Audience Sutra">
+                    </a>
+                </div>
+            </main>
+        </div>
+    </header>
+    <div class="sticky-action-bar">
+        <div class="sab-action sab-menu">
+            <a href="javascript:void(0);" class="toggle-img">
+                <img src="/static/angular/assets/images/menu.png">
+            </a>
+        </div>
+
+        <!--<div class="sab-action sab-contactus">-->
+            <!--<p><a href="/#home">Home</a></p>-->
+        <!--</div>-->
+        <!--<div class="sab-action sab-tryus">-->
+            <!--<p><a href="/accounts/login/">Try Us</a></p>-->
+        <!--</div>-->
+        <!--<div class="sab-action sab-takesurvey">-->
+            <!--<p><a href="/accounts/login/">Take A Survey</a></p>-->
+        <!--</div>-->
+        <div class="navbar-collapse collapse" id="mySideNavbar" aria-expanded="false" style="height: 0px;">
+            <ul class="nav navbar-nav  navbar-right">
+                <li><a href="/#home">Home</a></li>
+                <li><a href="/#col-mission">Mission</a></li>
+                <li><a href="/#col-services">Services</a></li>
+                <li><a href="/#howdoesitwork">How does it work</a></li>
+                <li><a href="/#col-inspiration">Inspiration</a></li>
+                <li><a href="/#col-keybenifits">Key benefits</a></li>
+                <li><a href="/#product-service">Product &amp; Services</a></li>
+                <li><a href="/#contact-us">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{% static 'js/jquery.cookie.js' %}"></script>
+    <script>
+        var remember = $.cookie('remember');
+        if(remember == 'true') {
+            var username = $.cookie('username');
+            var password = $.cookie('password');
+            // autofill the fields
+            $('#login').val(username);
+            $('#password').val(password);
+            $('#remember').attr('checked', 'true');
+        }
+
+        $("#login_form").submit(function() {
+            if($("#remember").is(":checked")){
+                var username = $('#login').val();
+                var password = $('#password').val();
+                // set cookies to expire in 14 days
+                $.cookie('username', username, { expires: 14, path: '/accounts/login/' });
+                $.cookie('password', password, { expires: 14, path: '/accounts/login/' });
+                $.cookie('remember', true, { expires: 14, path: '/accounts/login/' });
+            }
+            else if($("#remember").is(":not(:checked)")){
+                // reset cookies
+                $.cookie('username', null, { expires: 14, path: '/accounts/login/' });
+                $.cookie('password', null, { expires: 14, path: '/accounts/login/' });
+                $.cookie('remember', null, { expires: 14, path: '/accounts/login/' });
+            }
+            return true;
+        });
+    </script>
+
+    <script>
+        $(".toggle-img").click(function(){
+            $("#mySideNavbar").slideToggle("slow");
+        });
+    </script>
+
+</body>
+</html>

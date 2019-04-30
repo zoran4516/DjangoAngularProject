@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto:900,600,500');
+
+*{
+  padding:0;
+  margin: 0;
+  color:#fff;
+}
+
+body {
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto';
+  overflow-x: hidden;
+  background: white;
+}
+
+html, body {
+  height: 100%;
+}
+
+*:focus {
+  outline: none;
+}
+
+a, a:hover, a:focus, a:clicked {
+  color: #fff;
+}
+
+.time__current {
+  color:white;
+}
+
+.center-area {
+  position: absolute;
+  height: 750px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+}
+
+
+.center-area:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  height: 100%;
+}
+
+main {
+  position: relative;
+  height: 90%;
+  width: 100%;
+  overflow: none;
+}
+
+main div.cent {
+  color: white;
+  text-align: center;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  padding: 20px;
+  overflow: none;
+}
+
+header {
+    width: 100%;
+    height: 100%;
+}
+
+.nav {
+    position: fixed;
+    width:5%;
+    top:0px;
+    left: 0px;  
+    height: 100%;
+    background: #100b33;
+}
+
+
+.nav .opt {
+    width: 100%; 
+    padding: 20px 0px;   
+    font-size: 32px;
+}
+
+.nav .opt i, .nav .opt p  {
+    color: #B7B7B7E6;
+}
+
+.nav .opt.active i, .nav .opt.active p {
+    color: white;
+}
+
+.nav .opt:hover > .nav .opt a {
+    color:white !important;
+}
+
+.nav .opt a {
+    text-decoration: none;
+}
+
+.active {
+    background: #F70065;
+}
+
+.nav .opt p {
+    margin-top: 10px;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family:'Roboto';
+    font-weight: 900;
+}
+
+.main {
+    position: fixed;
+    top:0px;
+    right: 0px;
+    width: 95%;
+    height: 100%;
+    background: #F5F5F5;
+}
+
+nav {
+    position: fixed;
+    width: 95%;
+    top: 0px;
+    right: 0px;
+    padding: 18px 0px;
+    background: white;
+    box-shadow: 0px 1px 10px #C6C6C6;
+}
+
+nav h1 {
+    font-size: 30px;
+    margin-left: 50px;
+    font-weight: 600;
+    color: #100b33;
+}
+
+nav p {
+    font-size: 20px;
+    color: #C6C6C6;
+    font-weight: 500;
+    margin-left: 50px;
+}
+
+nav p i {
+    color: #C6C6C6;
+    margin-right: 10px;
+}
+
+.wrap {
+    display: inline-block;
+}
+
+.nav-opt {
+    display: inline-block;
+}
+
+.nav-opt i {
+    font-size: 50px;
+    color: #E5E5E5;
+    margin-top: 9px;
+    padding: 0px 20px;
+}
+
+.main {
+    overflow-y: auto;
+}
+
+.float {
+    display: none;
+}
+
+.grey {
+    display: none;
+}
+
+@media screen and (max-width:1700px)
+{
+    .main {
+        width: 94%;
+    }
+
+    nav {
+        width: 94%;
+        padding: 18px 0px;
+    }
+
+    .nav .opt i {
+        font-size: 20px;
+    }
+
+    .nav .opt p {
+        font-size: 9px;
+    }
+
+    .nav {
+        width: 6%;
+    }
+
+    nav h1{
+        font-size: 24px;
+    }
+    
+    nav p {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:900px)
+{
+    .nav {
+        z-index: 9999999;
+        width: 30%;
+        display: none;
+        overflow-y: auto;
+    }
+
+    .main {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 15px 0px;
+    }
+
+    nav h1 {
+        font-size: 25px;
+        margin-left: 10px !important;
+    }
+
+    nav p {
+        font-size: 15px;
+        margin-left: 10px !important;
+    }
+
+    .float{
+        display:inline-block;
+        position:fixed;
+        width:60px;
+        height:60px;
+        bottom:20px;
+        left:20px;
+        background-color:#100b33;
+        color:#FFF;
+        border-radius:50px;
+        text-align:center;
+        box-shadow: 2px 2px 3px #999;
+    }
+    
+    .my-float{
+        margin-top:22px;
+    }
+
+    .grey {
+        position: fixed;
+        top:0px;
+        left: 0px;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.62);
+    }
+}

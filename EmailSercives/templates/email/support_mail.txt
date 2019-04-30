@@ -1,0 +1,7 @@
+{% load i18n %}
+
+Dear Team,
+
+Name: {{name}}
+Email: {{email}}
+Message: {{message}}

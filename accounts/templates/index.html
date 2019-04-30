@@ -1,0 +1,390 @@
+<!doctype>
+{% load staticfiles %}
+<html>
+<head>
+    <title>AudienceSutra</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="icon" href="{% static 'img/fav.png' %}"/>
+</head>
+<body>
+<header id="home">
+    <main>
+        <div class="cent">
+            <h1>Audience Sutra</h1>
+            <p>Listen Better, Server Better!</p>
+            <a href="{% url 'account_login' %}">
+                <button>Login Here</button>
+            </a>
+        </div>
+    </main>
+    <img src="{% static 'img/logo.png' %}" alt="AudienceSutra">
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#how">How does it work</a></li>
+            <li><a href="#inspiration">Inspiration</a></li>
+            <li><a href="#key">Key Benefits</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div id="take-a-survey-overlay" class="fixed-dialog overlay-pinned">
+    <p>Why do you love a brand?</p>
+    <a href="/accounts/login/">
+        <button>TAKE A SURVEY</button>
+    </a>
+</div>
+
+<section id="about">
+    <h1>About Us</h1>
+    <div class="line"></div>
+    <p>We empower the product & brand owners with real-time consumer insights for decision making in
+        an environment where brands are being discussed, evaluated and recommended through
+        online/social media platforms on a <strong>always on</strong> basis.</p>
+</section>
+
+<div class="serv" id="services">
+    <center>
+        <div class="wrap">
+            <div class="box"
+                 style="background:url('{% static 'img/product.jpg' %}');background-size:cover;">
+                <div class="pad">
+                    <div style="position:absolute;bottom:0px;left:0px;">
+                        <div class="container">
+                            <h1>Product</h1><br>
+                            <p>Determine the potential of a product in the market and learn about
+                                consumer's opinion, the product's influence on the life of the
+                                consumer.</p>
+                            <button class="pink">Custom</button>
+                            <button style="margin-left:20px;">Template</button>
+                        </div>
+                    </div>
+                    <div style="position:absolute;top:10px;right:10px;">
+                        <img src="{% static 'img/1.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="box"
+                 style="background:url({% static 'img/comm.jpg' %}) 60%;background-size:cover;">
+                <div class="pad">
+                    <div style="position:absolute;bottom:0px;left:0px;">
+                        <div class="container">
+                            <h1>Communication</h1><br>
+                            <p>Gauge the engagement of our communication with our intended audience
+                                in addition to the comprehension and clarity of the message to
+                                them.</p>
+                            <button class="pink">Custom</button>
+                            <button style="margin-left:20px;">Template</button>
+                        </div>
+                    </div>
+                    <div style="position:absolute;top:10px;right:10px;">
+                        <img src="{% static 'img/2.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="box"
+                 style="background:url('{% static 'img/brand.jpg' %}') 60%;background-size:cover;">
+                <div class="pad">
+                    <div style="position:absolute;bottom:0px;left:0px;">
+                        <div class="container">
+                            <h1>Brand</h1><br>
+                            <p>Understand the association of a brand and it's role in the consumer
+                                mindspace in comparison to competition in the market.</p>
+                            <button class="pink">Custom</button>
+                            <button style="margin-left:20px;">Template</button>
+                        </div>
+                    </div>
+                    <div style="position:absolute;top:10px;right:10px;">
+                        <img src="{% static 'img/3.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="wrap">
+            <div class="box"
+                 style="background:url('{% static 'img/comp.jpg' %}') 60%;background-size:cover;">
+                <div class="pad">
+                    <div style="position:absolute;bottom:0px;left:0px;">
+                        <div class="container">
+                            <h1>Competition</h1><br>
+                            <p>Map out the audience understanding of the category and their
+                                preferences of brands / products within the category.</p>
+                            <button class="pink">Custom</button>
+                            <button style="margin-left:20px;">Template</button>
+                        </div>
+                    </div>
+                    <div style="position:absolute;top:10px;right:10px;">
+                        <img src="{% static 'img/4.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </center>
+</div>
+
+
+<section id="how">
+    <h1>How does this work</h1>
+    <div class="line"></div>
+    <br><br>
+    <div class="main-wrap">
+        <div class="wrap-o ext">
+            <img src="{% static 'img/step1.png' %}">
+            <p>Client needs to understand his consumer better</p>
+        </div>
+        <div class="wrap-o ext">
+            <img src="{% static 'img/step2.png' %}">
+            <p>Client creates a survey with the help of AudienceSutra</p>
+        </div>
+        <div class="wrap-o ext">
+            <img src="{% static 'img/step3.png' %}">
+            <p>AudienceSutra deploys the surveyonce client pays</p>
+        </div>
+        <div class="wrap-o ext">
+            <img src="{% static 'img/step4.png' %}">
+            <p>AudienceSutra looks for profile match for survey respondents</p>
+        </div>
+        <div class="wrap-o ext">
+            <img src="{% static 'img/step5.png' %}">
+            <p>Selected respondents take survey and get paid for their response</p>
+        </div>
+        <div class="wrap-o ext">
+            <img src="{% static 'img/step6.png' %}">
+            <p>Client receives a analysed report on the survey opinions</p>
+        </div>
+    </div>
+</section>
+
+<section id="inspiration"
+         style="background:#100b33;background: linear-gradient(to left, #1c0f78, #100b33);background: -webkit-linear-gradient(to left, #1c0f78, #100b33);">
+    <h1>Inspiration</h1>
+    <div class="line" style="background:white;"></div>
+    <br><br><br>
+    <div class="wrap-g-lft">
+        <img src="{% static 'img/golden.png' %}" class="golden" alt="">
+
+    </div>
+    <div class="wrap-g-rht">
+        <p>In today's data-driven world with businesses constantly on action mode, one tends to
+            focus more on "What happened?" rather having the patience to understand the real cause
+            of "Why?" an event happened.</p>
+        <p>
+            This results in: <br><br>
+
+            • short term fixes<br>
+            • disenchanted customers<br>
+            • inability to build loyalty<br>
+            • costlier investment to fix it later<br>
+            • concerned investors losing confidence
+        </p>
+    </div>
+</section>
+
+<section id="key">
+    <h1>Key Benefits</h1>
+    <div class="line"></div>
+    <br><br>
+    <div class="wrap-o">
+        <img src="{% static 'img/run.png' %}">
+        <p>48 Hours Turnaround</p>
+    </div>
+    <div class="wrap-o">
+        <img src="{% static 'img/dash.png' %}">
+        <p>Real Consumer Base</p>
+    </div>
+    <div class="wrap-o">
+        <img src="{% static 'img/india.png' %}">
+        <p>Dashboard Analytics</p>
+    </div>
+    <div class="wrap-o">
+        <img src="{% static 'img/money.png' %}">
+        <p>Better Return On Investment </p>
+    </div>
+</section>
+
+<div id="map_canvas"></div>
+
+<footer id="contact">
+    <div class="foot-main">
+        <div class="foot-wrap lft">
+            <ul>
+                <a href="#">Privacy</a> |
+                <a href="#">Disclaimer</a> |
+                <a href="#">T&C</a> |
+                <a href="#">Admin</a>
+            </ul>
+            <br><br><br>
+            <p>Copyrights &copy; AudienceSutra 2017-18 . All rights reserved</p>
+        </div>
+        <div class="foot-wrap">
+            <ul>
+                <a href="#"><i class="fa fa-facebook-square"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </ul>
+
+            <button>Contact Us</button>
+            <br><br>
+            <a href="https://msg91.com/startups/?utm_source=startup-banner"><img
+                    src="https://msg91.com/images/startups/msg91Badge.png" width="120" height="90"
+                    title="MSG91 - SMS for Startups" alt="Bulk SMS - MSG91"></a>
+        </div>
+    </div>
+</footer>
+
+<div class="join" id="phnver">
+    <div style="position:relative;">
+        <main>
+            <div class="cent">
+                <div class="wrap-form">
+                    <form action="" method="POST" role="form">
+                        <div class="wrap-m">
+                            <span>MOBILE NUMBER</span><br>
+                            <div class="wrap-s">
+                                <i class="fa fa-phone"></i>
+                                <input type="number" maxlength="10" required name="phone" id="phone"
+                                       style="color: black">
+                            </div>
+                            <br>
+                            {% csrf_token %}
+                            <input type="submit" value="CONTINUE">
+                        </div>
+                    </form>
+                </div>
+                <br>
+                <a href="#" class="cls"><p>close</p></a>
+            </div>
+        </main>
+    </div>
+</div>
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
+<script>
+    window.sr = ScrollReveal({
+        duration: 1000,
+        scale: 1,
+        delay: 300,
+        opacity: 0
+    });
+
+    sr.reveal('header', {
+        origin: 'top'
+    });
+    sr.reveal('.box');
+    sr.reveal('section h1');
+    sr.reveal('section p');
+    sr.reveal('section img');
+    sr.reveal('section .line');
+
+    // Take a survey overlay should disappear after scrolling down...
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('#take-a-survey-overlay').fadeOut();
+        } else {
+          $('#take-a-survey-overlay').fadeIn();
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    var markers = [
+        {'lat': 28.444560, 'lng': 77.059537},
+    ];
+    window.onload = function () {
+        LoadMap();
+    }
+    function LoadMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(28.444560, 77.059537),
+            zoom: 15,
+            styles: [{
+                "featureType": "all",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#ffffff"}]
+            }, {
+                "featureType": "all",
+                "elementType": "labels.text.stroke",
+                "stylers": [{"color": "#000000"}, {"lightness": 13}]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#000000"}]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.stroke",
+                "stylers": [{"color": "#100b33"}, {"lightness": 14}, {"weight": 1.4}]
+            }, {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [{"color": "#100b33"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [{"color": "#ff1475"}, {"lightness": 5}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#000000"}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [{"color": "#09042c"}, {"lightness": 25}]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#000000"}]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "geometry.stroke",
+                "stylers": [{"color": "#0b3d51"}, {"lightness": 16}]
+            }, {
+                "featureType": "road.local",
+                "elementType": "geometry",
+                "stylers": [{"color": "#000000"}]
+            }, {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [{"color": "#146474"}]
+            }, {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [{"color": "#021019"}]
+            }],
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        //Create and open InfoWindow.
+        var infoWindow = new google.maps.InfoWindow();
+
+        for (var i = 0; i < markers.length; i++) {
+            var data = markers[i];
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+        }
+    }
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMiqfHPAc3Mn_JIjC5JOa0D85mGFpbUSs&callback=initialize"
+        async defer></script>
+</html>

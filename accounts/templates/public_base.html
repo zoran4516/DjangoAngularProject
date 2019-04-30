@@ -1,0 +1,174 @@
+<!doctype>
+{% load staticfiles %}
+<html>
+<head>
+    <title>
+        {% block title %}
+            AudienceSutra
+        {% endblock %}
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+          rel="stylesheet"
+          integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+          crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="icon" href="{% static 'img/fav.png' %}"/>
+
+</head>
+<body>
+<header id="home">
+    <main>
+        <div class="cent">
+            <h1>Audience Sutra</h1>
+            <p>Listen Better, Server Better!</p>
+            <a href="{% url 'account_login' %}">
+                <button>Login Here</button>
+            </a>
+        </div>
+    </main>
+    <img src="{% static 'img/logo.png' %}" alt="AudienceSutra">
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#how">How does it work</a></li>
+            <li><a href="#inspiration">Inspiration</a></li>
+            <li><a href="#key">Key Benefits</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+{% block content %}
+
+{% endblock %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
+<script>
+    window.sr = ScrollReveal({
+        duration: 1000,
+        scale: 1,
+        delay: 300,
+        opacity: 0
+    });
+
+    sr.reveal('header', {
+        origin: 'top'
+    });
+    sr.reveal('.box');
+    sr.reveal('section h1');
+    sr.reveal('section p');
+    sr.reveal('section img');
+    sr.reveal('section .line');
+
+    // Take a survey overlay should disappear after scrolling down...
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('#take-a-survey-overlay').fadeOut();
+        } else {
+          $('#take-a-survey-overlay').fadeIn();
+        }
+    });
+</script>
+
+<script type="text/javascript">
+    var markers = [
+        {'lat': 28.444560, 'lng': 77.059537},
+    ];
+    window.onload = function () {
+        LoadMap();
+    }
+    function LoadMap() {
+        var mapOptions = {
+            center: new google.maps.LatLng(28.444560, 77.059537),
+            zoom: 15,
+            styles: [{
+                "featureType": "all",
+                "elementType": "labels.text.fill",
+                "stylers": [{"color": "#ffffff"}]
+            }, {
+                "featureType": "all",
+                "elementType": "labels.text.stroke",
+                "stylers": [{"color": "#000000"}, {"lightness": 13}]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#000000"}]
+            }, {
+                "featureType": "administrative",
+                "elementType": "geometry.stroke",
+                "stylers": [{"color": "#100b33"}, {"lightness": 14}, {"weight": 1.4}]
+            }, {
+                "featureType": "landscape",
+                "elementType": "all",
+                "stylers": [{"color": "#100b33"}]
+            }, {
+                "featureType": "poi",
+                "elementType": "geometry",
+                "stylers": [{"color": "#ff1475"}, {"lightness": 5}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#000000"}]
+            }, {
+                "featureType": "road.highway",
+                "elementType": "geometry.stroke",
+                "stylers": [{"color": "#09042c"}, {"lightness": 25}]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "geometry.fill",
+                "stylers": [{"color": "#000000"}]
+            }, {
+                "featureType": "road.arterial",
+                "elementType": "geometry.stroke",
+                "stylers": [{"color": "#0b3d51"}, {"lightness": 16}]
+            }, {
+                "featureType": "road.local",
+                "elementType": "geometry",
+                "stylers": [{"color": "#000000"}]
+            }, {
+                "featureType": "transit",
+                "elementType": "all",
+                "stylers": [{"color": "#146474"}]
+            }, {
+                "featureType": "water",
+                "elementType": "all",
+                "stylers": [{"color": "#021019"}]
+            }],
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+        //Create and open InfoWindow.
+        var infoWindow = new google.maps.InfoWindow();
+
+        for (var i = 0; i < markers.length; i++) {
+            var data = markers[i];
+            var myLatlng = new google.maps.LatLng(data.lat, data.lng);
+            var marker = new google.maps.Marker({
+                position: myLatlng,
+                map: map,
+                title: data.title
+            });
+        }
+    }
+
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAMiqfHPAc3Mn_JIjC5JOa0D85mGFpbUSs&callback=initialize"
+        async defer></script>
+
+
+{% block script %}
+
+{% endblock %}
+
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+/* You can add global styles to this file, and also import other style files */
+  /* .sidenav {
+         height: 100%;
+         width: 0;
+         position: fixed;
+         z-index: 1;
+         top: 0;
+         left: 0;
+         background-color: #111;
+         overflow-x: hidden;
+         transition: 0.5s;
+         padding-top: 60px;
+         } */
+         .navbar.navbar-default{
+            margin-bottom: 0px;
+            background: #fff;
+            box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.13);
+            }
+            a.logo{
+              display: block;
+              float: none;
+             height: auto;
+            }
+            a.logo img{
+              width:150px;
+              margin: 0 auto;
+            }
+            .col-md-1.col-sidebar{
+            padding-left: 0px
+            }
+            .sidenav{
+            height: 100vh;
+            background: #2a0e3c;
+            position: fixed;
+            width: 8%;
+            top: 0;
+            }
+            .side_menu{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            }
+            .side_menu li{
+            list-style: none;
+            margin-bottom: 20px;
+            }
+            .side_menu li a{
+            text-decoration: none;
+            font-size: 10px;
+            color: #B7B7B7E6;
+            display: block;
+            transition: 0.3s;
+            text-align: center;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 15px 0px;
+            word-wrap: break-word;
+            }
+            .side_menu li a.active{
+            background: #e03e92;
+            color: #fff;
+            }
+            .side_menu li a.active i{
+            background: #e03e92;
+            color: #fff;
+            }
+            .side_menu li a i{
+            font-size: 35px;
+            margin-bottom: 15px;
+            color: #B7B7B7E6;
+            }
+            .side_menu li a p{
+            margin: 0 0 0 0;
+            }
+            .sidenav a:hover {
+            color: #f1f1f1;
+            }
+            .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+            }
+            #main {
+            transition: margin-left .5s;
+            padding: 10px;
+            }
+   
+            ul.nav{
+              padding: 20px 20px 20px 0;
+            }
+            .we{
+            color: #b9b9b9;
+            font-weight: 700;
+            font-size: 12px;
+            margin-bottom:60px;
+            }
+            .text-wrap{
+            background: linear-gradient(to bottom right, #2a0e3cb3, #e03e92);
+            min-height:200px;
+            padding:10px;
+            border-radius: 10px;
+            position: relative;
+            }
+            .text-wrap h4{
+            line-height: 1.2;
+            color: #fff;
+            margin:0!important;
+            font-size: 20px;
+            font-weight: 100;
+            word-wrap: break-word;
+            }
+            .text-wrap p{
+            line-height: 1.45;
+            color: #fff;
+            margin:0!important;
+            font-size: 13px;
+            text-transform: uppercase;
+            font-weight: 100;
+            }
+            .text-wrap button{
+            font-weight: 700;
+            font-size: 15px;
+            color: #2a0e3c;
+            background: white;
+            border: none;
+            width: 90%;
+            padding: 12px 0px;
+            border-radius: 5px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 10px;
+            margin: 0 auto;
+            }
+            .pepsico{
+            color: #2a0e3c;
+            font-size: 18px;
+            margin: 0 0 0 0;
+            font-weight: 700;
+            }
+            .recomended{
+            margin-top: 60px;
+            }
+            .list-wrap h5{
+            color: #2a0e3c;
+            font-size: 15px;
+            }
+            .list-wrap .box{
+            box-shadow: 0px 1px 3px #d1d1d1;
+            border-radius: 10px;
+            padding: 10px;
+            }
+            .box h1{
+            color: #2a0e3c;
+            font-size: 20px;
+            }
+            .box h2{
+            color: #e03e92;
+            font-size: 30px;
+            }
+            h2.quick_status{
+            color: #2a0e3c;
+            font-size: 15px;
+            margin: 0 0 22px 0;
+            font-weight: bold;
+            }
+            .active_servy h2{
+            font-size: 13px;
+            color: #a1a1a1;
+            margin: 0 0 0 0;
+            font-weight: bold;
+            }
+            .active_servy{
+            box-shadow: 0px 1px 3px #d1d1d1;
+            padding: 5px;
+            border-radius: 7px;
+            margin-bottom: 20px;
+            }
+            .active_servy p{
+            font-size: 18px;
+            color: #a1a1a1;
+            font-weight: bold;
+            margin: 0 0 0 0;
+            }
+            .icon-wrap{
+            background: #e03e92;
+            cursor: pointer;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            padding: 9.5px 0px;
+            vertical-align: middle;
+            }
+            .icon-wrap i{
+            font-size: 25px;
+            padding: 0;
+            margin: 0;
+            color: white;
+            }
+            .icon-wrap.new_icon{
+            background: #741a47;
+            }
+            li.dropdown{
+              position: relative;
+   
+            }
+            li.dropdown > a{
+              padding: 0 0 0 0;
+              line-height: 40px;
+   
+            }
+           .form_bg {
+               background-color:#eee;
+               color:#666;
+               padding:10px;
+               border-radius:10px;
+               position: absolute;
+               border:1px solid #fff;
+               margin: auto;
+               top: 42px;
+               left: -40px;
+               width: 200px;
+               height: auto;
+               z-index: 11;
+               display: none;
+           }
+           .form_bg h2{
+             font-size: 13px;
+             margin: 0 0 10px 0;
+             line-height: 1.2;
+           }
+           .form-group input{
+             height: auto;
+             padding: 3px 12px;
+             font-size: 10px;
+           }
+           .align-center {
+               text-align:center;
+               }
+           .form_bg  .btn-default{
+             padding: 3px 12px;
+             font-size: 13px;
+           }
+   
+           /****media query start*******/
+   
+            @media screen and (max-width: 992px) {
+             .text-wrap {
+                 margin-bottom: 20px;
+             }
+             .text-wrap button {
+               font-size: 14px;
+             }
+             .text-wrap h4{
+               font-size: 16px;
+             }
+             .text-wrap p{
+               font-size:11px;
+             }
+   
+           }
+           @media screen and (max-width: 767px) {
+   
+            .sidenav {
+              width: 16%;
+            }
+            .side_menu li a p {
+             display: none;
+           }
+           li.dropdown > a {
+             text-align: right;
+               line-height: 27px;
+           }
+   
+          }
+          @media (min-width: 768px) {
+           .row-five-col > .col-md-2 {
+             width: 20%;
+           }
+         }
+         @media (max-width: 575px) {
+          a.navbar-brand {
+               padding: 15px 10px;
+           }
+           a.logo img {
+               width: 115px;
+               margin: 0 auto;
+           }
+           ul.nav {
+               padding: 20px 0px;
+           }
+           .navbar-nav {
+               margin: 0 -3px;
+           }
+        }
+   

@@ -1,0 +1,48 @@
+.sect-inspiration {
+    width: 100%;
+    padding-bottom: 100vh;
+    position: relative;
+}
+
+.sect-inspiration .inspiration-msg {
+    position: absolute;
+    right: 0%;
+    top: 0%;
+    width: 60%;
+    padding: 115px 10% 115px 25%;
+    background-color: white;
+    box-shadow: 0 0 50px #D4D4D4;
+}
+
+.sect-inspiration .inspiration-msg h2 {
+    font-family: 'Adobe Caslon Pro';
+    text-transform: uppercase;
+    margin-bottom: 35px;
+    padding-left: 1%;
+}
+
+.sect-inspiration .inspiration-msg p {
+    margin-bottom: 21px;
+}
+
+.sect-inspiration .inspiration-msg .insp-para-1 {
+    font-family: 'Proxima Nova';
+}
+
+.sect-inspiration .inspiration-msg .insp-para-2 {
+    font-family: 'Proxima Nova';
+    opacity: 0.5;
+}
+
+.sect-inspiration .inspiration-img {
+    position: absolute;
+    left: 5%;
+    top: 90px;
+    width: 50%;
+    height: 700px;
+}
+
+.sect-inspiration .inspiration-img img {
+    width: 100%;
+    height:100%;
+}

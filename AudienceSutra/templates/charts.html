@@ -1,0 +1,532 @@
+<!doctype html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <title>AudienceSutra - Home</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" >
+    <link rel="icon" href="{% static 'img/fav.png' %}"/>
+    <meta name="author" content="AudienceSutra">
+
+    <meta property="og:title" content="Title Over Here"/>
+    <meta property="og:description" content="Description Over Here"/>
+
+    <meta property="og:image" content="Img Over Here"/>
+    <meta property="og:site_name" content="Title Over Here"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="Url over here"/>
+
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="Twitter id Over Here">
+    <meta name="twitter:creator" content="Twitter id Over Here>
+    <meta name="twitter:title" content="Title Over Here">
+    <meta name="twitter:description" content="Description Over Here">
+    <meta name="twitter:image" content="img url">
+
+    <meta name="description" content="Description Over Here">
+    <meta name="keywords" content="Keywords Over Here">
+    <meta name="robots" content="index,follow">
+
+    <link href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:700|Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Material+Icons" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <link rel="stylesheet" href="{% static 'charts/css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'charts/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'charts/css/viz-dash.css' %}">
+
+</head>
+<body>
+    <!-- Content -->
+
+    <div class="content">
+        <div class="wrap">
+            <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+            <p class="para sub_text" style="color: #6f6f6f !important;">We are here to help you with your business.</p>
+            <p class="change-tag para sub_text animated" style="color: #6f6f6f !important;">Select from the list of survey to visualize the data.</p>
+            <div class="home-floating-icons center">
+        </div>
+            <div class="survey-list-wrap animated">
+                <div class="survey-list survey-1 center">
+                    <!-- <div class="survey-head survey-1">
+                        <p class="para" style="color: #6f6f6f">Survey Name > </p>
+                        <p class="para date-created" style="color: #6f6f6f">Date Created > </p>
+                        <p class="para date-modified" style="color: #6f6f6f">Date Modified </p>
+                        <p class="para status" style="color: #6f6f6f"> > Status</p>
+                    </div> -->
+                    <div id="unique-id" class="survey survey-1 unique-id-mob" style="background: transparent; box-shadow: 0px 0px #ffffff;">
+                        <div class="survey-img" style="background: transparent;"></div>
+                        <h1 style="color: black !important; font-size: 0.8em;">Survey Name</h1>
+                        <p class="para" style="color: #6f6f6f">Date Created</p>
+                        <p class="para" style="color: #6f6f6f">Date Modified</p>
+                        <div class="active-inactive-wrap center">
+                            <p class="para">Status</p>
+                        </div>
+                        <button style="opacity: 0;" data-id="unique-id" class="view-id">View</button>
+                    </div>
+
+                    <div id="unique-id" class="survey survey-1">
+                        <div class="survey-img"></div>
+                        <h1 style="color: #6f6f6f">Survey Name Lorem Ipsum Lorem Ipsum Lorem Ipsum Lorem Ipsum</h1>
+                        <p class="para" style="color: #6f6f6f">27.08.2018</p>
+                        <p class="para" style="color: #6f6f6f">27.08.2018</p>
+                        <div class="active-inactive-wrap center">
+                            <div class="active-symbol"></div>
+                            <p class="para">Active</p>
+                        </div>
+                        <button data-id="unique-id" class="view-id">View</button>
+                    </div>
+                    <div id="unique-id" class="survey survey-1">
+                        <div class="survey-img"></div>
+                        <h1 style="color: #6f6f6f">Survey Name</h1>
+                        <p class="para" style="color: #6f6f6f">27.08.2018</p>
+                        <p class="para" style="color: #6f6f6f">27.08.2018</p>
+                        <div class="active-inactive-wrap center">
+                            <div class="active-symbol"></div>
+                            <p class="para">Active</p>
+                        </div>
+                        <button data-id="unique-id" class="view-id">View</button>
+                    </div>
+                    <div id="unique-id" class="survey survey-1">
+                        <div class="survey-img"></div>
+                        <h1 style="color: #6f6f6f">Survey Name</h1>
+                        <p class="para" style="color: #6f6f6f">27.08.2018</p>
+                        <p class="para" style="color: #6f6f6f">27.08.2018</p>
+                        <div class="active-inactive-wrap center">
+                            <div class="inactive-symbol"></div>
+                            <p class="para">Inactive</p>
+                        </div>
+                        <button data-id="unique-id" class="view-id">View</button>
+                    </div>
+                    <div id="unique-id" class="survey survey-1">
+                        <div class="survey-img"></div>
+                        <h1 style="color: #6f6f6f">Survey Name</h1>
+                        <p class="para" style="color: #6f6f6f">27.08.2018</p>
+                        <p class="para" style="color: #6f6f6f">27.08.2018</p>
+                        <div class="active-inactive-wrap center">
+                            <div class="inactive-symbol"></div>
+                            <p class="para">Inactive</p>
+                        </div>
+                        <button data-id="unique-id" class="view-id">View</button>
+                    </div>
+                </div>
+            </div>
+            <p class="vized-data animated fadeIn" style="color: #6f6f6f;">The visualized data for <strong>SURVEY NAME</strong>.</p>
+            <div class="home-floating-icons center animated fadeIn">
+                <i class="material-icons">
+                    arrow_back
+                </i>
+            </div>
+            <div class="viz-survey animated fadeIn">
+                <div class="charty-type-selector" style="display:  flex; width: max-content;">
+                    <!-- <button id="area" class="chart_type"><i class="fas fa-chart-area"style="margin-right: 3px;color: white"></i> Area Chart</button> -->
+                    <button id="pie" class="chart_type"><i class="material-icons" style="margin-right: 3px;color: white">pie_chart</i> Pie Chart</button>
+                    <button id="column" class="chart_type"><i class="material-icons" style="margin-right: 3px;color: white">bar_chart</i> Column Chart</button>
+                    <div id="color-picker-wrap" style="display: inline-block;position: relative;">
+                        <button class="chart_color" onclick="popOver(this)"><i class="fas fa-tint" style="margin-right: 3px;color: white"></i> Color Picker</button>
+                    </div>
+                    <div class="color-pallet-wrapper">
+
+                    </div>
+                    <!-- <button id="column" class="chart_type"><i class="material-icons" style="margin-right: 3px;color: white">bar_chart</i> Column Chart</button> -->
+                </div>
+                <div class="respondent-data-viz center" style="margin-top: 30px;">
+                    <div class="india-map-container">
+
+                    </div>
+                    <div class="gender-age-wrapper">
+                        <div class="gender-container">
+                        </div>
+                        <div class="age-container">
+
+                        </div>
+                        <div class="nccs-container">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="respondent-data-viz-ques center" style="height: auto;">
+                    <!-- <div class="question1">
+                        <div class="question-wrap">
+                            <input type="text" class="qs-label" readonly>
+                            <div class="icons">
+                                <i id="edit-icon" class="material-icons">edit</i>
+                            </div>
+                        </div>
+                        <div class="as_qs2" style="height: 250px;"></div>
+                    </div> -->
+                    <!-- <div class="questions" style="padding: 10px;">
+                        <div id="heatmapNccs" style="height: 500px;"></div>
+                    </div> -->
+                    <!-- <div class="questions" style="padding: 10px;">
+                        <div id="allAnswersVis" style="height: 500px;"></div>
+                    </div> -->
+                    <div class="question-wrap-two">
+                        <div class="ques question_1">
+                            <div class="question-wrap">
+                                <input type="text" class="qs-label" value="YES NO TYPE QUES." readonly>
+                                <div class="icons">
+                                    <i id="edit-icon" onclick="edit(this)" title="Edit Header" class="material-icons">edit</i>
+                                    <i id="info-icon" title="Question1: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." class="material-icons" title="We ask for your age only for statistical purposes?">info</i>
+                                </div>
+                            </div>
+                            <div id="ques_1"></div>
+                            <div class="changeChartWrapper hovered" style="display: inline-flex;">
+                                <div class="chartToggle">
+                                    <div class="changeChart-toggle center" style="display: inline-flex;">
+                                        <img src="charts/img/svg/pie-chart-settings.svg" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                                <div class="wrapChartButton">
+                                    <div id="yesNoDataDonut" onclick="plotChart(this)" title="Semi Circle Donut" class="chart-type-select  center">
+                                        <img src="charts/img/svg/donut-chart.png" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="yesNoDataColumn" onclick="plotChart(this)" title="Column Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/column.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="yesNoDataGauge" onclick="plotChart(this)" title="Gauge Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/gauge.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="yesNoDataStacked" onclick="plotChart(this)" title="State Stacked Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/stacked.png" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ques question_2">
+                            <div class="question-wrap">
+                                <input type="text" class="qs-label" value="Any of Many Informative." readonly>
+                                <div class="icons">
+                                    <i id="edit-icon" onclick="edit(this)" title="Edit Header" class="material-icons">edit</i>
+                                    <i id="info-icon" title="This is a Back to the Future-inspired lorem ipsum generator that uses quotes from the film as dummy text: 'You got a real attitude problem, McFly.'" class="material-icons">info</i>
+                                </div>
+                            </div>
+                            <div id="ques_2"></div>
+                            <div class="changeChartWrapper hovered" style="display: inline-flex;">
+                                <div class="chartToggle">
+                                    <div class="changeChart-toggle center" style="display: inline-flex;">
+                                        <img src="charts/img/svg/pie-chart-settings.svg" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                                <div class="wrapChartButton">
+                                    <div id="variablePieChart" onclick="plotChart(this)" title="Variable Pie Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/pie-chart.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="SpyiderWebChart" onclick="plotChart(this)" title="Spider Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/spider-chart.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyColumn" onclick="plotChart(this)" title="Column Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/column.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyDataStacked" onclick="plotChart(this)" title="State Stacked Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/stacked.png" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap-two">
+                        <div class="ques question_1">
+                            <div class="question-wrap">
+                                <input type="text" class="qs-label" value="Any of Many Opinion." readonly>
+                                <div class="icons">
+                                    <i id="edit-icon" onclick="edit(this)" title="Edit Header" class="material-icons">edit</i>
+                                    <i id="info-icon" title="Question1: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." class="material-icons" title="We ask for your age only for statistical purposes?">info</i>
+                                </div>
+                            </div>
+                            <div id="ques_6"></div>
+                            <div class="changeChartWrapper hovered" style="display: inline-flex;">
+                                <div class="chartToggle">
+                                    <div class="changeChart-toggle center" style="display: inline-flex;">
+                                        <img src="charts/img/svg/pie-chart-settings.svg" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                                <div class="wrapChartButton">
+                                    <div id="treemap" onclick="plotChart(this)" title="Tree Map Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/layout.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="SpyiderWebChart" onclick="plotChart(this)" title="Spider Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/spider-chart.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyColumn" onclick="plotChart(this)" title="Column Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/column.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyDataStacked" onclick="plotChart(this)" title="State Stacked Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/stacked.png" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ques question_2">
+                            <div class="question-wrap">
+                                <input type="text" class="qs-label" value="Any of Many Performance." readonly>
+                                <div class="icons">
+                                    <i id="edit-icon" onclick="edit(this)" title="Edit Header" class="material-icons">edit</i>
+                                    <i id="info-icon" title="This is a Back to the Future-inspired lorem ipsum generator that uses quotes from the film as dummy text: 'You got a real attitude problem, McFly.'" class="material-icons">info</i>
+                                </div>
+                            </div>
+                            <div id="ques_7"></div>
+                            <div style="display:none">
+                                <!-- Source: http://or.water.usgs.gov/cgi-bin/grapher/graph_windrose.pl -->
+                                <table id="freq" border="0" cellspacing="0" cellpadding="0">
+                                    <tr nowrap bgcolor="#CCCCFF">
+                                        <th colspan="9" class="hdr">Table of Frequencies (percent)</th>
+                                    </tr>
+                                    <tr nowrap bgcolor="#CCCCFF">
+                                        <th class="freq"></th>
+                                        <th class="freq"></th>
+                                    </tr>
+                                    <tr nowrap>
+                                        <td class="dir">N</td>
+                                        <td class="data">1.81</td>
+                                    </tr>
+                                    <tr nowrap bgcolor="#DDDDDD">
+                                        <td class="dir">NNE</td>
+                                        <td class="data">0.62</td>
+                                    </tr>
+                                    <tr nowrap>
+                                        <td class="dir">NE</td>
+                                        <td class="data">0.82</td>
+                                    </tr>
+                                    <tr nowrap bgcolor="#DDDDDD">
+                                        <td class="dir">ENE</td>
+                                        <td class="data">0.59</td>
+                                    </tr>
+                                    <tr nowrap>
+                                        <td class="dir">E</td>
+                                        <td class="data">0.62</td>
+                                    </tr>
+                                    <tr nowrap bgcolor="#DDDDDD">
+                                        <td class="dir">ESE</td>
+                                        <td class="data">1.22</td>
+                                    </tr>
+                                    <tr nowrap>
+                                        <td class="dir">SE</td>
+                                        <td class="data">1.61</td>
+                                    </tr>
+                                    <tr nowrap bgcolor="#DDDDDD">
+                                        <td class="dir">SSE</td>
+                                        <td class="data">2.04</td>
+                                    </tr>
+                                    <tr nowrap>
+                                        <td class="dir">S</td>
+                                        <td class="data">2.66</td>
+                                    </tr>
+                                    <tr nowrap bgcolor="#DDDDDD">
+                                        <td class="dir">SSW</td>
+                                        <td class="data">2.96</td>
+                                    </tr>
+                                    <tr nowrap>
+                                        <td class="dir">SW</td>
+                                        <td class="data">2.53</td>
+                                    </tr>
+                                    <tr nowrap bgcolor="#DDDDDD">
+                                        <td class="dir">WSW</td>
+                                        <td class="data">1.97</td>
+                                    </tr>
+                                    <tr nowrap>
+                                        <td class="dir">W</td>
+                                        <td class="data">1.64</td>
+                                    </tr>
+                                    <tr nowrap bgcolor="#DDDDDD">
+                                        <td class="dir">WNW</td>
+                                        <td class="data">1.32</td>
+                                    </tr>
+                                    <tr nowrap>
+                                        <td class="dir">NW</td>
+                                        <td class="data">1.58</td>
+                                    </tr>
+                                    <tr nowrap bgcolor="#DDDDDD">
+                                        <td class="dir">NNW</td>
+                                        <td class="data">1.51</td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="changeChartWrapper hovered" style="display: inline-flex;">
+                                <div class="chartToggle">
+                                    <div class="changeChart-toggle center" style="display: inline-flex;">
+                                        <img src="charts/img/svg/pie-chart-settings.svg" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                                <div class="wrapChartButton">
+                                    <div id="anyofManyPerformance" onclick="plotChart(this)" title="Wind Rose Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/wind-rose.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="SpyiderWebChart" onclick="plotChart(this)" title="Spider Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/spider-chart.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyColumn" onclick="plotChart(this)" title="Column Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/column.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyDataStacked" onclick="plotChart(this)" title="State Stacked Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/stacked.png" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap-two">
+                        <div class="ques question_1">
+                            <div class="question-wrap">
+                                <input type="text" class="qs-label" value="One of Many Scalable Chart." readonly>
+                                <div class="icons">
+                                    <i id="edit-icon" onclick="edit(this)" title="Edit Header" class="material-icons">edit</i>
+                                    <i id="info-icon" title="Question1: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." class="material-icons" title="We ask for your age only for statistical purposes?">info</i>
+                                </div>
+                            </div>
+                            <div id="ques_3"></div>
+                            <div class="changeChartWrapper hovered" style="display: inline-flex;">
+                                <div class="chartToggle">
+                                    <div class="changeChart-toggle center" style="display: inline-flex;">
+                                        <img src="charts/img/svg/pie-chart-settings.svg" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                                <div class="wrapChartButton">
+                                    <div id="funnelData" onclick="plotChart(this)" title="Pyramid Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/three-columns-layout.svg" style="width: 60%;transform: rotate(90deg);" alt="">
+                                    </div>
+                                    <div id="pieLikes" onclick="plotChart(this)" title="Variable Pie Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/donut-chart.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyColumn" onclick="plotChart(this)" title="Column Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/column.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyDataStacked" onclick="plotChart(this)" title="State Stacked Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/stacked.png" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ques question_2">
+                            <div class="question-wrap">
+                                <input type="text" class="qs-label" value="Ranking Chart" readonly>
+                                <div class="icons">
+                                    <i id="edit-icon" onclick="edit(this)" title="Edit Header" class="material-icons">edit</i>
+                                    <i id="info-icon" title="This is a Back to the Future-inspired lorem ipsum generator that uses quotes from the film as dummy text: 'You got a real attitude problem, McFly.'" class="material-icons">info</i>
+                                </div>
+                            </div>
+                            <div id="ques_4"></div>
+                            <div class="changeChartWrapper hovered" style="display: inline-flex;">
+                                <div class="chartToggle">
+                                    <div class="changeChart-toggle center" style="display: inline-flex;">
+                                        <img src="charts/img/svg/pie-chart-settings.svg" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                                <div class="wrapChartButton">
+                                    <div id="barRank" onclick="plotChart(this)" title="Bar Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/bar-chart.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="likeGauge" onclick="plotChart(this)" title="Gauge Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/gauge.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="columnRank" onclick="plotChart(this)" title="Column Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/column.svg" style="width: 60%;" alt="">
+                                    </div>
+                                    <div id="anyOfManyDataStacked" onclick="plotChart(this)" title="State Stacked Chart" class="chart-type-select  center">
+                                        <img src="charts/img/svg/stacked.png" style="width: 60%;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="question-wrap-two">
+                        <div class="ques question_1">
+                            <div class="question-wrap">
+                                <input type="text" class="qs-label" value="Paragraph Answers VIZ." readonly>
+                                <div class="icons">
+                                    <i id="edit-icon" onclick="edit(this)" title="Edit Header" class="material-icons">edit</i>
+                                    <i id="info-icon" title="Question1: Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book." class="material-icons" title="We ask for your age only for statistical purposes?">info</i>
+                                </div>
+                            </div>
+                            <div id="ques_5"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- COntent End -->
+
+    <!-- notification -->
+
+    <noti class="animated">
+        <div class="wrap-noti active">
+            <h1>First Notice</h1>
+            <h2>22st Sept 2018, 10PM</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <div class="wrap-noti active">
+            <h1>First Notice</h1>
+            <h2>22st Sept 2018, 10PM</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <div class="wrap-noti">
+            <h1>First Notice</h1>
+            <h2>22st Sept 2018, 10PM</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+        <div class="wrap-noti">
+            <h1>First Notice</h1>
+            <h2>22st Sept 2018, 10PM</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            tempor incididunt ut labore et dolore magna aliqua. </p>
+        </div>
+    </noti>
+
+    <!-- notification end -->
+
+    <div class="grey-noti"></div>
+
+    <div class="grey"></div>
+    <a href="#" class="float">
+        <i class="material-icons my-float">sort</i>
+    </a>
+    </div>
+    <div class="wrap-full-chart animated">
+
+    </div>
+    <div class="full-back">
+        <i class="material-icons">
+            arrow_back
+        </i>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.6/proj4.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/maps/modules/map.js"></script>
+    <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    <script src="https://code.highcharts.com/modules/solid-gauge.js"></script>
+    <script src="https://code.highcharts.com/modules/data.js"></script>
+    <script src="https://code.highcharts.com/modules/variable-pie.js"></script>
+    <script src="https://code.highcharts.com/modules/wordcloud.js"></script>
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="https://code.highcharts.com/modules/treemap.js"></script>
+    <script src="https://code.highcharts.com/modules/funnel.js"></script>
+    <script src="https://code.highcharts.com/highcharts-3d.js"></script>
+    <script src="http://code.highcharts.com/maps/modules/exporting.js"></script>
+    <script src="http://code.highcharts.com/mapdata/countries/in/in-all.js"></script>
+
+    <script type="text/javascript" src="{% static 'charts/js/viz-dash.js'%}"></script>
+    <script type="text/javascript" src="{% static 'charts/js/nav-side.js'%}"></script>
+    <script type="text/javascript" src="{% static 'charts/js/notification.js'%}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $(".intro button").click(function(){
+                $(".intro").fadeOut();
+            });
+        });
+    </script>
+</body>
+
+</html>

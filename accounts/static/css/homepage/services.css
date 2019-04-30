@@ -1,0 +1,63 @@
+.sect-services h2 {
+    font-family: 'Adobe Caslon Pro';
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.sect-services .services-disp {
+    position: relative;
+    left: 5%;
+    width: 95%;
+    display: inline-flex;
+}
+
+.sect-services .services-disp .service-summary {
+    position: relative;
+    width: 20%;
+    background-color: #E8E8E8;
+    margin-right:5%;
+    margin-top: 63px;
+    padding-bottom: 120px;
+    text-align: center;
+}
+
+.sect-services .services-disp .service-summary img {
+    width: 80%;
+    margin-top: -63px;
+    margin-bottom: 30px;
+}
+
+.sect-services .services-disp .service-summary h3 {
+    font-family: "Adobe Caslon Pro";
+    margin-bottom: 70px;
+}
+
+.sect-services .services-disp .service-summary p {
+    font-family: "Proxima Nova";
+    opacity: 0.5;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+.sect-services .services-disp .service-summary .sur-button {
+    font-family: "Adobe Caslon Pro";
+    font-size: 130%;
+    border: 2px solid white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    position: absolute;
+    width: 90%;
+    left: 5%;
+}
+
+.sect-services .services-disp .service-summary .template-sur-button {
+    bottom: 20px;
+}
+
+.sect-services .services-disp .service-summary .custom-sur-button {
+    bottom: 90px;
+}

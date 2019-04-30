@@ -1,0 +1,592 @@
+<!doctype>
+{% load staticfiles %}
+<html>
+<head>
+    <title>AudienceSutra</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'angular/assets/css/style.css' %}"/>
+    <style>
+        .set-account-modal {
+            display:none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .message-box {
+            width: 300px;
+            height: 200px;
+            background: #fff;
+            margin: 0px auto;
+            border-radius:10px;
+            padding:5px;
+            text-align:center;
+        }
+
+        .message-box h3 {
+            padding-top: 50px;
+        }
+
+        .lds-ripple {
+          display: inline-block;
+          position: relative;
+          width: 64px;
+          height: 64px;
+        }
+
+        .lds-ripple div {
+          position: absolute;
+          border: 4px solid #cef;
+          opacity: 1;
+          border-radius: 50%;
+          animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+        }
+
+        .lds-ripple div:nth-child(2) {
+          animation-delay: -0.5s;
+        }
+
+        @keyframes lds-ripple {
+          0% {
+            top: 28px;
+            left: 28px;
+            width: 0;
+            height: 0;
+            opacity: 1;
+          }
+          100% {
+            top: -1px;
+            left: -1px;
+            width: 58px;
+            height: 58px;
+            opacity: 0;
+          }
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <div class="wrapper">
+            <div class="sticky-action-bar">
+                <div class="sab-action sab-menu">
+                    <a href="#nav-main" class="toggle-img"><img src="/static/angular/assets/images/menu.png"></a>
+                </div>
+                <div class="sab-action sab-contactus">
+                    <p><a href="#contact-us">Contact Us</a></p>
+                </div>
+                <div class="sab-action sab-tryus">
+                    <p><a href="/accounts/login/">CREATE A SURVEY</a></p>
+                </div>
+                <div class="sab-action sab-takesurvey">
+                    <p><a href="/accounts/login/">Take A Survey</a></p>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-default" id="nav-main">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="{% static 'angular/assets/images/logo1.png' %}"/></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav  navbar-right">
+                            <li><a href="/#home">Home</a></li>
+                            <li><a href="/#col-mission">Mission</a></li>
+                            <li><a href="/#col-services">Services</a></li>
+                            <li><a href="/#howdoesitwork">How does it work</a></li>
+                            <li><a href="/#col-inspiration">Inspiration</a></li>
+                            <li><a href="/#col-keybenifits">Key benefits</a></li>
+                            <!--<li><a href="/#product-service">Product & Services</a></li>-->
+                            <li><a href="/#contact-us">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="banner-content">
+                <div class="container-fluid">
+                    <div class="banner-section">
+                        <div class="row">
+                            <div class=" col-xs-12 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-8" >
+                                <div class="msg">
+                                    <h3>Listen better, serve better</h3>
+                                    <p>A new age marketing tool that enables real time consumer input for
+                                        making critical business decisions and presents it in a dynamic
+                                        powerful visual dashboard.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+                <section class="mission-section" id="col-mission">
+                    <div class="row">
+                        <div class=" col-xs-12 col-sm-7 col-md-7">
+                            <div class="img-wrapper">
+                                <img src="{% static 'angular/assets/images/mission.png' %}"/>
+                            </div>
+                        </div>
+                        <div class=" col-xs-12 col-sm-5 col-md-5">
+                            <div class="mission-text slideanim">
+                                <h2>Mission</h2>
+                                <p class="mission-para-1">We want to empower the product &amp; brand owners with real-time
+                                    consumer insights for decision making in an environment where
+                                    brands are being discussed, evaluated and recommended
+                                    through online/social media platforms on a always on basis.</p>
+                                <p class="mission-para-2">In today's data-driven world with businesses constantly on action
+                                    mode, one tends to focus more on "What happened?" rather
+                                    having the patience to understand the real cause of "Why?" an
+                                    event happened.</p>
+                                <p class="mission-para-2"></p>
+                                <ul class="mission-para-2 no-bullets">
+                                    <li>1. We help you discover the "Why?" before your precious
+                                        resources are diminished and while it still matters.</li>
+                                    <li>2. We share it in a informative, user friendly and dynamic
+                                        dashboard.</li>
+                                    <li>3. It is a cost effective tool with significant ROI given the nature
+                                        of operation is primarly online.</li>
+                                </ul>
+                                <p></p>
+                                <p class="mission-para-2 no-line-break">This results in:</p>
+                                <ul class="mission-para-2 no-padding">
+                                    <li>Short term fixes</li>
+                                    <li>Disenchanted customers</li>
+                                    <li>Inability to build loyalty</li>
+                                    <li>Costlier investment to fix it later</li>
+                                    <li>Concerned investors losing confidence</li>
+                                </ul>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="inspiration-section slideanim" id="col-inspiration">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <div class="inspration_img-wrapper ">
+                                    <img src="{% static 'angular/assets/images/golden-circle.png'%}"/>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6">
+                                <div class="inspiration-msg">
+                                    <h2 class="howdoesitwork">inspiration</h2>
+                                    <p class="insp-para-1">Your customer’s behaviour is driven by your ‘Why’ and not by
+                                         the ‘What?’ that we usually support him with.</p>
+                                    <p class="insp-para-2">We know for a fact that behaviour like trust and loyalty is driven
+                                         by the lymbic part of the brain. It is the central part quite like the
+                                         diagram with the ‘why?’ and ‘how?’. This part of the brain also
+                                         drives all our decisions and actions.</p>
+                                    <p class="insp-para-2">The reason for our belief in iconic brands to buy any product/
+                                         service from them is because we believe in what they believe in.</p>
+                                    <p class="insp-para-2">The neo cortex or the ’what’ part of the diagram, is the rational
+                                         and analytical part of the brain and also understands complex
+                                         language.</p>
+                                    <p class="insp-para-2">Although customers perfectly understand all the technical details
+                                         and rational explanations from most of the brands/products
+                                         around us, we still aspire for only one brand which we
+                                         are loyal to and we believe is for us.</p>
+                                    <p class="insp-para-2">This is the <b>Inside Out approach</b>, where the reason to be part of a
+                                         brand/product is driven by the ‘why?’ and is then rationalised with
+                                         ‘what?’ based on trust and loyalty.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="inspiration-msg-position"></div>
+                </section>
+
+                <section class="sect-howdoes" id="howdoesitwork">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <h2>How does it work</h2>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="customer-text">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img">
+                                            <img src="{% static 'angular/assets/images/how1.png' %}" class="slideanim">
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img slideanim">
+                                            <p>You need to understand your customer better</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-how2-wrapper">
+                                <div class="customer-text">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img">
+                                            <img src="{% static 'angular/assets/images/how2.png' %}" class="slideanim">
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img slideanim">
+                                            <p>We help you create a survey with the help of AudienceSutra</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="customer-text">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img">
+                                            <img src="{% static 'angular/assets/images/how3.png' %}" class="slideanim">
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img slideanim">
+                                            <p>AudienceSutra deploys the survey once you approve</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="customer-text">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img">
+                                            <img src="{% static 'angular/assets/images/how4.png' %}" class="slideanim">
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img slideanim">
+                                            <p>You need to understand your customer better</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 col-md-4 col-how2-wrapper">
+                                <div class="customer-text">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img">
+                                            <img src="{% static 'angular/assets/images/how5.png' %}" class="slideanim">
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img slideanim">
+                                            <p>We help you create a survey with the help of AudienceSutra</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12 col-sm-4 col-md-4">
+                                <div class="customer-text">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img">
+                                            <img src="{% static 'angular/assets/images/how6.png' %}" class="slideanim">
+                                        </div>
+                                        <div class="col-xs-6 col-sm-6 col-md-6 col-img slideanim">
+                                            <p>AudienceSutra deploys the survey once you approve</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="backface-position"></div>
+                    </div>
+                </section>
+
+                <section class="sec-our-service" id="col-services">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                <h2 id="ourservices">Our Services</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-3 servic-col ">
+                                <div class="product-wrapper servic-col-wrapper t-down slideanim">
+                                    <div class="servimg-wrapper">
+                                        <img src="{% static 'angular/assets/images/service-product.png' %}"/>
+                                        <div class="tb slideanim">
+                                            <h3>Product</h3>
+                                            <p>Determine the potential of a product in the market and learn about
+                                                consumer's opinion, the product's&nbsp;influence on the life of the consumer.</p>
+                                            <!--<button type="button" class="custom-button">Custom</button>-->
+                                            <!--<button type="button" class="template-button">Template</button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 servic-col ">
+                                <div class="communicationc-wrapper servic-col-wrapper t-down slideanim">
+                                    <div class="servimg-wrapper">
+                                        <img src="{% static 'angular/assets/images/service-comm.png' %}"/>
+                                        <div class="tb slideanim">
+                                            <h3>Communication</h3>
+                                            <p>Gauge the engagement of our&nbsp;communication with our intended audience in
+                                            addition to the comprehension and clarity of the message to them.</p>
+                                            <!--<button type="button" class="custom-button">Custom</button>-->
+                                            <!--<button type="button" class="template-button">Template</button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 servic-col ">
+                                <div class="Brand-wrapper servic-col-wrapper t-down slideanim">
+                                    <div class="servimg-wrapper">
+                                        <img src="{% static 'angular/assets/images/service-brand.png' %}"/>
+                                        <div class="tb slideanim">
+                                            <h3>Brand</h3>
+                                            <p>Understand the association of a brand and it's role in the consumer mindspace
+                                            in comparison to competition in the market.</p>
+                                            <!--<button type="button" class="custom-button">Custom</button>-->
+                                            <!--<button type="button" class="template-button">Template</button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-3 servic-col">
+                                <div class="Competition-wrapper servic-col-wrapper t-down slideanim">
+                                    <div class="servimg-wrapper">
+                                        <img src="{% static 'angular/assets/images/service-comp.png' %}"/>
+                                        <div class="tb slideanim">
+                                            <h3>Competition</h3>
+                                            <p>Map out the audience understanding of the category and their preferences
+                                            of brands / products within the category.</p>
+                                            <!--<button type="button" class="custom-button">Custom</button>-->
+                                            <!--<button type="button" class="template-button">Template</button>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <a href="/accounts/signup/" class="btn btn-primary" style="max-width:150px; margin: 5px auto; display: block; color:#ffffff">Try Us </a>
+                </section>
+
+                <section class="key-benifits" id="col-keybenifits">
+                    <div class="container-fluid">
+                        <div class="benifits-wrapper slideanim">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <h2>Key Benefits</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <div class="row text-gallery">
+                                        <div class="col-xs-12 col-sm-3 col-md-3">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-turnaround">
+                                                    <h5>Quick Turnaround</h5>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-interactive">
+                                                    <h5>Interactive</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6 col-md-8 text-transparency">
+                                                    <h5>Transparency</h5>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-4 text-dashboard_analytics">
+                                                    <h5>Dashboard Analytics</h5>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6 col-md-4 text-quality-control">
+                                                    <h5>Quality Control</h5>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-6 col-md-8 text-pan-india-service">
+                                                    <h5>Pan India Service</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-3 col-md-3">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-approach">
+                                                    <h5>Flexible Approach</h5>
+                                                </div>
+                                                <div class="col-xs-12 col-sm-12 col-md-12 text-rio">
+                                                    <h5>Better ROI</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="product-service" id="product-service" style="padding: 5%;">
+                    <div class="container-fluid">
+                        <div class="benifits-wrapper1 slideanim">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <!--<h2 class="heading">Product & Service</h2>-->
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 custom-div">
+                                    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+                                        <!--Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+                                        <!--when an unknown printer took a galley of type and scrambled it to make a type-->
+                                        <!--specimen book. It has survived not only five centuries, but also the leap into-->
+                                        <!--electronic typesetting, remaining essentially unchanged. It was popularised in-->
+                                        <!--the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,-->
+                                        <!--and more recently with desktop publishing software like Aldus PageMaker-->
+                                        <!--including versions of Lorem Ipsum</p>-->
+                                    <!--<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.-->
+                                        <!--Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,-->
+                                        <!--when an unknown printer took a galley of type and scrambled it to make a type-->
+                                        <!--specimen book. It has survived not only five centuries, but also the leap into-->
+                                        <!--electronic typesetting, remaining essentially unchanged. It was popularised in-->
+                                        <!--the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,-->
+                                        <!--and more recently with desktop publishing software like Aldus PageMaker-->
+                                        <!--including versions of Lorem Ipsum</p>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="contact-us form-section" id="contact-us">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-6 col-md-6 massege-form-wrapper">
+                                <div class="input-grid slideanim">
+                                    <div class="get-in-touch">
+                                        <h3>Get in touch</h3>
+                                        <p>(enquiries@audiencesutra.com)</p>
+                                    </div>
+                                    <form class="form" method="POST" id="contactForm">{% csrf_token %}
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <input type="hidden" value="contact" name="flag">
+                                                    <input type="text" name="reason" class="form-control myError" placeholder="Reason for contacting" required>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Your Name</label>
+                                                    <input type="text" name="name" class="form-control myError" placeholder="Your Name" required >
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6 col-sm-6 col-md-6">
+                                                <div class="form-group">
+                                                    <label class="form-control-label">Email</label>
+                                                    <input type="email" name="email" class="form-control myError" placeholder="Email" required >
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-12 col-md-12">
+                                                <div class="form-group">
+                                                    <label class="form-control-label texarea-label">Your Message</label>
+                                                    <textarea rows="5" name="message" class="form-textarea myError" placeholder="Your Message" required></textarea>
+                                                </div>
+                                            </div>
+                                            <button id="submit" type="submit" class="form-submit-btn">send</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-md-6 ">
+                                <div class="map-wrapper"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 sm-col-3 col-md-3">
+                                <a href="#home" class="footer-logo">
+                                    <img src="{% static 'angular/assets/images/logo-footer.png' %}"/>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 sm-col-5 col-md-5">
+                                <address class="footer-message">
+                                    <h4>Audience Insight Technologies (OPC) Pvt Ltd</h4>
+                                    <p>1212, Ivory Towers, The Retreat, South City 1, Gurgaon 122001</p>
+                                    <p>Mobile: 9971229666</p>
+                                </address>
+                            </div>
+                            <div class="col-xs-12 sm-col-4 col-md-4">
+                                <div class="footer-links">
+                                    <ul class="footer-menu">
+                                        <li><a href="/#contact-us">Press</a></li>
+                                        <li><a href="#">Site Map</a></li>
+                                        <li><a href="/#contact-us">Contact Us</a></li>
+                                        <li><a href="#">Careers</a></li>
+                                        <li><a href="#">Affiliate charities</a></li>
+                                        <li><a href="#">Legal information</a></li>
+                                        <li><a href="/privacy">Privacy Policy</a></li>
+                                        <li><a href="/refund">Refund & Cancellation</a></li>
+                                        <li><a href="/terms">Terms & Conditions</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="set-account-modal">-->
+        <!--<div class="message-box">-->
+            <!--<h3>We are sending email please wait...</h3>-->
+            <!--<div class="lds-ripple"><div></div><div></div></div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'angular/assets/js/float-panel.js' %}"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#contactForm").submit(function(event) {
+                event.preventDefault();
+                // $(".set-account-modal").show();
+
+                var button = $('#submit');
+                button.prop('disabled', true);
+
+                $.ajax({
+                    url: "/accounts/clientFeedback/",
+                    type: "POST",
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        // $(".set-account-modal").hide();
+                        $('.myError').val('');
+                        button.prop('disabled', false);
+                    },
+                    error: function(error) {
+                        // $(".set-account-modal").hide();
+                        button.prop('disabled', false);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

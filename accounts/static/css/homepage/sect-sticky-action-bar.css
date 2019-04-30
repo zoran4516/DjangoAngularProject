@@ -1,0 +1,54 @@
+.sticky-action-bar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 4.5%;
+    height: 100vh;
+    background: white;
+}
+
+.sab-action {
+    text-align: center;
+    position: fixed;
+    width: 4.5%;
+}
+
+.sab-action p a {
+    text-decoration: none;
+    color: black;
+}
+
+.sab-action p {
+    font-family: "Adobe Caslon Pro";
+    text-transform: uppercase;
+    opacity: 0.8;
+    white-space: nowrap;
+    transform: rotate(-90deg);
+    margin-bottom: 100px;
+}
+
+.sab-contactus {
+    left: 0%;
+    top: 40vh;
+}
+
+.sab-tryus {
+    left: 0%;
+    top: 55vh;
+}
+
+.sab-takesurvey {
+    left: 0%;
+    top: 92vh;
+}
+
+.sab-menu {
+    top: 2vh;
+    left: 0%;
+
+}
+
+.sab-menu img {
+    width: 60%;
+    height: 60%;
+}

@@ -1,0 +1,42 @@
+<button id="rzp-button1" style="display:none">Pay</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "{{options.key}}",
+    "amount": {{options.amount}}, /// The amount is shown in currency subunits. Actual amount is ₹599.
+    "name": "Audiencesutra",
+    "currency": "INR", // Optional. Same as the Order currency,
+    "handler": function (response){
+        //alert({{options.surveyId}});
+
+         $.ajax({
+
+                type:'get',
+                url:'/survey/api/paystatus/?paymentId='+response.razorpay_payment_id+'&surveyId='+{{options.surveyId}},
+                success: function(res){
+                    alert(res.data)
+                }, error: function(err){
+                    // throw new Error('Failed to load options: test.')
+                    console.log(err);
+                }
+            })
+    },
+    "modal": {
+        "ondismiss": function(){
+        alert('Payment cancelled')
+        }
+    }
+};
+var rzp1 = new Razorpay(options);
+$(document).ready(function(){
+
+$('#rzp-button1').click();
+});
+
+document.getElementById('rzp-button1').onclick = function(e){
+    rzp1.open();
+    e.preventDefault();
+}
+
+</script>

@@ -1,0 +1,320 @@
+<!doctype>
+{% load staticfiles %}
+<html>
+<head>
+    <title>AudienceSutra</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'angular/assets/css/style.css' %}"/>
+    <style>
+        .custom-div {
+            font-size: 14px;
+            text-align: justify;
+        }
+        .custom-div p, li, b, a {
+            font-size: 14px;
+            text-align: justify;
+        }
+        .custom-div a {
+            cursor: pointer;
+        }
+        .menu-one {
+            list-style-type: decimal;
+        }
+        .menu-two {
+            list-style-type: disc;
+            margin-left: 3%;
+        }
+        .custom-div li {
+            margin: 1%;
+            padding: 1%;
+        }
+
+        .heading {
+            margin-bottom: 3% !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="site-wrapper">
+        <div class="wrapper">
+            <div class="sticky-action-bar">
+                <div class="sab-action sab-menu">
+                    <a href="#nav-main" class="toggle-img">
+                        <img src="/static/angular/assets/images/menu.png">
+                    </a>
+                </div>
+                <div class="sab-action sab-contactus">
+                    <p><a href="#contact-us">Contact Us</a></p>
+                </div>
+                <div class="sab-action sab-tryus">
+                    <p><a href="/accounts/login/">Try Us</a></p>
+                </div>
+                <div class="sab-action sab-takesurvey">
+                    <p><a href="/accounts/login/">Take A Survey</a></p>
+                </div>
+            </div>
+
+            <nav class="navbar navbar-default" id="nav-main">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"><img src="{% static 'angular/assets/images/logo.png' %}"/></a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav  navbar-right">
+                            <li><a href="/#home">Home</a></li>
+                            <li><a href="/#col-mission">Mission</a></li>
+                            <li><a href="/#col-services">Services</a></li>
+                            <li><a href="/#howdoesitwork">How does it work</a></li>
+                            <li><a href="/#col-inspiration">Inspiration</a></li>
+                            <li><a href="/#col-keybenifits">Key benefits</a></li>
+                            <!--<li><a href="/#product-service">Product & Services</a></li>-->
+                            <li><a href="/#contactus">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            <!--<div class="banner-content">-->
+                <!--<div class="container-fluid">-->
+                    <!--<div class="banner-section">-->
+                        <!--<div class="row">-->
+                            <!--<div class=" col-xs-12 col-sm-6 col-sm-offset-6 col-md-4 col-md-offset-8" >-->
+                                <!--<div class="msg">-->
+                                    <!--<h3>Listen better, serve better</h3>-->
+                                    <!--<p>A new age marketing tool that enables real time consumer input for-->
+                                        <!--making critical business decisions and presents it in a dynamic-->
+                                        <!--powerful visual dashboard.-->
+                                    <!--</p>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+
+        <div class="content">
+            <div class="container-fluid">
+
+                <section class="key-benifits" style="padding: 5%;">
+                    <div class="container-fluid">
+                        <div class="benifits-wrapper slideanim">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12">
+                                    <h2 class="heading">Refund & Cancellation Policy</h2>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 custom-div">
+                                    <p>
+                                        AudienceSutra.com, the parent company Audience Insight Technologies (OPC) Pvt Ltd (referred to
+                                        here as AIT), will be able to consider refund/cancellation requests only within 30 days of payment for
+                                        services to AudienceSutra.com. Once this timeline is past since the payment for the service by the
+                                        client, unfortunately AudienceSutra.com or AIT will not be able to offer a refund.
+                                    </p>
+
+                                    <p>
+                                        The following criteria must be fulfilled for enabling the refund request of any payment already
+                                        processed by AudienceSutra.com:
+                                    </p>
+
+                                    <ul class="menu-one">
+                                        <li>
+                                            Payment is made in excess of the estimates and is mutually agreed by both
+                                            AudienceSutra.com or AIT and the client for the amount that is in excess of the actual
+                                            payment of the project.
+                                        </li>
+                                        <li>
+                                            AudienceSutra.com and AIT acknowledges that the actual deliverables of the project
+                                            undertaken for the client is not met as per promise and therefore agrees to make the
+                                            payment back to the client for the amount that is the shortfall, calculated pro rata and
+                                            agreed by all parties including AudienceSutra.com and AIT.
+                                        </li>
+                                        <li>
+                                            AudienceSutra.com and AIT acknowledges that the project requested by the client is not
+                                            possible to be undertaken at this point by AudienceSutra.com. Hence, on mutual agreement
+                                            AudienceSutra.com will pay the money back to the client.</b>
+                                        </li>
+
+
+                                            <!--<ul class="menu-two">-->
+                                                <!--<li>-->
+                                                    <!--Please refer to the <b><a style="color: #282828;">Data Handling-->
+                                                    <!--Policy</a></b> describing the process of updating, archiving,-->
+                                                    <!--limiting or managing access of the information in our custody,-->
+                                                    <!--which is directly/indirectly refers to your individual credentials.-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--Should any breach of your Personal Information may occur, we will-->
+                                                    <!--follow the escalation matrix as described in the <a>Data-->
+                                                    <!--Handling Policy</a>, as soon as we acknowledge receipt of any-->
+                                                    <!--such information, notification or alert.-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--In case of a security breach please follow the escalation matrix-->
+                                                    <!--as described in clause 6 of the <a>Data Handling Policy</a>.-->
+                                                <!--</li>-->
+                                            <!--</ul>-->
+
+                                        <!--<li>-->
+                                            <!--<b>Collection of Information: </b> We gather information at different-->
+                                            <!--points of engagement online or in physical to facilitate use by customers.-->
+                                            <!--Two kinds of information are collected:-->
+                                        <!--</li>-->
+                                            <!--<ul class="menu-two">-->
+                                                <!--<li>-->
+                                                    <!--<b>Personal Information: </b> To access and use the Site or some services-->
+                                                    <!--provided therein, you must first provide personal information that-->
+                                                    <!--will allow you to be identified (“Personal Information”).-->
+                                                    <!--This information will not be collected without your consent.-->
+                                                    <!--The purposes of the collection are as follows:-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--To identify the user and build a relationship</li>-->
+                                                <!--<li>-->
+                                                    <!--To facilitate services on our Site</li>-->
+                                                <!--<li>-->
+                                                    <!--To provide services from our affiliated service providers</li>-->
+                                                <!--<li>-->
+                                                    <!--To support services and rectify problems with your service</li>-->
+                                                <!--<li>-->
+                                                    <!--To understand your requirements vis-à-vis the Site</li>-->
+                                                <!--<li>-->
+                                                    <!--To inform you of the changes to our services or-->
+                                                    <!--products or promotions-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<b>Non-Personal Information: </b> Upon accessing the Website, certain-->
+                                                    <!--non-personal information will be automatically collected without-->
+                                                    <!--your knowledge or consent, such as your IP address and the-->
+                                                    <!--referring Website. We use such Information to examine our traffic-->
+                                                    <!--and to view how customers use the Website. This type of-->
+                                                    <!--information will not allow you to be identified personally,-->
+                                                    <!--i.e., we use “cookies”, which contain only certain relevant-->
+                                                    <!--information. You can instruct your computer to disallow cookies-->
+                                                    <!--through your web browser. If you do choose to disallow cookies,-->
+                                                    <!--your experience on the Site may be diminished or limited.-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--We acknowledge not using your Personal Information for any other-->
+                                                    <!--purposes without your consent and clarify that Personal-->
+                                                    <!--Information will be gathered to the extent necessary for the-->
+                                                    <!--requisite business verification purposes. The Personal Information-->
+                                                    <!--we collect will vary depending on how you are using the Site,-->
+                                                    <!--which may include, without limitation, address, phone number,-->
+                                                    <!--email, credit card information, profile, bank account information,-->
+                                                    <!--etc., for business, financial or non-financial-->
+                                                    <!--transactions and purposes.-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--Purpose of collecting such data or Personal Information may-->
+                                                    <!--vary from functions at AudienceSutra.com, like, Human Resources-->
+                                                    <!--Management, Finance & Operations, Business Development,-->
+                                                    <!--Marketing, etc., or, in execution of a mutually agreed scope-->
+                                                    <!--of work assigned to AudienceSutra.com.-->
+                                                <!--</li>-->
+                                            <!--</ul>-->
+                                        <!--<li>-->
+                                            <!--<b>Sharing Data: </b> We will not sell, rent or disclose to outside-->
+                                            <!--parties the information we collect, save and except that we may share-->
+                                            <!--the collected information with other parties as follows:-->
+                                        <!--</li>-->
+
+                                            <!--<ul class="menu-two">-->
+                                                <!--<li>-->
+                                                    <!--<b>Partner Service Providers: </b> We have inked agreements with various partner service providers to facilitate the functioning of the Site, with whom we will share collected information. For instance, your credit card information will be shared with credit card service provider to process your purchase. All service providers that we have engaged have reasonable level of privacy protection as we have.-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<b>Requirements of law: </b> We will share information about you where it is required by a demand from a duly authorised government authority or where we are required to do so by a court of competent authority.-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<b>Analysis: </b> Non-Personal Information may be aggregated and shared with third parties for advertising or marketing purposes and not personal information.-->
+                                                <!--</li>-->
+                                                <!--<li>-->
+                                                    <!--<b>Financial Transactions: </b> During negotiations in connection with any transactions such as, any merger, sale of company assets, financing or acquisition, or other similar situation; collected information may be disclosed or transferred as one of our business assets.-->
+                                                <!--</li>-->
+                                            <!--</ul>-->
+
+                                        <!--<li>-->
+                                            <!--<b>External Links: </b> The Site may contain third party links and references to other websites. We are not responsible for the collection, use and disclosure of information, or the privacy practices of such Websites, and we expressly disclaim any liability relating to them.-->
+                                        <!--</li>-->
+                                        <!--<li>-->
+                                            <!--<b>International Transfer: </b> Your information may be transferred to and maintained on servers located outside of your jurisdiction, where privacy laws may vary. Your consent to this Privacy Policy represents your consent to any such transfer.-->
+                                        <!--</li>-->
+                                    </ul>
+                                     <p>
+                                        No other situation for request of refund will be entertained by the company. For any situation
+                                        pertaining to dissatisfaction with the services, we have provided option of sharing feedback with us
+                                        on <a href="mailto:feedback@audiencesutra.com">feedback@audiencesutra.com</a>.
+                                    </p>
+                                     <p>
+                                        In terms of cancellation, since this is an online service, cancellation is not allowed in normal
+                                        circumstances once the project is initiated. Only in extraordinary circumstances, only if it is deemed
+                                        so by AudienceSutra.com or AIT, it will be considered for cancellation. Even in such a situation,
+                                        AudienceSutra.com or AIT reserve the right to deduct expenses so incurred for the time or resources
+                                        AudienceSutra.com or AIT had to deploy until the point of cancellation request.
+                                    </p>
+                                     <p>
+                                        All refunds and cancellation processing require a time of 15 working days from AudienceSutra.com
+                                        or AIT from the date of request, if accepted as is by AudienceSutra.com or AIT, or from the date of
+                                        written agreement email from AudienceSutra.com or AIT. The transfers will be carried out through
+                                        online NEFT banking protocol from the corporate account of AIT to the banking details provided
+                                        through registered email of the client.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-12 sm-col-3 col-md-3">
+                                <a href="#home" class="footer-logo">
+                                    <img src="{% static 'angular/assets/images/logo-footer.png' %}"/>
+                                </a>
+                            </div>
+                            <div class="col-xs-12 sm-col-5 col-md-5">
+                                <address class="footer-message">
+                                    <h4>Audience Insight Technologies (OPC) Pvt Ltd</h4>
+                                    <p>1212, Ivory Towers, The Retreat, South City 1, Gurgaon 122001</p>
+                                    <p>Mobile: 9971229666</p>
+                                </address>
+                            </div>
+                            <div class="col-xs-12 sm-col-4 col-md-4">
+                                <div class="footer-links">
+                                    <ul class="footer-menu">
+                                        <li><a href="#">Press</a></li>
+                                        <li><a href="#">Site Map</a></li>
+                                        <li><a href="/#contact-us">Contact Us</a></li>
+                                        <li><a href="#">Careers</a></li>
+                                        <li><a href="#">Affiliate charities</a></li>
+                                        <li><a href="#">Legal information</a></li>
+                                        <li><a href="/privacy">Privacy Policy</a></li>
+                                        <li><a href="/refund">Refund & Cancellation</a></li>
+                                        <li><a href="/terms">Terms & Conditions</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="{% static 'angular/assets/js/float-panel.js' %}"></script>
+</body>
+</html>

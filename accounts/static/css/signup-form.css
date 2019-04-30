@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald|Roboto');
+@import 'grid.css';
+
+*{
+  padding:0;
+  margin: 0;
+  color:#fff;
+}
+
+body {
+  background-image: url('../img/bg.jpg');
+  color: white;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  font-family: 'Roboto';
+  overflow-x: hidden;
+}
+
+html, body {
+  height: 100%;
+}
+
+*:focus {
+  outline: none;
+}
+
+a, a:hover, a:focus, a:clicked {
+  color: #fff;
+}
+
+header img {
+    width: 200px;
+    position: absolute;
+    top: 8px;
+    left: 40px;
+}
+
+header h1 {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    text-decoration: none;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transform: translateX(-50%);
+}
+
+nav {
+    position: absolute;
+    top:30px;
+    z-index: 999999999;
+    right: 40px;
+}
+
+ul, li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #fff;
+    display: inline;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: padding .5s linear;
+}
+
+nav ul li a.login {
+    border: 2px solid #fff;
+    padding: 12px 60px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+nav ul li {
+    padding: 0px 15px;
+}
+
+.wrap-form {
+    width: 80%;
+    position: absolute;
+    top: 100px;
+    left: 10%;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: -5px 5px 10px black;
+    border-radius: 30px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+}
+
+.wrap-form h2 {
+    color: #100b33;
+    margin-bottom: 20px;
+}
+
+.wrap-form form input[type=text], .wrap-form form input[type=password], .wrap-form form input[type=email] {
+    background-color: rgba(255, 255, 255, 0);
+    width: 300px;
+    border: none;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #100b33;
+}
+
+.wrap-form form input[type=submit] {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background: #F70065;
+    border-radius: 30px;
+    color:#fff;
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 2px 3px 5px #BDBDBD;
+    text-transform: uppercase;
+    transition: 0.3s all linear;
+    cursor: pointer;
+    margin-top: 50px;
+}
+
+.wrap-form form input[type=submit]:active {
+    transition: 0.3s all linear;
+    box-shadow: 1px 1px 1px #D2D2D2;
+}
+
+.wrap {
+    display: block;
+    text-align: left;
+    margin: 10px 10px;
+}
+
+.wrap span {
+    font-size:15px;
+    color: #100b33;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.wrap-o {
+    border-bottom: 3px solid #100b33;
+    padding: 5px;
+}

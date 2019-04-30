@@ -1,0 +1,55 @@
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css');
+@import url("https://use.typekit.net/kue4qnq.css");
+
+body {
+    background: #F8F8F8;
+}
+
+nav.navbar {
+    background: linear-gradient(to right, #180F37, #C2005E);
+}
+
+div.question-layout {
+    font-family: "Proxima Nova";
+    font-size: 200%;
+    box-shadow: 0 0 50px #D4D4D4;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    position: absolute;
+    top: 100px;
+    width: 98%;
+}
+
+div.answer-option {
+    padding-left: 20px;
+}
+
+input[type='radio'], input[type='checkbox'] {
+    margin-top: 15px;
+}
+
+div.move-button {
+    padding: 5% 2%;
+    transition: background-color 0.5s;
+    cursor: pointer;
+}
+
+div.move-button:hover {
+    background-color: #E0E0E0;
+}
+
+button.survey-button {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-family: "Adobe Caslon Pro";
+    font-size: 150%;
+    position: relative;
+    width: 10%;
+    left: 40%;
+    cursor: pointer;
+}
+
+button.submit-button {
+    margin-top: 500px;
+    background-color: #0A2439;
+}
