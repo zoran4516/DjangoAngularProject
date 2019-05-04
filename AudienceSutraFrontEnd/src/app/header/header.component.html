@@ -1,0 +1,54 @@
+<!-- Nav Top -->
+<nav>
+  <div class="row">
+    <div class="col-lg-2">
+
+    </div>
+    <div class="col-lg-7 col-xs-9">
+      <div class="box">
+        <div class="box box_logo">
+          <img src="static/angular/assets/img/logo1.png" id="logo">
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-xs-3 main_part">
+      <div class="box">
+        <div class="row">
+          <div class="col-lg-2 col-xs-5">
+            <div class="box">
+              <a href="#">
+                <i class="material-icons">
+                  notifications_active
+                </i>
+              </a>
+            </div>
+          </div>
+          <div class="col-lg-2">
+            <div class="box">
+              <!-- <img src="https://blog.circle.com/content/images/2016/07/mariekeFlament.png" class="user_pic"> -->
+              <img src="{{img_src}}" class="user_pic" onerror="this.onerror;this.src='/static/angular/assets/profile.jpg';" />
+            </div>
+          </div>
+          <div class="col-lg-4 user_name">
+            <div class="box">
+              <h1>{{userName}}</h1>
+              <p>{{userDesignation}}</p>
+              <!-- <h1>Alisa John Sam</h1>
+              <p>Student</p> -->
+            </div>
+          </div>
+          <div class="col-lg-2 col-xs-5" style="text-align: center;">
+            <div class="box">
+              <a href="/accounts/logout/">
+                <i class="material-icons">
+                  lock
+                </i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- Nav Top ENd -->

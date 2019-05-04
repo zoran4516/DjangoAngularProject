@@ -1,0 +1,185 @@
+<!-- Survey Builder Canvas -->
+<div class="survey_builder">
+  <div class="header">
+    <div class="content">
+      <input type="text" id="survey_header" value="{{surveyDetail?.name}}" disabled><br>
+      <input type="text" id="survey_description" value="{{surveyDetail?.description}}" disabled>
+    </div>
+  </div>
+
+
+  <div class="lower">
+    <!-- <p>JSON Output (Need to remove)</p>
+    <div>
+      <pre><code>{{ surveyResponseJSON | json}}</code></pre>
+    </div> -->
+    <div>
+      <!-- INTRO MESSAGE -->
+      <!-- Your honesty & frankness to the responses will determine how productive / beneficial our relationship is for you.
+      Happy earning! -->
+
+      <div class="message-box" *ngIf="questionNumber == 0 && surveyFlag == false">
+        Your honesty & frankness to the responses will determine how productive / beneficial our relationship is for
+        you.
+        Happy earning!
+      </div>
+
+      <div class="message-box" *ngIf="surveyFlag == true && statusFlag == false">
+        You have already taken this survey.<br>
+        Thank you!
+      </div>
+
+      <div class="message-box" *ngIf="surveyFlag == true && statusFlag == true">
+        Your survey successfully submited.<br>
+        Thank you!
+      </div>
+
+      <div class="message-box" *ngIf="complete == true && surveyFlag == false">
+        Please submit your survey.
+      </div>
+
+      <div>
+        <!--<div *ngFor="let question of questions;let i = index">-->
+        <div *ngIf="complete == false && question != ''">
+          <div class="question" data-type="para" data-set="textSet">
+            <div class="row">
+              <div class="col-lg-1">
+                <div class="box">
+                  <div class="qno">
+                    {{questionNumber}}
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-11 main_seg">
+                <h1 class="survey_question">{{question.text}}</h1><br>
+                <input class="survey_placeholder" placeholder="{{question.placeholder}}" type="text" *ngIf="question.type == 'short'"
+                  [(ngModel)]="randomText" (ngModelChange)="updateShort(question.id, $event)">
+
+                <input class="survey_placeholder" placeholder="{{question.placeholder}}" type="text" *ngIf="question.type == 'para'"
+                  [(ngModel)]="randomText" (ngModelChange)="updatePara(question.id, $event)">
+
+                <input class="survey_placeholder" placeholder="{{question.placeholder}}" type="number" *ngIf="question.type == 'integer'"
+                  [(ngModel)]="randomText" (ngModelChange)="updateNumber(question.id, $event)">
+
+                <input class="survey_placeholder" value="2014-02-09" type="date" *ngIf="question.type == 'date'"
+                  [(ngModel)]="randomText" (ngModelChange)="updateDate(question.id, $event)">
+
+                <input class="survey_placeholder" value="12:53:05" type="time" *ngIf="question.type == 'time'"
+                  [(ngModel)]="randomText" (ngModelChange)="updateTime(question.id, $event)">
+
+                <div *ngIf="question.type == 'checkbox'">
+                  <div *ngFor="let choice of question.choices.split('@@@'); let j = index">
+                    <div class="opt">
+                      <label class="req">
+                        <input class="check survey_required" type="checkbox" [checked]="isChecked(choice, question.id)"
+                          (change)="updateCheckbox(question.id, $event.target.checked, j)">
+                        <span class="checkmark"></span>
+                      </label>
+                      <input class="survey_placeholder" value="{{choice}}" type="text" disabled style="margin-left: 10px;">
+                    </div>
+                  </div>
+                </div>
+
+
+                <div *ngIf="question.type == 'radio'">
+                  <div *ngFor="let choice of question.choices.split('@@@'); let j = index">
+                    <div class="opt">
+                      <label class="req">
+                        <input class="check survey_required" type="radio" value="{{choice}}" [(ngModel)]="randomText"
+                          (ngModelChange)="updateRadio(question.id, $event)">
+                        <span class="checkmark2"></span>
+                      </label>
+                      <input class="survey_placeholder" value="{{choice}}" type="text" disabled style="margin-left: 10px;">
+                    </div>
+                  </div>
+                </div>
+
+                <div *ngIf="question.type == 'dropbox'">
+                  <select class="survey_placeholder" [(ngModel)]="randomText" (ngModelChange)="updateDropbox(question.id, $event)">
+                    <option>Select Options</option>
+                    <option *ngFor="let choice of question.choices.split('@@@');">
+                      {{choice}}
+                    </option>
+                  </select>
+                </div>
+              </div>
+
+
+
+
+              <div class="row requirments end-lg">
+                <div class="col-lg-3 right-lg">
+                  <div class="box">
+                    <button *ngIf="question.required == true" id="survey_type">Required</button>
+                    <button *ngIf="question.required == false" id="survey_type">Optional</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Survey Builder Canvas End -->
+
+      <div class="space"></div>
+      <!-- ToolKit -->
+
+      <div class="tool">
+        <div class="row end-lg">
+          <!-- <div class="col-lg-1 center-lg">
+            <div class="box" onclick="add('short');">
+              <button class="save">SAVE</button>
+            </div>
+          </div> -->
+
+          <div class="col-lg-1 center-lg" *ngIf="questionNumber > 1">
+            <!-- <div class="box">
+              <button (click)="previousQuestion()">BACK</button>
+            </div> -->
+          </div>
+          <div class="col-lg-1 center-lg" *ngIf="complete == true">
+            <div class="box">
+              <button (click)="submitResponse()" *ngIf="surveyFlag == false">SUBMIT</button>
+            </div>
+          </div>
+          <!-- {{surveyFlag}} -->
+          <div class="col-lg-1 center-lg" *ngIf="complete == false">
+            <div class="box">
+              <div *ngIf="questionNumber == 0 && surveyFlag == false">
+                <button id="start" [disabled]="questionNumber > 0 && randomText == ''" *ngIf="question.required != false"
+                  (click)="nextQuestion()">START</button>
+              </div>
+
+              <div *ngIf="questionNumber != 0 && surveyFlag == false">
+                <button id="me" (click)="nextQuestion()" [disabled]="questionNumber > 0 && randomText == ''" *ngIf="question.required != false">NEXT</button>
+              </div>
+
+              <button (click)="nextQuestion()" *ngIf="question.required == false && randomText == ''">SKIP</button>
+              <button (click)="nextQuestion()" *ngIf="question.required == false && randomText != ''">NEXT</button>
+            </div>
+          </div>
+          <div class="col-lg-2 center-lg"></div>
+        </div>
+      </div>
+
+      <!-- ToolKit End -->
+
+      <!-- The actual snackbar -->
+      <div id="snackbar">{{message}}</div>
+
+      <!-- show diloag -->
+      <div class="set-account-modal">
+        <div class="message-box-new">
+          <h3>Please wait...</h3>
+          <div class="lds-ripple">
+            <div></div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <!-- end diloag -->
+    </div>
+  </div>
+</div>

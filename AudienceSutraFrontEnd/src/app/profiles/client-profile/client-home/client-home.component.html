@@ -1,0 +1,706 @@
+<!-- <div class="content animated" style="width:100%;">
+  <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+  <p class="para sub_text">We are here to help you with your business.</p>
+  <div class="home-fields-wrap animated zoomIn">
+    <div class="home-fields home-fields-1 center">
+      <div class="create center">
+        <div class="symbol create-new-survey">
+          <i id="symbol-icon" class="material-icons">
+            add
+          </i>
+        </div>
+        <div class="text button-text button-text-create">
+          Create New Survey
+        </div>
+      </div>
+      <div class="create center">
+        <div class="symbol draft-survey" (click)="draftClick()">
+          <img class="symbol-svg" src="/static/angular/assets/img/newImages/draft.png" alt="Add Image">
+        </div>
+        <div class="text button-text button-text-draft draft-text" (click)="draftClick()">
+          Drafts
+        </div>
+      </div>
+      <div class="create center">
+        <div class="symbol pending-approval" (click)="approvalClick()">
+          <img class="symbol-svg" src="/static/angular/assets/img/newImages/approve.png" alt="Add Image">
+          <img class="not-svg" src="/static/angular/assets/img/newImages/not.png" alt="Add Image">
+        </div>
+        <div class="text button-text button-text-pending-approval draft-text" (click)="approvalClick()">
+          Pending Approval
+        </div>
+      </div>
+    </div>
+    <div class="home-fields home-fields-2 center">
+      <div class="create center">
+        <div class="symbol pending-payment" (click)="paymentClick()">
+          <img class="symbol-svg" src="/static/angular/assets/img/newImages/payment.png" alt="Add Image">
+          <img class="not-svg" src="/static/angular/assets/img/newImages/not.png" alt="Add Image">
+        </div>
+        <div class="text button-text button-text-pending-payment draft-text" (click)="paymentClick()">
+          Pending Payment
+        </div>
+      </div>
+      <div class="create center">
+        <div class="symbol active-survey" (click)="activeClick()">
+          <img class="symbol-svg" src="/static/angular/assets/img/newImages/active.png" alt="Add Image">
+        </div>
+        <div class="text button-text button-text-active-survey draft-text" (click)="activeClick()">
+          Active Surveys
+        </div>
+      </div>
+      <div class="create center">
+        <div class="symbol inactive-survey" (click)="pastClick()">
+          <img class="symbol-svg" src="/static/angular/assets/img/newImages/moon.png" alt="Add Image">
+        </div>
+        <div class="text button-text button-text-inactive-survey draft-text" (click)="pastClick()">
+          Past Surveys
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content-survey-list animated fadeIn">
+  <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+  <p class="para sub_text">We are here to help you with your business.</p>
+  <p class="para sub_text">Create surveys from the ready templates available or let us help you create custom surveys
+    basis the question that you need answered.</p>
+  <div class="survey-create-wrap center">
+    <div class="two-survey center">
+      <div class="survey competition">
+        <div class="section-1 section-1-competition center">
+          <div class="overlay-survey"></div>
+          <div class="survey-text">
+            Competition
+          </div>
+        </div>
+        <div class="section-2 section-2-competition">
+          <p class="para sub_text" style="color: black;">
+            Map out the audience understanding of the category and their preferences of brands / products within the
+            category.
+          </p>
+          <div class="survey-custom-template-button-wrap">
+            <a routerLink="/client/createSurvey/custom">
+              <div title="Custom Surveys - Let us help you create your surveys to your requirements." class="survey-button custom-survey-button center">
+                <img class="survey-symbol-svg" src="/static/angular/assets/img/newImages/pencils.png" alt="Image">
+              </div>
+            </a>
+            <a routerLink="/client/createSurvey/competition">
+              <div title="Create Surveys - Make surveys with the guidance of the templates provided by us." class="survey-button template-survey-button center">
+                <img class="survey-symbol-svg" src="/static/angular/assets/img/newImages/writing.png" alt="Image">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="survey brand">
+        <div class="section-1 section-1-brand center">
+          <div class="overlay-survey"></div>
+          <div class="survey-text">
+            Brand
+          </div>
+        </div>
+        <div class="section-2 section-2-brand">
+          <p class="para sub_text" style="color: black;">
+            Understand the association of a brand and it's role in the consumer mindspace in comparison to competition
+            in the market.
+          </p>
+          <div class="survey-custom-template-button-wrap">
+            <a routerLink="/client/createSurvey/custom">
+              <div title="Custom Surveys - Let us help you create your surveys to your requirements." class="survey-button custom-survey-button center">
+                <img class="survey-symbol-svg" src="/static/angular/assets/img/newImages/pencils.png" alt="Image">
+              </div>
+            </a>
+            <a routerLink="/client/createSurvey/brand">
+              <div title="Create Surveys - Make surveys with the guidance of the templates provided by us." class="survey-button template-survey-button center">
+                <img class="survey-symbol-svg" src="/static/angular/assets/img/newImages/writing.png" alt="Image">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="two-survey center">
+      <div class="survey product">
+        <div class="section-1 section-1-product center">
+          <div class="overlay-survey"></div>
+          <div class="survey-text">
+            Product
+          </div>
+        </div>
+        <div class="section-2 section-2-product">
+          <p class="para sub_text" style="color: black;">
+            Determine the potential of a product in the market and learn about consumer's opinion, the product's
+            influence on the life of the consumer.
+          </p>
+          <div class="survey-custom-template-button-wrap">
+            <a routerLink="/client/createSurvey/custom">
+              <div title="Custom Surveys - Let us help you create your surveys to your requirements." class="survey-button custom-survey-button center">
+                <img class="survey-symbol-svg" src="/static/angular/assets/img/newImages/pencils.png" alt="Image">
+              </div>
+            </a>
+            <a routerLink="/client/createSurvey/product">
+              <div title="Create Surveys - Make surveys with the guidance of the templates provided by us." class="survey-button template-survey-button center">
+                <img class="survey-symbol-svg" src="/static/angular/assets/img/newImages/writing.png" alt="Image">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="survey communication">
+        <div class="section-1 section-1-communication center">
+          <div class="overlay-survey"></div>
+          <div class="survey-text">
+            Communication
+          </div>
+        </div>
+        <div class="section-2 section-2-communication">
+          <p class="para sub_text" style="color: black;">
+            Gauge the engagement of our communication with our intended audience in addition to the comprehension and
+            clarity of the message to them.
+          </p>
+          <div class="survey-custom-template-button-wrap">
+            <a routerLink="/client/createSurvey/custom">
+              <div title="Custom Surveys - Let us help you create your surveys to your requirements." class="survey-button custom-survey-button center">
+                <img class="survey-symbol-svg" src="/static/angular/assets/img/newImages/pencils.png" alt="Image">
+              </div>
+            </a>
+            <a routerLink="/client/createSurvey/communication">
+              <div title="Create Surveys - Make surveys with the guidance of the templates provided by us." class="survey-button template-survey-button center">
+                <img class="survey-symbol-svg" src="/static/angular/assets/img/newImages/writing.png" alt="Image">
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-floating-icons center">
+    <i class="material-icons">
+      arrow_back
+    </i>
+  </div>
+</div>
+
+<div class="draft-survey-list animated fadeIn">
+  <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+  <p class="para sub_text">We are here to help you with your business.</p>
+  <p class="para sub_text">The surveys that you have saved or you were working on last are saved here for you.</p>
+  <div class="draft-surveys-list">
+    <div class="survey draft" *ngFor="let survey of draftSurveys; let i=index">
+      <div class="section-1 section-1-communication center" [ngStyle]="{'background-image': getUrl(survey?.survey_img)}">
+        <div class="overlay-survey"></div>
+        <div class="survey-text" title="{{survey?.name}}">
+          {{ survey?.name }}
+        </div>
+      </div>
+      <div class="section-2 section-2-communication">
+        <p class="para sub_text" style="color: black;">
+          {{ (survey?.description?.length > 160)? (survey?.description | slice:0:160)+'[...]':(survey?.description) }}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Created: {{survey?.created_on|date}}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Modified: {{survey?.updated_on|date}}
+        </p>
+        <div class="survey-custom-template-button-wrap">
+          <a routerLink="/survey/{{survey?.id}}">
+            <div title="Preview" class="survey-button custom-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/eye.svg"
+                alt="Image">
+            </div>
+          </a>
+          <a routerLink="/client/updateSurvey/update/{{survey?.id}}">
+            <div title="Edit Survey" class="survey-button template-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/pencil-edit-button.svg"
+                alt="Image">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="home-floating-icons center">
+    <i class="material-icons">
+      arrow_back
+    </i>
+  </div>
+</div>
+
+<div class="pending-approval-survey-list animated fadeIn">
+  <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+  <p class="para sub_text">We are here to help you with your business.</p>
+  <p class="para sub_text">We need to take a final approval from you on the survey that has passed through our hands
+    and sometimes with our expert recommendations.</p>
+  <div class="pending-approval-surveys-list">
+    <div class="survey pending-approval-draft" *ngFor="let survey of approvalSurveys; let i=index">
+      <div class="section-1 section-1-product center" [ngStyle]="{'background-image': getUrl(survey?.survey_img)}">
+        <div class="overlay-survey"></div>
+        <div class="survey-text">
+          {{ survey?.name }}
+        </div>
+      </div>
+      <div class="section-2 section-2-product">
+        <p class="para sub_text" style="color: black;">
+          {{ (survey?.description?.length > 160)? (survey?.description | slice:0:160)+'[...]':(survey?.description) }}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Created: {{survey?.created_on|date}}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Modified: {{survey?.updated_on|date}}
+        </p>
+        <div class="survey-custom-template-button-wrap">
+          <a routerLink="/survey/{{survey?.id}}">
+            <div title="Preview" class="survey-button custom-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/eye.svg"
+                alt="Image">
+            </div>
+          </a>
+          <a routerLink="/client/updateSurvey/update/{{survey?.id}}">
+            <div title="Edit Survey" class="survey-button template-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/pencil-edit-button.svg"
+                alt="Image">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-floating-icons center">
+    <i class="material-icons">
+      arrow_back
+    </i>
+  </div>
+</div>
+
+<div class="pending-payment-survey-list animated fadeIn">
+  <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+  <p class="para sub_text">We are here to help you with your business.</p>
+  <p class="para sub_text">We need to take a final payment from you on the survey that has passed through our hands and
+    sometimes with our expert recommendations.</p>
+  <div class="pending-payment-surveys-list">
+    <div class="survey pending-payment-draft" *ngFor="let survey of paymentSurveys; let i=index">
+      <div class="section-1 section-1-product center" [ngStyle]="{'background-image': getUrl(survey?.survey_img)}">
+        <div class="overlay-survey"></div>
+        <div class="survey-text">
+          {{ survey?.name }}
+        </div>
+      </div>
+      <div class="section-2 section-2-product">
+        <p class="para sub_text" style="color: black;">
+          {{ (survey?.description?.length > 160)? (survey?.description | slice:0:160)+'[...]':(survey?.description) }}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Created: {{survey?.created_on|date}}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Modified: {{survey?.updated_on|date}}
+        </p>
+        <div class="survey-custom-template-button-wrap">
+          <a routerLink="/survey/{{survey?.id}}">
+            <div title="Preview" class="survey-button custom-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/eye.svg"
+                alt="Image">
+            </div>
+          </a>
+          <a>
+            <div title="Edit Survey" class="survey-button template-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/pencil-edit-button.svg"
+                alt="Image">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-floating-icons center">
+    <i class="material-icons">
+      arrow_back
+    </i>
+  </div>
+</div>
+
+<div class="active-survey-list animated fadeIn">
+  <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+  <p class="para sub_text">We are here to help you with your business.</p>
+  <p class="para sub_text">We need to take a final payment from you on the survey that has passed through our hands and
+    sometimes with our expert recommendations.</p>
+  <div class="active-surveys-list">
+    <div class="survey active-draft" *ngFor="let survey of activeSurveys; let i=index">
+      <div class="section-1 section-1-product center" [ngStyle]="{'background-image': getUrl(survey?.survey_img)}">
+        <div class="overlay-survey"></div>
+        <div class="survey-text">
+          {{ survey?.name }}
+        </div>
+      </div>
+      <div class="section-2 section-2-product">
+        <p class="para sub_text" style="color: black;">
+          {{ (survey?.description?.length > 160)? (survey?.description | slice:0:160)+'[...]':(survey?.description) }}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Created: {{survey?.created_on|date}}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Modified: {{survey?.updated_on|date}}
+        </p>
+        <div class="survey-custom-template-button-wrap">
+          <a routerLink="/survey/{{survey?.id}}">
+            <div title="Preview" class="survey-button custom-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/eye.svg"
+                alt="Image">
+            </div>
+          </a>
+          <a>
+            <div title="Edit Survey" class="survey-button template-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/pencil-edit-button.svg"
+                alt="Image">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-floating-icons center">
+    <i class="material-icons">
+      arrow_back
+    </i>
+  </div>
+</div>
+
+<div class="past-survey-list animated fadeIn">
+  <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+  <p class="para sub_text">We are here to help you with your business.</p>
+  <p class="para sub_text">We need to take a final payment from you on the survey that has passed through our hands and
+    sometimes with our expert recommendations.</p>
+  <div class="past-surveys-list">
+    <div class="survey past-draft" *ngFor="let survey of inActiveSurveys; let i=index">
+      <div class="section-1 section-1-product center" [ngStyle]="{'background-image': getUrl(survey?.survey_img)}">
+        <div class="overlay-survey"></div>
+        <div class="survey-text">
+          {{ survey?.name }}
+        </div>
+      </div>
+      <div class="section-2 section-2-product">
+        <p class="para sub_text" style="color: black;">
+          {{ (survey?.description?.length > 160)? (survey?.description | slice:0:160)+'[...]':(survey?.description) }}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Created: {{survey?.created_on|date}}
+        </p>
+        <p class="para sub_text" style="color: black; font-size: 0.65em;">
+          Modified: {{survey?.updated_on|date}}
+        </p>
+        <div class="survey-custom-template-button-wrap">
+          <a routerLink="/survey/{{survey?.id}}">
+            <div title="Preview" class="survey-button custom-survey-button center">
+              <img class="survey-symbol-svg" style="height: 50%;" src="/static/angular/assets/img/newImages/eye.svg"
+                alt="Image">
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="home-floating-icons center">
+    <i class="material-icons">
+      arrow_back
+    </i>
+  </div>
+</div>
+
+<div class="empty-survey-list animated fadeIn">
+  <p class="para" style="font-size: 1.25em; color: black;">Hi PepsiCo.</p>
+  <p class="para sub_text">We are here to help you with your business.</p>
+  <div class="empty-list">
+    <img style="width: 300px;" src="/static/angular/assets/img/newImages/nothing.png" alt="">
+  </div>
+  <div class="home-floating-icons center">
+    <i class="material-icons">
+      arrow_back
+    </i>
+  </div>
+</div> -->
+
+
+
+
+
+<button class="tablink" (click)="openPage('Create', $event.target, '#e03e92')">Create New</button>
+<button class="tablink" (click)="openPage('Draft', $event.target, '#e03e92')" id="draftOpen">Draft</button>
+<button class="tablink" (click)="openPage('Approval', $event.target, '#e03e92')" id="approvalOpen">Pending Approval</button>
+<button class="tablink" (click)="openPage('Payment', $event.target, '#e03e92')" id="paymentOpen">Pending Payment</button>
+<button class="tablink" (click)="openPage('Active', $event.target, '#e03e92')" id="activeOpen">Active Surveys</button>
+<button class="tablink" (click)="openPage('Inactive', $event.target, '#e03e92')" id="inactiveOpen">Past Surveys</button>
+
+<div id="Create" class="tabcontent">
+  <p class="sub-header">Create surveys from the ready templates available or let us help you create custom surveys
+    basis the question that you need answered</p>
+  <div class="row row-five-col">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="text-wrap">
+        <h4>COMPETITION</h4>
+        <p>TEMPLATE</p>
+        <div>
+          <!-- <button routerLink="/client/createSurvey/custom" class="btn-template">CUSTOM</button>
+          <button routerLink="/client/createSurvey/competition">TEMPLATE</button> -->
+          <button (click)="custom()" class="btn-template">CUSTOM</button>
+          <button (click)="competition()" >TEMPLATE</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="text-wrap">
+        <h4>BRAND</h4>
+        <p>TEMPLATE</p>
+        <!-- <button routerLink="/client/createSurvey/custom" class="btn-template">CUSTOM</button>
+        <button routerLink="/client/createSurvey/brand">TEMPLATE</button> -->
+        <button (click)="custom()" class="btn-template">CUSTOM</button>
+        <button (click)="brand()" >TEMPLATE</button>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="text-wrap">
+        <h4>COMMUNICATION</h4>
+        <p>TEMPLATE</p>
+        <!-- <button routerLink="/client/createSurvey/custom" class="btn-template">CUSTOM</button>
+        <button routerLink="/client/createSurvey/communication">TEMPLATE</button> -->
+        <button (click)="custom()" class="btn-template">CUSTOM</button>
+        <button (click)="communication()" >TEMPLATE</button>
+      </div>
+    </div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="text-wrap">
+        <h4>PRODUCT</h4>
+        <p>TEMPLATE</p>
+        <!-- <button routerLink="/client/createSurvey/custom" class="btn-template">CUSTOM</button>
+        <button routerLink="/client/createSurvey/product">TEMPLATE</button> -->
+        <button (click)="custom()" class="btn-template">CUSTOM</button>
+        <button (click)="product()" >TEMPLATE</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="Draft" class="tabcontent">
+  <p class="sub-header">The surveys that you have saved, or you were working on last are saved here for you</p>
+  <div class="row">
+    <div class="card-container col-md-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let survey of draftSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="surveyForm" autocomplete="off" style="height:100%;">
+            <div class="avatar-wrapper">
+              <input id="surveyPhotoId_draft_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+              <img class="avatar-picture image" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i, 'draft_')"
+                alt="{{survey?.name}}" onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+              <div class="middle" (click)="openFileBrowser($event, i, 'draft_')">
+                <div class="text">Change Image</div>
+              </div>
+            </div>
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-content">
+            <span title="{{ survey?.cost }}">Cost: ₹ {{ survey?.cost  }}</span>
+            <br>
+            <span title="{{ survey?.created_on | date:'medium' }}">Created:{{ survey?.created_on | date:'medium' }}</span>
+            <br>
+            <span title="{{ survey?.updated_on | date:'medium' }}">Updated:{{ survey?.updated_on | date:'medium' }}</span>
+          </div>
+          <div class="card-footer">
+            <button routerLink="/survey/{{survey?.id}}" style="width:49%;">Preview</button>
+            <button routerLink="/client/updateSurvey/update/{{survey?.id}}" style="width:49%;">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="Approval" class="tabcontent">
+  <p class="sub-header">We need to take a final approval from you on the survey that has passed through our hands and
+    sometimes with our expert recommendations</p>
+  <div class="row">
+    <div class="card-container col-md-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let survey of approvalSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="surveyForm" autocomplete="off" style="height:100%;">
+            <div class="avatar-wrapper">
+              <input id="surveyPhotoId_approval_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+              <img class="avatar-picture image" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i, 'approval_')"
+                alt="{{survey?.name}}" onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+              <div class="middle" (click)="openFileBrowser($event, i, 'approval_')">
+                <div class="text">Change Image</div>
+              </div>
+            </div>
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="amount">
+            <label class="{{survey?.status}}">{{survey?.status}}</label>
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+              <span title="{{ survey?.cost }}">Cost: ₹ {{ survey?.cost  }}</span>
+              <br>
+              <span title="{{ survey?.created_on | date:'medium' }}">Created:{{ survey?.created_on | date:'medium' }}</span>
+              <br>
+              <span title="{{ survey?.updated_on | date:'medium' }}">Updated:{{ survey?.updated_on | date:'medium' }}</span>
+            {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+          </div>
+          <div class="card-footer">
+            <button routerLink="/survey/{{survey?.id}}" style="width:49%;">Preview</button>
+            <button routerLink="/client/updateSurvey/update/{{survey?.id}}" style="width:49%;">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="Payment" class="tabcontent">
+  <p class="sub-header"></p>
+  <div class="row">
+    <div class="card-container col-md-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let survey of paymentSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="surveyForm" autocomplete="off" style="height:100%;">
+            <div class="avatar-wrapper">
+              <input id="surveyPhotoId_payment_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+              <img class="avatar-picture image" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i, 'payment_')"
+                alt="{{survey?.name}}" onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+              <div class="middle" (click)="openFileBrowser($event, i, 'payment_')">
+                <div class="text">Change Image</div>
+              </div>
+            </div>
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="amount">
+            <label class="{{survey?.status}}">{{survey?.status}}</label>
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+              <span title="{{ survey?.cost }}">Cost: ₹ {{ survey?.cost  }}</span>
+              <br>
+              <span title="{{ survey?.created_on | date:'medium' }}">Created:{{ survey?.created_on | date:'medium' }}</span>
+              <br>
+              <span title="{{ survey?.updated_on | date:'medium' }}">Updated:{{ survey?.updated_on | date:'medium' }}</span>
+            {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+          </div>
+          <div class="card-footer">
+            <button routerLink="/survey/{{survey?.id}}" style="width:49%;">Preview</button>
+            <button routerLink="/client/payment/{{survey?.id}}" style="width:49%;background: #615050;border: 1px solid #615050;float: right;">Pay
+              Now</button>
+              <!-- <button  style="width:49%;background: #615050;border: 1px solid #615050;float: right;" (click)="paySurvey(survey.id)">Pay
+                Now</button> -->
+                
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="Active" class="tabcontent">
+  <p class="sub-header"></p>
+  <div class="row">
+    <div class="card-container col-md-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let survey of activeSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="surveyForm" autocomplete="off" style="height:100%;">
+            <div class="avatar-wrapper">
+              <input id="surveyPhotoId_active_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+              <img class="avatar-picture image" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i, 'active_')"
+                alt="{{survey?.name}}" onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+              <div class="middle" (click)="openFileBrowser($event, i, 'active_')">
+                <div class="text">Change Image</div>
+              </div>
+            </div>
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="amount">
+            <label class="{{survey?.status}}">{{survey?.status}}</label>
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+              <span title="{{ survey?.cost }}">Cost: ₹ {{ survey?.cost  }}</span>
+              <br>
+              <span title="{{ survey?.created_on | date:'medium' }}">Created:{{ survey?.created_on | date:'medium' }}</span>
+              <br>
+              <span title="{{ survey?.updated_on | date:'medium' }}">Updated:{{ survey?.updated_on | date:'medium' }}</span>
+            {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+            <!-- {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }} -->
+          </div>
+          <div class="card-footer">
+            <button routerLink="/survey/{{survey?.id}}" style="width:49%;">Preview</button>
+            <button mat-raised-button (click)="inactiveConfirmation(survey)" style="width:49%;background: #615050;border: 1px solid #615050;float: right;">Mark
+              Inactive</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="Inactive" class="tabcontent">
+  <p class="sub-header"></p>
+  <div class="row">
+    <div class="card-container col-md-3 col-md-4 col-sm-6 col-xs-12" *ngFor="let survey of inActiveSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="surveyForm" autocomplete="off" style="height:100%;">
+            <div class="avatar-wrapper">
+              <input id="surveyPhotoId_active_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+              <img class="avatar-picture image" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i, 'active_')"
+                alt="{{survey?.name}}" onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+              <div class="middle" (click)="openFileBrowser($event, i, 'active_')">
+                <div class="text">Change Image</div>
+              </div>
+            </div>
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+            <div class="card-content" title="{{survey?.description}}">
+                <span title="{{ survey?.cost }}">Cost: ₹ {{ survey?.cost  }}</span>
+                <br>
+                <span title="{{ survey?.created_on | date:'medium' }}">Created:{{ survey?.created_on | date:'medium' }}</span>
+                <br>
+                <span title="{{ survey?.updated_on | date:'medium' }}">Updated:{{ survey?.updated_on | date:'medium' }}</span>
+              {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+            </div>
+          <div class="amount">
+            <label class="{{survey?.status}}">{{survey?.status}}</label>
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+            
+            <!-- {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }} -->
+          </div>
+          <div class="card-footer">
+            <button routerLink="/survey/{{survey?.id}}" style="width:99%;">Preview</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

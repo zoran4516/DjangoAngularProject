@@ -1,0 +1,340 @@
+.box {
+    color: #2d0e3c;
+  }
+  
+  
+  /** Toolkit **/
+  
+  .tool {
+    width: 100%;
+    padding: 20px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    background: #2a0e3c;
+    background: -webkit-linear-gradient(to bottom right, #2a0e3c, #711243);
+    background: linear-gradient(to bottom right, #2a0e3c, #711243);
+  }
+  
+  .tool i {
+    color: white;
+    font-size: 30px !important;
+  }
+  
+  .tool .box {
+    cursor: pointer;
+  }
+  
+  .tool .row {
+    margin: 0 auto;
+    width: 80%;
+  }
+  
+  .tool p {
+    font-size: 13px;
+    color: white;
+  }
+  
+  .tool button {
+    /* font-family: 'GoogleSans'; */
+    font-family: 'Nanum Gothic', sans-serif;
+    padding: 5px;
+    font-size: 18px;
+    color: #2a0e3c;
+    background: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: 2px solid white;
+    border-radius: 3px;
+    width: 100px;
+  }
+  
+  .tool button.save {
+    background: transparent;
+    color: white;
+    margin-left: 10px;
+  }
+  
+  /** ToolKit End **/
+  
+  /** Survey Builder Canvas **/
+  
+  input {
+    outline: none;
+    border: none;
+    background: transparent;
+  }
+  
+  .survey_builder  {
+    margin: 0 auto;
+    border-radius: 15px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.13);
+  }
+  
+  .survey_builder .header {
+    width: 100%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+    background: -webkit-linear-gradient(to bottom right, #2a0e3c, #711243);
+    background: linear-gradient(to bottom right, #2a0e3c, #711243);
+    height: 93px;
+  }
+  
+  .survey_builder .lower {
+    padding: 50px;
+  }
+  
+  .survey_builder .content {
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+  }
+  
+  .survey_builder .content #survey_header {
+    font-size: 40px;
+    width: 70%;
+    background: transparent;
+    border: none;
+    padding: 15px 5px;
+    color: white;
+  }
+  
+  .survey_builder .content #survey_description {
+    font-size: 20px;
+    width: 70%;
+    background: transparent;
+    border: none;
+    padding: 5px 5px;
+    color: white;
+  }
+  
+  .survey_builder .lower div.question {
+    width: 100%;
+    display: block;
+    margin-top: 50px;
+  }
+  
+  .survey_builder .lower .lower-question:first-child {
+    margin-top: -50px;
+  }
+  
+  .survey_builder .lower div.question .qno {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    font-weight: 500;
+    background: #e03e9233;
+    color: #2a0e3c;
+    border-radius: 5px;
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .survey_builder .lower .question .survey_question {
+    font-size: 30px;
+    color:#2a0e3c;
+    width: 90%;
+    padding: 5px 5px;
+  }
+  
+  .survey_builder .lower div.question .survey_placeholder, .survey_builder .lower .question .survey_text {
+    font-size: 20px;
+    margin-top: 10px;
+    color: #2a0e3c;
+    width: 90%;
+    padding: 3px 5px;
+  }
+  
+  .survey_builder .lower div.question .main_seg  {
+    border-bottom: 1px solid #e03e9233;
+    padding-bottom: 20px;
+  }
+  
+  .survey_builder .lower div.question .requirments {
+    margin-top: 20px;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .survey_builder .lower div.question .requirments i {
+    font-size: 30px;
+    color: #e03e92;
+    position: absolute;
+    top:-3px;
+    right: 10px;
+  }
+  
+  .req {
+    display: inline;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .del {
+    color: #2d0e3c;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .req .check {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  button.survey_add {
+    background: #e03e92;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 6px 20px;
+    border:0;
+    border-bottom: 3.5px solid #aa2469;
+    border-radius: 5px;
+  }
+  
+  .checkmark {
+    position: absolute;
+    top: -3px;
+    left: 10px;
+    height: 25px;
+    width: 25px;
+    background-color: #e03e9233;
+  }
+  
+  .req:hover .check ~ .checkmark {
+    background-color: #e03e921a;
+  }
+  
+  .req .check:checked ~ .checkmark {
+    background-color: #e03e92;
+  }
+  
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .req .check:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  .req .checkmark:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .req .box_input {
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+    color: #e03e92;
+    font-weight: bold;
+    height: 23px;
+    border: 2px solid #e03e92;
+    border-radius: 3px;
+    position: absolute;
+    top:-3px;
+    left: 10px;
+  }
+  
+  #survey_type {
+    background: #2d0e3c;
+    color: white;
+    font-weight: 700;
+    margin-top: -10px;
+    font-size: 10px;
+    cursor: default !important;
+    text-transform: uppercase;
+    padding: 6px 15px;
+    border: none;
+  }
+  
+  select {
+    border: 0;
+  }
+  
+  select:after {
+    position: absolute;
+    content: "";
+    top: 14px;
+    right: 10px;
+    width: 0;
+    background: transparent;
+    height: 0;
+    border: 6px solid transparent !important;
+    border-color: #000 transparent transparent transparent !important;
+  }
+  
+  .checkmark2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #e03e9233;
+    border-radius: 50%;
+  }
+  
+  .req:hover input ~ .checkmark2 {
+    background-color: #e03e921a;
+  }
+  
+  .req input:checked ~ .checkmark2 {
+    background-color: #e03e92;
+  }
+  
+  .checkmark2:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  .req input:checked ~ .checkmark2:after {
+    display: block;
+  }
+  
+  .req .checkmark2:after {
+    top: 9px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  /** Survey Builder Canvas End **/
+  
+  /**  space **/
+  .space {
+    width: 100%;
+    padding: 80px 0px;
+  }
+  /** Space End **/
+  
+  .disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+  
+  .box button:disabled {
+    opacity: 0.2;
+  }
+  

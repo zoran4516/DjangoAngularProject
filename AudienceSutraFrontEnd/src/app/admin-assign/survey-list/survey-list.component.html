@@ -1,0 +1,203 @@
+
+<button class="tablink" (click)="openPage('Approval', $event.target, '#e03e92')" id="approvalOpen">Pending Approval</button>
+<button class="tablink" (click)="openPage('Payment', $event.target, '#e03e92')" id="paymentOpen">Pending Payment</button>
+<button class="tablink" (click)="openPage('Active', $event.target, '#e03e92')" id="defaultOpen">Active</button>
+<button class="tablink" (click)="openPage('past', $event.target, '#e03e92')" id="defaultOpen">Past Surveys</button>
+
+<div id="Approval" class="tabcontent">
+  <div class="row">
+    <div class="card-container col-md-3 col-sm-4 col-xs-12" *ngFor="let survey of approvalSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="homeForm" autocomplete="off">
+            <input id="surveyPhotoId_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+            <img class="avatar-picture" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i)" alt="{{survey?.name}}"
+              onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="amount">
+            <label class="Pending">{{survey?.status}}</label>
+            
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+            
+            {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+          </div>
+          <div class="card-footer">
+            <div *ngIf="survey?.status == 'Pending Approval'">
+              <!-- <button mat-raised-button (click)="activeStatus(survey)">Active</button> -->
+              <button routerLink="/survey/{{survey?.id}}" style="width:49%;">Preview</button>
+              <button routerLink="/client/updateSurvey/update/{{survey?.id}}" style="width:49%;">Edit</button>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="Payment" class="tabcontent">
+  <div class="row">
+    <div class="card-container col-md-3 col-sm-4 col-xs-12" *ngFor="let survey of paymentSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="homeForm" autocomplete="off">
+            <input id="surveyPhotoId_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+            <img class="avatar-picture" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i)" alt="{{survey?.name}}"
+              onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="amount">
+            <label class="{{survey?.status}}">{{survey?.status}}</label>
+            
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+            
+            {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+          </div>
+          <div class="card-footer">
+            <div *ngIf="survey?.status == 'Approved'">
+              <!-- <button mat-raised-button style="cursor: default;">Inactive</button> -->
+              <button routerLink="/survey/{{survey?.id}}" style="width:99%;">Preview</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="Active" class="tabcontent">
+  <div class="row">
+    <div class="card-container col-md-3 col-sm-4 col-xs-12" *ngFor="let survey of activeSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="homeForm" autocomplete="off">
+            <input id="surveyPhotoId_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+            <img class="avatar-picture" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i)" alt="{{survey?.name}}"
+              onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="amount">
+            <label class="{{survey?.status}}">{{survey?.status}}</label>
+            
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+            
+            {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+          </div>
+          <div class="card-footer">   
+            
+            <div *ngIf="survey?.status == 'Active'">
+              <button routerLink="/survey/{{survey?.id}}" style="width:49%;">Preview</button>
+              <button mat-raised-button (click)="inactiveConfirmation(survey)" style="width:49%;background: #615050;border: 1px solid #615050;float: right;">Mark Inactive</button>
+            </div>
+            <div *ngIf="survey?.status == 'Paid'">
+              <button routerLink="/survey/{{survey?.id}}" style="width:49%;">Preview</button>
+              <button mat-raised-button (click)="activeConfirmation(survey)"  style="width:49%;">Active</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div id="Past" class="tabcontent">
+  <div class="row">
+    <div class="card-container col-md-3 col-sm-4 col-xs-12" *ngFor="let survey of paymentSurveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <form [formGroup]="homeForm" autocomplete="off">
+            <input id="surveyPhotoId_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+            <img class="avatar-picture" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i)" alt="{{survey?.name}}"
+              onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+          </form>
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="amount">
+            <label class="{{survey?.status}}">{{survey?.status}}</label>
+            
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+            
+            {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+          </div>
+          <div class="card-footer">
+            <div *ngIf="survey?.status == 'Approved'">
+              <!-- <button mat-raised-button style="cursor: default;">Inactive</button> -->
+              <button routerLink="/survey/{{survey?.id}}" style="width:99%;">Preview</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row">
+  <div class="col-md-12">
+    <h3 style="font-family: Verdana, sans-serif;">List of Survey</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="card-container col-md-3 col-sm-4 col-xs-12" *ngFor="let survey of surveys; let i=index">
+    <div class="card">
+      <div class="image-container">
+        <form [formGroup]="homeForm" autocomplete="off">
+          <input id="surveyPhotoId_{{i}}" class="hide" type="file" (change)="onFileChange($event, survey)">
+          <img class="avatar-picture" src="{{survey?.survey_img}}" (click)="openFileBrowser($event, i)" alt="{{survey?.name}}"
+            onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+        </form>
+        <div class="title" title="{{survey?.name}}">
+          {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="amount">
+          <label class="{{survey?.status}}">{{survey?.status}}</label>
+          
+        </div>
+        <div class="card-content" title="{{survey?.description}}">
+          
+          {{ (survey?.description?.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+        </div>
+        <div class="card-footer">
+          <div *ngIf="survey?.status == 'Draft'">
+            <button mat-raised-button (click)="activeStatus(survey)">Active</button>
+            <button routerLink="/survey/{{survey?.id}}">Preview</button>
+            <button routerLink="/client/updateSurvey/update/{{survey?.id}}">Edit</button>
+
+          </div>
+
+          <div *ngIf="survey?.status == 'Active'">
+            <button mat-raised-button (click)="activeStatus(survey)">Inactive</button>
+            <button routerLink="/survey/{{survey?.id}}" style="width:60%;">Preview</button>
+          </div>
+
+          <div *ngIf="survey?.status == 'Inactive'">
+            <button mat-raised-button style="cursor: default;">Inactive</button>
+            <button routerLink="/survey/{{survey?.id}}" style="width:60%;">Preview</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

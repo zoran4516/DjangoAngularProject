@@ -1,0 +1,153 @@
+<div class="question" [formGroup]="group" data-type="short" data-set="textSet">
+  <a class="delete-question" *ngIf="main == true" href="javascript: void(0);">
+    <i class="material-icons survey_q_delete" (click)="removeQuestion(parentGroup, index)">close</i>
+  </a>
+  <div class="row">
+    <div class="col-lg-1">
+      <div class="box">
+        <div class="qno" id="survey_qno">
+          {{ index+1 }}
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-11 main_seg">
+      <div class="box">
+        <input type="text" class="survey_question" placeholder="Question Here" [formControlName]="'text'">
+        <br>
+        <input type="text" class="survey_placeholder" placeholder="Placeholder Here" [formControlName]="'placeholder'">
+      </div>
+    </div>
+  </div>
+
+  <div class="row requirments end-lg">
+    <div class="col-lg-2 start-lg">
+      <button id="survey_type">Short Answer</button>
+      <br>
+      <div class="box">
+        Required
+        <label class="req">
+          <input type="checkbox" class="check survey_required" checked [formControlName]="'required'">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="box" *ngIf="is_admin == true">
+        Admin Question
+        <label class="req">
+          <input type="checkbox" class="check survey_required" [formControlName]="'admin_question'">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="box">
+        Max Length
+        <label class="req">
+          <input type="number" class="box_input survey_max" placeholder="200" [formControlName]="'max'">
+        </label>
+      </div>
+      <div class="box">
+        Min Length
+        <label class="req">
+          <input type="number" class="box_input survey_min" placeholder="0" [formControlName]="'min'">
+        </label>
+      </div>
+    </div>
+    <div class="col-lg-5 start-lg">
+      <div class="box">
+        <label>Dependent Question</label>
+        <div *ngIf="main == true">
+          <select class="survey_placeholder" (change)="updateSpecial($event.target.value)" [formControlName]="'dependentQuestion'"
+            style="width: 100%;font-size: 15px;font-weight: normal;">
+            <option *ngIf="group.get('dependentQuestion').value == ''">Dependent Question</option>
+            <option *ngFor="let x of generateArray(index)" [selected]="group.get('dependentQuestion').value == x.index">{{x.index}}- {{x.question}}</option>
+          </select>
+          <a href="javascript: void(0);" class="dependent-help" style="padding-left: 10px;" (click)="showDependentHelp(index)">help ?
+          </a>
+          <div class="intro" style="position: relative;top: 30px;right:50px;display: none" id="dependent-intro-{{index}}">
+            <div class="arrow_box">
+              <div class="inside">
+                <i class="material-icons small" (click)="showDependentHelp(index)">close</i>
+                Dependent Questions are usually asked when respondent will select that particular option from selected question.
+                <br>This means you can specify the question number and then select those options which will lead him to this
+                question
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let x of another; let j = index">
+            <div class="opt">
+              <label class="req">
+                <input class="check survey_required" type="checkbox" value="{{x}}" (change)="checkbox(x)" [checked]="checkboxStatus(j, x)">
+                <span class="checkmark"></span>
+              </label>
+              <input class="survey_placeholder" value="{{x}}" type="text" disabled style="margin-left: 10px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5 start-lg">
+      <!-- <div class="box">
+        <label>Tricky Question</label>
+        <div *ngIf="main == true">
+          <select class="survey_placeholder" (change)="updateSpecial($event.target.value)" [formControlName]="'dependentQuestion'"
+            style="width: 100%;font-size: 15px;font-weight: normal;">
+            <option *ngIf="group.get('dependentQuestion').value == ''">Dependent Question</option>
+            <option *ngFor="let x of generateArray(index)" [selected]="group.get('dependentQuestion').value == x.index">{{x.index}}- {{x.question}}</option>
+          </select>
+          <a href="javascript: void(0);" class="dependent-help" style="padding-left: 10px;" (click)="showDependentHelp(index)">help ?
+          </a>
+          <div class="intro" style="position: relative;top: 30px;right:50px;display: none" id="dependent-intro-{{index}}">
+            <div class="arrow_box">
+              <div class="inside">
+                <i class="material-icons small">close</i>
+                <div class="col-lg-5 start-lg">
+                  <div class="box">
+                    <label>Dependent Question</label>
+                    <div *ngIf="main == true">
+                      <select class="survey_placeholder" (change)="updateSpecial($event.target.value)" [formControlName]="'dependentQuestion'"
+                        style="width: 100%;font-size: 15px;font-weight: normal;">
+                        <option *ngIf="group.get('dependentQuestion').value == ''">Dependent Question</option>
+                        <option *ngFor="let x of generateArray(index)" [selected]="group.get('dependentQuestion').value == x.index">{{x.index}}- {{x.question}}</option>
+                      </select>
+                      <a href="javascript: void(0);" class="dependent-help" style="padding-left: 10px;" (click)="showDependentHelp(index)">help ?
+                      </a>
+                      <div class="intro" style="position: relative;top: 30px;right:50px;display: none" id="dependent-intro-{{index}}">
+                        <div class="arrow_box">
+                          <div class="inside">
+                            <i class="material-icons small">close</i>
+                            Dependent Questions are usually asked when respondent will select that particular option from selected question.
+                            <br>This means you can specify the question number and then select those options which will lead
+                            him to this question
+                          </div>
+                        </div>
+                      </div>
+                      <div *ngFor="let x of another; let j = index">
+                        <div class="opt">
+                          <label class="req">
+                            <input class="check survey_required" type="checkbox" value="{{x}}" (change)="checkbox(x)" [checked]="checkboxStatus(j, x)">
+                            <span class="checkmark"></span>
+                          </label>
+                          <input class="survey_placeholder" value="{{x}}" type="text" disabled style="margin-left: 10px;">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                Dependent Questions are usually asked when respondent will select that particular option from selected question.
+                <br>This means you can specify the question number and then select those options which will lead him to this
+                question
+              </div>
+            </div>
+          </div>
+          <div *ngFor="let x of another; let j = index">
+            <div class="opt">
+              <label class="req">
+                <input class="check survey_required" type="checkbox" value="{{x}}" (change)="checkbox(x)" [checked]="checkboxStatus(j, x)">
+                <span class="checkmark"></span>
+              </label>
+              <input class="survey_placeholder" value="{{x}}" type="text" disabled style="margin-left: 10px;">
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>

@@ -1,0 +1,30 @@
+<div class="panel panel-default" *ngFor="let client of clients">
+  <div class="panel-heading">{{client?.first_name}} {{client?.middle_name}} {{client?.last_name}}</div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="card-container col-md-3 col-sm-4 col-xs-12" *ngFor="let survey of client.surveys; let i=index">
+        <div class="card">
+          <div class="image-container">
+            <img id="imgSrc_{{i}}" class="avatar-picture" src="{{survey?.survey_img}}" alt="{{survey?.name}}" onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+            <div class="title" title="{{survey?.name}}">
+              {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="amount">
+              <label class="{{survey?.status}}">{{survey?.status}}</label>
+              <!-- <label style="float:right;">$200.00</label> -->
+            </div>
+            <div class="card-content" title="{{survey?.description}}">
+              {{ (survey?.description.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+            </div>
+            <div class="card-footer">
+              <button routerLink="/super/survey/assign/{{survey?.id}}" style="width:45%;">Assign Survey</button>
+              <button routerLink="/survey/{{survey.id}}" style="width:45%;">View Detail</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

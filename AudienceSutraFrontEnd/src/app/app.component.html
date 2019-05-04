@@ -1,0 +1,192 @@
+<nav class="navbar navbar-default  navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class=" col-xs-2 col-sm-4 col-md-4"></div>
+            <div class=" col-xs-6 col-sm-4 col-md-4">
+                <a *ngIf="userInfo?.user_type == 'Client' && userInfo?.super_user == false" href="/"
+                    class="logo navbar-brand">
+                    <img src="/static/angular/assets/img/logo1.png" class="inner-logo">
+                </a>
+                <a *ngIf="userInfo?.user_type == 'Respondent' && userInfo?.super_user == false" href="/"
+                    class="logo navbar-brand">
+                    <img src="/static/angular/assets/img/logo1.png" class="inner-logo">
+                </a>
+                <a *ngIf="userInfo?.super_user == true" href="/" class="logo navbar-brand">
+                    <img src="/static/angular/assets/img/logo1.png" class="inner-logo">
+                </a>
+
+                <!-- <a class="logo navbar-brand">
+                    <img (click)="goBack()" style="cursor: pointer;" src="/static/angular/assets/img/ASlogo.png">
+                </a> -->
+            </div>
+            <div class=" col-xs-4 col-sm-4 col-md-4">
+                <ul class="nav navbar-nav navbar-right" style="margin:4% auto 0;padding: 0;width: auto;">
+                    <li class="dropdown">
+                        <span style=" display:inline-block; vertical-align: top;">
+                            <img class="avatar-picture" src="{{userInfo?.profile_pic}}"
+                                onerror="this.src='/static/angular/assets/profile.jpg';" (click)="changeImage()"></span>
+
+                        <span style="display:inline-block; padding: 10px 0;">
+                            <span
+                                style="display:block;font-size: 18px;color: #2a0e3c;font-weight: bold; cursor: pointer;"
+                                (click)="changeImage()">{{userInfo?.first_name}}
+                                {{userInfo?.last_name}}</span>
+                            <span
+                                style="display:block;font-size: 12px;color: #b9b9b9;font-weight: bold;">{{userInfo?.designation}}</span>
+                        </span>
+                    </li>
+                    <li class="log-out">
+                        <!-- <a style="display:block; padding: 0 20px;" href='/accounts/logout/'> -->
+                        <!-- <i class="material-icons" style="font-size: 30px;line-height: 60px;">
+                                lock
+                            </i> -->
+
+                        <!-- </a> -->
+                        <a class="btn btn-logout" (click)="confirmLogout()"
+                            style="font-size: 16px;line-height: 13px;">SignOut</a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class=" col-xs-2 col-sm-1 col-md-1 col-sidebar">
+            <div id="mySidenav" class="sidenav">
+                <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+                <ul *ngIf="userInfo?.user_type == 'Client' && userInfo?.super_user == false" class="side_menu">
+                    <li>
+                        <!-- <a [routerLink]="'/client/profile'" class="active"> -->
+                        <a [routerLink]="'/client/profile'" [ngClass]="{'active': id === 1 }" id="1"
+                            (click)="addClass(id=1)">
+                            <i class="material-icons">home</i>
+                            <p>My Surveys</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="changeImage()" style="cursor:pointer" [ngClass]="{'active': id === 2 }" id="2"
+                            (click)="addClass(id=2)">
+                            <!-- <a [routerLink]="'/client/my-details/'"> -->
+                            <i class="material-icons">person</i>
+                            <p>Profile Details</p>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a [routerLink]="'/client/active'">
+                            <i class="material-icons">receipt</i>
+                            <p _ngcontent-c4="">ACTIVE<br>SURVEY</p>
+                        </a>
+                    </li> -->
+                    <li>
+                        <a [routerLink]="'/client/visual/dashboard'" [ngClass]="{'active': id === 3 }" id="3"
+                            (click)="addClass(id=3)">
+                            <i class="material-icons">receipt</i>
+                            <p _ngcontent-c4="">Data Viz</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="'/feedback'" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
+                            <i class="material-icons">feedback</i>
+                            <p>feedback</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [ngClass]="{'active': id === 5 }" id="5" (click)="addClass(id=5)">
+                            <i class="material-icons">help</i>
+                            <p>help</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul *ngIf="userInfo?.user_type == 'Respondent' && userInfo?.super_user == false" class="side_menu">
+                    <li>
+                        <a [routerLink]="'respondent/profile'" [ngClass]="{'active': id === 1 }" id="1"
+                            (click)="addClass(id=1)">
+                            <i class="material-icons">home</i>
+                            <p>home</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="'respondent/point'" (click)="activeClass($event)"
+                            [ngClass]="{'active': id === 2 }" id="2" (click)="addClass(id=2)">
+                            <i class="material-icons">receipt</i>
+                            <p _ngcontent-c4="">Credit<br>Point</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="changeImage()" style="cursor:pointer" [ngClass]="{'active': id === 5 }" id="5"
+                            (click)="addClass(id=5)">
+                            <i class="material-icons">person</i>
+                            <p>Profile Details</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="'/feedback'" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
+                            <i class="material-icons">feedback</i>
+                            <p>feedback</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
+                            <i class="material-icons">help</i>
+                            <p>help</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <ul *ngIf="userInfo?.super_user == true" class="side_menu">
+                    <li>
+                        <a [routerLink]="'/super/survey/list'" [ngClass]="{'active': id === 1 }" id="1"
+                            (click)="addClass(id=1)">
+                            <i class="material-icons">home</i>
+                            <p>All surveys</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a (click)="changeImage()" style="cursor:pointer" [ngClass]="{'active': id === 2 }" id="2"
+                            (click)="addClass(id=2)">
+                            <i class="material-icons">person</i>
+                            <p>Profile Details</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="'/super/survey/report'" [ngClass]="{'active': id === 3}" id="3"
+                            (click)="addClass(id=3)">
+                            <i class="material-icons">file_copy</i>
+                            <p>Reports</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a [routerLink]="'/super/client/survey/list'" [ngClass]="{'active': id === 4 }" id="4"
+                            (click)="addClass(id=4)">
+                            <i class="material-icons">receipt</i>
+                            <p>Assign<br>Survey</p>
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="javascript:void(0);" [ngClass]="{'active': id === 3 }" id="3" (click)="addClass(id=3)">
+                            <i class="material-icons">feedback</i>
+                            <p>feedback</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" [ngClass]="{'active': id === 4 }" id="4" (click)="addClass(id=4)">
+                            <i class="material-icons">help</i>
+                            <p>help</p>
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="col-xs-10 col-sm-11 col-md-11">
+            <div id="main">
+                <router-outlet></router-outlet>
+            </div>
+
+        </div>
+    </div>
+</div>

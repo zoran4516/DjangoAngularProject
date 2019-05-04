@@ -1,0 +1,617 @@
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Http} from '@angular/http';
+import {ActivatedRoute, Params} from "@angular/router";
+import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {c} from "@angular/core/src/render3";
+
+@Component({
+  selector: 'app-respond-to-survey',
+  templateUrl: './respond-to-survey.component.html',
+  styleUrls: ['./respond-to-survey.component.css'],
+  encapsulation: ViewEncapsulation.None,
+})
+export class RespondToSurveyComponent implements OnInit {
+
+  question = '';
+  count = -1;
+
+  survey: any;
+  randomText = '';
+  surveyId: number;
+  questions: any;
+  surveyResponseJSON: any;
+  responseId: number;
+  userId: number;
+  totalQuestion: number;
+  questionNumber = 0;
+  main = true;
+  tabNumber = -1;
+  tabCount = -1;
+  complete = false;
+  countStore = 0;
+  tabCountStack = [];
+  tabNumberStack = [];
+  previousQuestionStack = [];
+
+  constructor(private http: Http,
+              private route: ActivatedRoute,
+              private fb: FormBuilder) {
+    this.survey = [];
+    this.surveyId = this.route.snapshot.params['surveyId'];
+    this.route.params.subscribe((params: Params) => {
+      this.surveyId = params['surveyId'];
+    });
+    this.userId = this.route.snapshot.params['id'];
+    this.route.params.subscribe((params: Params) => {
+      this.userId = params['id'];
+    });
+    this.surveyResponseJSON = [];
+    console.log(this.userId);
+  }
+
+  ngOnInit() {
+    // this.http.get('http://127.0.0.1:8000/api/survey/' + this.surveyId.toString() + '/').subscribe(
+    //   (response) => {
+    //     this.survey = this.survey.surveyQuestions[0];
+    //     console.log(this.survey);
+    //   },
+    //   (error) => console.log(error)
+    // );
+    this.survey = {
+      "name": "Sample Name",
+      "description": "Sample Description",
+      "isPublished": "False",
+      "needLoggedUser": "False",
+      "displayByQuestion": "False",
+      "surveyQuestions": [
+        {
+          "id": 1,
+          "type": "radio",
+          "text": "What is your Age ?",
+          "choices": "1-10,10-20,20-30",
+          "tabNames": "1,2,3",
+          "required": true,
+          "tag": "radio",
+          "setTyle": "optionSet",
+          "survey": "null",
+          "order": "1",
+          "dependentQuestion": "",
+          "dependentOption": ""
+        },
+        {
+          "id": 2,
+          "type": "short",
+          "name": "",
+          "text": "Any more suggestion ?",
+          "required": true,
+          "placeholder": "Your Answer",
+          "max": "200",
+          "min": "0",
+          "tag": "short",
+          "setType": "textSet",
+          "dependentQuestion": "",
+          "dependentOption": ""
+        }
+      ],
+      "tabs": [
+        {
+          "questions": [
+            {
+              "id": 3,
+              "type": "para",
+              "name": "",
+              "text": "Do you like toys ?",
+              "required": true,
+              "placeholder": "Answer",
+              "max": "200",
+              "min": "0",
+              "tag": "para",
+              "setType": "textSet",
+              "dependentQuestion": "",
+              "dependentOption": ""
+            }
+          ],
+          end: false
+        },
+        {
+          "questions": [
+            {
+              "id": 4,
+              "type": "para",
+              "name": "",
+              "text": "Do you like Books ?",
+              "required": true,
+              "placeholder": "More Answer",
+              "max": "200",
+              "min": "0",
+              "tag": "para",
+              "setType": "textSet",
+              "dependentQuestion": "",
+              "dependentOption": ""
+            },
+            {
+              "id": 5,
+              "type": "para",
+              "name": "",
+              "text": "What type of Books Like ?",
+              "required": true,
+              "placeholder": "Tell me ...",
+              "max": "200",
+              "min": "0",
+              "tag": "para",
+              "setType": "textSet",
+              "dependentQuestion": "",
+              "dependentOption": ""
+            }
+          ],
+          end: false,
+        },
+        {
+          "questions": [
+            {
+              "id": 6,
+              "type": "para",
+              "name": "",
+              "text": "Do you like Money ?",
+              "required": true,
+              "placeholder": "Obviously ?",
+              "max": "200",
+              "min": "0",
+              "tag": "para",
+              "setType": "textSet",
+              "dependentQuestion": "",
+              "dependentOption": ""
+            }
+          ],
+          end: true
+        },
+      ]
+    };
+    // this.http.get('http://127.0.0.1:8000/api/survey_question/' + this.surveyId.toString() + '/').subscribe(
+    //   (response) => {
+    for (let i = 0; i < this.survey.surveyQuestions.length; i++) {
+      let id = this.survey.surveyQuestions[i].id;
+      if (this.survey.surveyQuestions[i].type === 'short') {
+        this.surveyResponseJSON.push({
+          'question': id,
+          'response': '',
+          'body': '',
+        });
+      } else if (this.survey.surveyQuestions[i].type === 'para') {
+        this.surveyResponseJSON.push({
+          'question': id,
+          'response': '',
+          'body': '',
+        });
+      } else if (this.survey.surveyQuestions[i].type === 'integer') {
+        this.surveyResponseJSON.push({
+          'question': id,
+          'response': '',
+          'body': '',
+        });
+      } else if (this.survey.surveyQuestions[i].type === 'checkbox') {
+        this.surveyResponseJSON.push({
+          'question': id,
+          'response': '',
+          'body': '',
+        });
+      } else if (this.survey.surveyQuestions[i].type === 'radio') {
+        this.surveyResponseJSON.push({
+          'question': id,
+          'response': '',
+          'body': '',
+        });
+      } else if (this.survey.surveyQuestions[i].type === 'dropbox') {
+        this.surveyResponseJSON.push({
+          'question': id,
+          'response': '',
+          'body': '',
+        });
+      } else if (this.survey.surveyQuestions[i].type === 'date') {
+        this.surveyResponseJSON.push({
+          'question': id,
+          'response': '',
+          'body': '',
+        });
+      } else if (this.survey.surveyQuestions[i].type === 'time') {
+        this.surveyResponseJSON.push({
+          'question': id,
+          'response': '',
+          'body': '',
+        });
+      }
+      console.log(i);
+    }
+    this.totalQuestion = this.surveyResponseJSON.length;
+    console.log(this.survey.surveyQuestions);
+    console.log('finished');
+    console.log(this.surveyResponseJSON);
+    this.questions = this.survey.surveyQuestions;
+    //   },
+    //   (error) => console.log(error)
+    // );
+  }
+
+  updateShort(id, value) {
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.surveyResponseJSON[i]['question'] === id) {
+        this.surveyResponseJSON[i]['body'] = value;
+        break;
+      }
+    }
+  }
+
+  updatePara(id, value) {
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.surveyResponseJSON[i]['question'] === id) {
+        this.surveyResponseJSON[i]['body'] = value;
+        break;
+      }
+    }
+  }
+
+  updateNumber(id, value) {
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.surveyResponseJSON[i]['question'] === id) {
+        this.surveyResponseJSON[i]['body'] = value;
+        break;
+      }
+    }
+  }
+
+  updateCheckbox(id, value, j) {
+    console.log(value);
+    let choices = '';
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.questions[i]['id'] === id) {
+        choices = this.questions[i]['choices'].split(',')[j];
+        break;
+      }
+    }
+    if (value === true) {
+      for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+        if (this.surveyResponseJSON[i]['question'] === id) {
+          if (this.surveyResponseJSON[i]['body'] === '') {
+            this.surveyResponseJSON[i]['body'] = this.surveyResponseJSON[i]['body'] + choices;
+          } else {
+            this.surveyResponseJSON[i]['body'] = this.surveyResponseJSON[i]['body'] + ',' + choices;
+          }
+          break;
+        }
+      }
+    } else {
+      for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+        if (this.surveyResponseJSON[i]['question'] === id) {
+          this.surveyResponseJSON[i]['body'] = this.surveyResponseJSON[i]['body'].replace(choices, '');
+          this.surveyResponseJSON[i]['body'] = this.surveyResponseJSON[i]['body'].replace(',,', '');
+          break;
+        }
+      }
+    }
+  }
+
+  updateRadio(id, value) {
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.surveyResponseJSON[i]['question'] === id) {
+        this.surveyResponseJSON[i]['body'] = value;
+        break;
+      }
+    }
+  }
+
+  updateDropbox(id, value) {
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.surveyResponseJSON[i]['question'] === id) {
+        this.surveyResponseJSON[i]['body'] = value;
+        break;
+      }
+    }
+  }
+
+  updateDate(id, value) {
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.surveyResponseJSON[i]['question'] === id) {
+        this.surveyResponseJSON[i]['body'] = value;
+        break;
+      }
+    }
+  }
+
+  updateTime(id, value) {
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.surveyResponseJSON[i]['question'] === id) {
+        this.surveyResponseJSON[i]['body'] = value;
+        break;
+      }
+    }
+  }
+
+  submitResponse() {
+    this.http.post('http://127.0.0.1:8000/api/response/', {'survey': this.surveyId, 'user': this.userId}).subscribe(
+      (response) => {
+        console.log('\nResponse is: ' + this.survey.surveyQuestions.id);
+        this.responseId = this.survey.surveyQuestions.id;
+        this.surveyResponseJSON.forEach((answer) => {
+          answer.response = this.responseId;
+          this.http.post('http://127.0.0.1:8000/api/answer/', answer).subscribe(
+            (res) => {
+              console.log('\nResponse is: ' + res.json().id);
+            },
+            (error) => console.log(error)
+          );
+        });
+      },
+      (error) => console.log(error)
+    );
+
+  }
+
+  nextQuestion() {
+    this.previousQuestionStack.push(this.question);
+
+    this.questionNumber += 1;
+    if (this.count >= 0) {
+      // When question is responded do what ?
+
+      // Check if we need to jump from main?
+      if (this.main == true && this.checkTabsValidity(this.questions[this.count], this.surveyResponseJSON[this.count])) {
+        this.tabCount += 1;
+        this.count = this.tabCount;
+        this.question = this.survey.tabs[this.tabNumber].questions[this.tabCount];
+        return;
+      } else if (this.main == false && this.checkTabsValidity(this.survey.tabs[this.tabNumber].questions[this.tabCount],
+        this.getResponse(this.survey.tabs[this.tabNumber].questions[this.tabCount].id))) {
+        // Multiple Tab Situation
+        this.tabCount += 1;
+        this.count = this.tabCount;
+        this.question = this.survey.tabs[this.tabNumber].questions[this.tabCount];
+      } else {
+        // No, then before moving ahead check if this is the end ?
+
+        // Check for tab first
+        console.log('end tab ', this.tabCount, '<', this.survey.tabs[this.tabNumber].questions.length - 1);
+        if (this.main == false && this.tabCount == this.survey.tabs[this.tabNumber].questions.length - 1) {
+          // Do we need to complete ?
+          if (this.survey.tabs[this.tabNumber].end == true) {
+            this.complete = true;
+            return
+          } else {
+            // Is this inception ?
+            if (this.tabNumberStack.length > 0) {
+              // Yes, then come back
+              this.tabNumber = this.tabNumberStack.pop();
+              this.tabCount = this.tabCountStack.pop();
+            } else {
+              // No movie shit, get back to main
+              this.main = true;
+              this.count = this.countStore;
+            }
+          }
+        } else {
+          // Check for main now
+          if (this.main == true && this.count == this.totalQuestion - 1) {
+            this.complete = true;
+            return
+          }
+        }
+      }
+
+
+      // No end ? Now Move ahead / Tab found = Move ahead
+      // Is it tab ?
+      if (!this.main) {
+        this.tabCount += 1;
+        this.count = this.tabCount;
+
+        this.question = this.survey.tabs[this.tabNumber].questions[this.count];
+        // Is dependent criteria is true or not ?
+        let status = !this.checkDependentValidity(this.question, 'tabs');
+        while (status && this.tabCount < this.survey.tabs[this.tabNumber].questions.length) {
+          this.tabCount += 1;
+          this.question = this.survey.tabs[this.tabNumber].questions[this.count];
+          status = !this.checkDependentValidity(this.question, 'tabs');
+        }
+
+        // Did we reach the end because of dependent criteria fail ?
+        if (this.tabCount == this.survey.tabs[this.tabNumber].questions.length) {
+          this.complete = true;
+          return
+        }
+      } else {
+        this.count += 1;
+
+        // Is dependent criteria is true or not ?
+        this.question = this.questions[this.count];
+        let status = !this.checkDependentValidity(this.question, 'main');
+        while (status && this.count < this.totalQuestion) {
+          this.count += 1;
+          this.question = this.questions[this.count];
+          status = !this.checkDependentValidity(this.question, 'main');
+        }
+
+        // Is this the end because of dependent criteria fail ?
+        if (this.count == this.totalQuestion) {
+          this.complete = true;
+          return
+        }
+      }
+
+    } else {
+      // First question, come come
+      this.count += 1;
+      this.question = this.questions[this.count];
+    }
+  }
+
+  newQuestion() {
+    this.questionNumber += 1;
+    if (this.count >= 0) {
+      if (!this.main || this.checkTabsValidity(this.questions[this.count], this.surveyResponseJSON[this.count])) {
+        this.tabCount += 1;
+        console.log(this.tabNumber, this.survey.tabs);
+        this.question = this.survey.tabs[this.tabNumber].questions[this.tabCount];
+        if (this.tabCount > 0) {
+          let status = !this.checkDependentValidity(this.question, 'tabs');
+          while (status && this.tabCount < this.survey.tabs[this.tabNumber].questions.length) {
+            this.tabCount += 1;
+            this.question = this.survey.tabs[this.tabNumber].questions[this.count];
+            status = !this.checkDependentValidity(this.question, 'tabs');
+          }
+        }
+      } else {
+        this.count += 1;
+        this.question = this.questions[this.count];
+        let status = !this.checkDependentValidity(this.question, 'main');
+        while (status && this.count < this.totalQuestion) {
+          this.count += 1;
+          this.question = this.questions[this.count];
+          status = !this.checkDependentValidity(this.question, 'main');
+        }
+      }
+    } else {
+      this.count += 1;
+      this.question = this.questions[this.count];
+    }
+
+  }
+
+  checkTabsValidity(data, response) {
+    console.log('checking tab');
+    if (data.type == 'radio' || data.type == 'dropbox') {
+      console.log(data.tabNames.split(',')[data.choices.split(',').indexOf(response.body)]);
+      if (data.tabNames[data.choices.split(',').indexOf(response.body)] != '') {
+
+        if (this.main == true) {
+          this.countStore = this.count;
+        }
+        this.main = false;
+        if (this.tabCount != -1) {
+          this.tabCountStack.push(this.tabCount);
+        }
+        if (this.tabNumber != -1) {
+          this.tabNumberStack.push(this.tabNumber);
+        }
+        this.tabCount = -1;
+        this.tabNumber = parseInt(data.tabNames.split(',')[data.choices.split(',').indexOf(response.body)]);
+        this.tabNumber -= 1;
+        this.updateResponse(this.tabNumber);
+        return true;
+      }
+    } else {
+      return false;
+    }
+  }
+
+  checkDependentValidity(data, type) {
+    if (data.dependentQuestion == '' || data.dependentQuestion == undefined) {
+      console.log('this');
+      return true;
+    } else {
+
+      if (type == 'main') {
+        if (this.surveyResponseJSON[data.dependentQuestion - 1].body == data.dependentOption || this.surveyResponseJSON[data.dependentQuestion - 1].body == '') {
+          console.log('that');
+          return true;
+        } else {
+          console.log('them');
+          return false;
+        }
+      } else {
+        const surveyResponseTabs = this.getResponse(data.id);
+        if (surveyResponseTabs[data.dependentQuestion - 1].body == data.dependentOption || surveyResponseTabs[data.dependentQuestion - 1].body == '') {
+          console.log('that');
+          return true;
+        } else {
+          console.log('them');
+          return false;
+        }
+      }
+    }
+  }
+
+  finish() {
+  }
+
+  previousQuestion() {
+    // this.questionNumber += 1;
+    // this.count -= 1;
+    // let temp = this.questions[this.count];
+    // if (this.count >= 0) {
+    //   let status = !this.checkDependentValidity(temp);
+    //   while (status && this.count > 0) {
+    //     this.count -= 1;
+    //     temp = this.questions[this.count];
+    //     status = !this.checkDependentValidity(this.question);
+    //   }
+    //   this.question = temp;
+    // }
+    this.complete = false;
+    this.questionNumber -= 1;
+    this.question = this.previousQuestionStack.pop();
+    console.log(this.question);
+  }
+
+  updateResponse(j) {
+      for (let i = 0; i < this.survey.tabs[j].questions.length; i++) {
+        let id = this.survey.tabs[j].questions[i].id;
+        if (this.survey.tabs[j].questions[i].type === 'short') {
+          this.surveyResponseJSON.push({
+            'question': id,
+            'response': '',
+            'body': '',
+          });
+        } else if (this.survey.tabs[j].questions[i].type === 'para') {
+          this.surveyResponseJSON.push({
+            'question': id,
+            'response': '',
+            'body': '',
+          });
+        } else if (this.survey.tabs[j].questions[i].type === 'integer') {
+          this.surveyResponseJSON.push({
+            'question': id,
+            'response': '',
+            'body': '',
+          });
+        } else if (this.survey.tabs[j].questions[i].type === 'checkbox') {
+          this.surveyResponseJSON.push({
+            'question': id,
+            'response': '',
+            'body': '',
+          });
+        } else if (this.survey.tabs[j].questions[i].type === 'radio') {
+          this.surveyResponseJSON.push({
+            'question': id,
+            'response': '',
+            'body': '',
+          });
+        } else if (this.survey.tabs[j].questions[i].type === 'dropbox') {
+          this.surveyResponseJSON.push({
+            'question': id,
+            'response': '',
+            'body': '',
+          });
+        } else if (this.survey.tabs[j].questions[i].type === 'date') {
+          this.surveyResponseJSON.push({
+            'question': id,
+            'response': '',
+            'body': '',
+          });
+        } else if (this.survey.tabs[j].questions[i].type === 'time') {
+          this.surveyResponseJSON.push({
+            'question': id,
+            'response': '',
+            'body': '',
+          });
+        }
+      }
+    }
+
+    getResponse(id) {
+    for (let i = 0; i < this.surveyResponseJSON.length; i++) {
+      if (this.surveyResponseJSON[i].question == id) {
+        return this.surveyResponseJSON[i];
+      }
+    }
+    }
+
+}

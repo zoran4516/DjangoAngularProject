@@ -1,0 +1,50 @@
+<div style="font-family: Verdana, sans-serif;padding: 2% 5%;border: 2px solid #711243;width: 68%;margin: 0 auto;background: white;border-radius: 15px;-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.13);box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.13);">
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3 style="font-size: 40px;
+      background: transparent;
+      border: none;
+      text-align: center;">Respondent
+        Profile</h3>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-md-12" style="margin-bottom: 6%;">
+      <h3 style="margin: 3% 0;">{{survey?.question_desc}}</h3>
+      <p>{{survey?.answer_desc}}</p>
+    </div>
+  </div> -->
+
+  <div class="question">
+    <div class="row" *ngFor="let question of profile; let i =index;">
+      <div class="col-lg-1">
+        <div class="box">
+          <div class="qno" id="survey_qno" style="width: 50px;height: 50px;font-size: 25px;font-weight: 500;background: #e03e9233;color: #2a0e3c;border-radius: 5px;display: -webkit-box;display: -ms-flexbox;display: flex;cursor: pointer;-webkit-box-align: center;-ms-flex-align: center;align-items: center;-webkit-box-pack: center;-ms-flex-pack: center;justify-content: center;">
+            {{i+1}}
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-11 main_seg">
+        <div class="box">
+          <p style="font-size: 30px;color: #2a0e3c;width: 90%;padding: 5px 5px;">{{question?.question_desc}}</p>
+          <label style="font-size: 20px;margin-top: 10px;color: #2a0e3c;width: 45%;padding: 3px 5px;">
+                  
+            {{question?.answer_desc}}</label>
+          <!-- <div class="option_sets">
+            <div class="option_set">
+              <div class="form-group" *ngFor="let option of question?.choices; let ind = index">
+                <label style="font-size: 20px;margin-top: 10px;color: #2a0e3c;width: 45%;padding: 3px 5px;">
+                  
+                  {{option}}</label>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

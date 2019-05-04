@@ -1,0 +1,80 @@
+<div class="row login">
+  <div class="col-lg-7 login-img">
+    <div class="box flex">
+      <img src="static/angular/assets/img/ASlogo-white.png">
+    </div>
+    <div class="sideCut"></div>
+  </div>
+  <div class="col-lg-5 col-sm-12 col-xs-12 center-lg" style="position: relative;">
+    <div class="box flex">
+      <div class="main-wrap">
+        <div class="wrap">
+          <img src="static/angular/assets/img/logo1.png">
+          <form [formGroup]="respondentProfile">
+            <!-- add new input as per requirment -->
+
+            <div class="part">
+              <div class="row">
+                <div class="col-lg-11  center-lg">
+                  <div class="box">
+                    <input type="text" placeholder="Email" formControlName="email">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="part">
+              <div class="row">
+                <div class="col-lg-11  center-lg">
+                  <div class="box">
+                    <input type="password" placeholder="Password" formControlName="password">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="part">
+              <div class="row">
+                <div class="col-lg-11  center-lg">
+                  <div class="box">
+                    <input type="password" placeholder="Confirm Password" formControlName="confirm_password">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="button-center">
+              <input type="submit" class="submit" value="LOGIN" (click)="submit()">
+              <br>
+              <p>Already have account - <a href="login.html">Login</a></p>
+            </div>
+          </form>
+          <p>JSON Output (Need to remove)</p>
+          <div>
+            <pre><code>{{ respondentProfile?.value | json }}</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; AudienceSutra 2018-19</p>
+    </div>
+  </div>
+</div>
+
+<a href="#">
+  <img src="static/angular/assets/img/home.png" class="home">
+</a>
+
+<script>
+  var check = 0;
+  setInterval(function(){
+    var height = $(document).height();
+    if(height !== check) {
+      var val = height+"px solid #fafafa";
+      $(".sideCut").css({"border-bottom": val});
+      check = height;
+    }
+  }, 100);
+
+</script>

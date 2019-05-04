@@ -1,0 +1,43 @@
+
+.avatar-picture {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  .hide {
+    display: none !important;
+  }
+  .logo{
+    img.inner-logo{
+      width: 213px;
+    }
+  }
+  .sidenav {
+
+    z-index: 11111;
+}
+  @media screen and (max-width:576px){
+    a.navbar-brand {
+      padding: 15px 0px!important;
+  }
+  .logo{
+    img.inner-logo{
+      width: 100%;
+    }
+  }
+  li.dropdown {
+    overflow: auto;
+    text-align: center;
+    span{
+      
+      padding: 5px 0 0!important;
+      img{
+        width: 30px!important;
+      }
+      span{
+        font-size: 12px!important;
+      }
+    }
+}
+}

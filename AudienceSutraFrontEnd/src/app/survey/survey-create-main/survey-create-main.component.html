@@ -1,0 +1,222 @@
+<form [formGroup]="survey">
+  <!-- Survey Builder Canvas -->
+  <div class="survey_builder">
+    <!-- <div class="header"> -->
+    <div class="header" style="border: 2px solid #711243;">
+      <div class="content" style="width: 100%;margin: 0 auto;float: none;position: initial;">
+        <textarea (change)="tabChange($event, true)" id="survey_header" placeholder="Heading Here" [formControlName]="'name'"
+          style="width: 100%;max-height: 40px;line-height: 40px;padding: 0px 20px;font-size:20px;"></textarea>
+
+        <textarea (change)="tabChange($event, false)" id="survey_description" placeholder="Description Here"
+          [formControlName]="'description'" style="width: 100%;padding: 0px 18px;font-size: 18px;font-style: italic;max-height: 70px;color: #ccc;"></textarea>
+        <!-- <input type="text" id="survey_header" placeholder="Heading Here" [formControlName]="'name'"><br> -->
+        <!-- <input type="text" id="survey_description" placeholder="Description Here" [formControlName]="'description'"> -->
+      </div>
+    </div>
+    <!-- <b><a href="javascript: void(0);" (click)="getMain()">Main Survey</a><br></b>
+    Total Tabs: {{survey.get('tabs').length}}<br><br> -->
+    <!-- <div *ngFor="let tab of survey.get('tabs').controls; let j=index">
+      <a href="javascript: void(0);" (click)="getTab(j)">Survey Tab {{j}}</a>
+    </div> -->
+    <!-- <a href="javascript: void(0);" style="float: right;"
+       (click)="survey.get('tabs').push(buildTab())">Add Tab</a> -->
+    <!-- {{main}} -->
+    <div class="lower" *ngIf="main === true" style="width: 100%;padding: 5%;border: 2px solid #711243;">
+      <!-- <div class="lower" *ngIf="main === true"> -->
+      <div class="lower-question" *ngFor="let item of survey.get('surveyQuestions').controls; let i=index" [formGroup]="item">
+        <div *ngIf="item.value['type']=='short'">
+          <app-survey-short [group]="item" [index]="i" [main]="main" [is_admin]="is_admin" [parentGroup]="survey"></app-survey-short>
+        </div>
+        <div *ngIf="item.value['type']=='para'">
+          <!-- {{item}} -->
+          <app-survey-para [group]="item" [index]="i" [main]="main" [is_admin]="is_admin" [parentGroup]="survey"></app-survey-para>
+        </div>
+        <div *ngIf="item.value['type']=='integer'">
+          <app-survey-number [group]="item" [index]="i" [main]="main" [is_admin]="is_admin" [parentGroup]="survey"></app-survey-number>
+        </div>
+        <div *ngIf="item.value['type']=='time'">
+          <app-survey-time [group]="item" [index]="i" [main]="main" [is_admin]="is_admin" [parentGroup]="survey"></app-survey-time>
+        </div>
+        <div *ngIf="item.value['type']=='radio'">
+          <app-survey-radio [group]="item" [index]="i" [tabsCount]="survey.get('tabs').controls.length" [main]="main" [is_admin]="is_admin"
+            [parentGroup]="survey"></app-survey-radio>
+        </div>
+        <div *ngIf="item.value['type']=='checkbox'">
+          <app-survey-checkbox [group]="item" [index]="i" [main]="main" [is_admin]="is_admin" [parentGroup]="survey"></app-survey-checkbox>
+        </div>
+        <div *ngIf="item.value['type']=='dropbox'">
+          <app-survey-dropbox [group]="item" [index]="i" [main]="main" [is_admin]="is_admin" [parentGroup]="survey"></app-survey-dropbox>
+        </div>
+        <div *ngIf="item.value['type']=='date'">
+          <app-survey-date [group]="item" [index]="i" [main]="main" [is_admin]="is_admin" [parentGroup]="survey"></app-survey-date>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="lower" *ngIf="main === false">
+      <div class="lower-question" *ngFor="let item of survey.get('tabs').controls[activeTab].controls.questions.controls; let j=index"
+        [formGroup]="item">
+        <div *ngIf="item.value['type']=='short'">
+          <app-survey-short [group]="item" [index]="j" [main]="main" [is_admin]="is_admin" [parentGroup]="survey.get('tabs').controls[activeTab]"></app-survey-short>
+        </div>
+        <div *ngIf="item.value['type']=='para'">
+          <app-survey-para [group]="item" [index]="j" [main]="main" [is_admin]="is_admin" [parentGroup]="survey.get('tabs').controls[activeTab]"></app-survey-para>
+        </div>
+        <div *ngIf="item.value['type']=='integer'">
+          <app-survey-number [group]="item" [index]="j" [main]="main" [is_admin]="is_admin" [parentGroup]="survey.get('tabs').controls[activeTab]"></app-survey-number>
+        </div>
+        <div *ngIf="item.value['type']=='time'">
+          <app-survey-time [group]="item" [index]="j" [main]="main" [is_admin]="is_admin" [parentGroup]="survey.get('tabs').controls[activeTab]"></app-survey-time>
+        </div>
+        <div *ngIf="item.value['type']=='radio'">
+          <app-survey-radio [group]="item" [index]="j" [main]="main" [is_admin]="is_admin" [tabsCount]="survey.get('tabs').controls.length"
+            [parentGroup]="survey.get('tabs').controls[activeTab]"></app-survey-radio>
+        </div>
+        <div *ngIf="item.value['type']=='checkbox'">
+          <app-survey-checkbox [group]="item" [index]="j" [main]="main" [is_admin]="is_admin" [parentGroup]="survey.get('tabs').controls[activeTab]"></app-survey-checkbox>
+        </div>
+        <div *ngIf="item.value['type']=='dropbox'">
+          <app-survey-dropbox [group]="item" [index]="j" [main]="main" [is_admin]="is_admin" [parentGroup]="survey.get('tabs').controls[activeTab]"></app-survey-dropbox>
+        </div>
+        <div *ngIf="item.value['type']=='date'">
+          <app-survey-date [group]="item" [index]="j" [main]="main" [is_admin]="is_admin" [parentGroup]="survey.get('tabs').controls[activeTab]"></app-survey-date>
+        </div>
+      </div>
+
+
+      <div class="opt">
+        <label class="req">
+          <input class="check survey_required" type="checkbox" [formControl]="survey.get('tabs').controls[activeTab].controls.end">
+          <span class="checkmark"></span>
+        </label>
+        <input class="survey_placeholder" value="End survey after this tab ?" type="text" disabled style="margin-left: 10px;">
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- Use a button to open the snackbar -->
+  <!-- <button (click)="toster()">Show Snackbar</button> -->
+
+  <!-- The actual snackbar -->
+  <div id="snackbar">{{message}}</div>
+
+  <!-- show diloag -->
+  <div class="set-account-modal">
+      <div class="message-box">
+        <h3>Please wait...</h3>
+        <div class="lds-ripple">
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+    <!-- end diloag -->
+
+  <!-- <p>JSON Output (Need to remove)</p>
+  <div>
+    <pre><code>{{ survey?.value?.surveyQuestions | json }}</code></pre>
+  </div> -->
+
+  <!-- Survey Builder Canvas End -->
+
+  <div class="space"></div>
+
+  <!-- ToolKit -->
+
+  <div class="tool">
+    <div class="box" (click)="survey.get('surveyQuestions').push(buildTextQuestion('short'))" *ngIf="main === true">
+      <i class="material-icons">
+        font_download
+      </i>
+      <p>Short Answer</p>
+    </div>
+
+    <div class="box" (click)="survey.get('surveyQuestions').push(buildTextQuestion('para'))" *ngIf="main === true">
+      <i class="material-icons">
+        format_align_left
+      </i>
+      <p>Paragraph</p>
+    </div>
+
+    <div class="box" (click)="survey.get('surveyQuestions').push(buildTextQuestion('integer'))" *ngIf="main === true">
+      <i class="material-icons">
+        looks_one
+      </i>
+      <p>Number</p>
+    </div>
+
+
+    <div class="box" (click)="survey.get('surveyQuestions').push(buildOptionQuestion('checkbox'))" *ngIf="main === true">
+      <i class="material-icons">
+        check_box
+      </i>
+      <p>Checkbox</p>
+    </div>
+
+    <div class="box" (click)="survey.get('surveyQuestions').push(buildOptionQuestion('radio'))" *ngIf="main === true">
+      <i class="material-icons">
+        radio_button_checked
+      </i>
+      <p>Radio Button</p>
+    </div>
+
+    <div class="box" (click)="survey.get('surveyQuestions').push(buildOptionQuestion('dropbox'))" *ngIf="main === true">
+      <i class="material-icons">
+        arrow_drop_down_circle
+      </i>
+      <p>Dropbox</p>
+    </div>
+
+    <div class="box" (click)="survey.get('surveyQuestions').push(buildDateQuestion())" *ngIf="main === true">
+      <i class="material-icons">
+        date_range
+      </i>
+      <p>Date Picker</p>
+    </div>
+    <div class="box" (click)="survey.get('surveyQuestions').push(buildTimeQuestion())" *ngIf="main === true">
+      <i class="material-icons">
+        access_time
+      </i>
+      <p>Timer</p>
+    </div>
+
+    <div class="box" style="width: auto;">
+      <div *ngIf="status == 'Draft' && is_super == false">
+        <button class="btn-survey" (click)="saveSurvey(true, 'yes', 'save','Draft')">Save</button>
+        <button style="background:#e66565;border-bottom: 3.5px solid #af4141;width: auto;" class="btn-survey" (click)="saveSurvey(true, 'yes', 'Pending Approval','Pending Approval')">
+            Submit to Admin</button>
+        <button style="background:#615050;border-bottom: 3.5px solid #796666" class="btn-survey" (click)="deleteSurvey()">Delete</button>
+        <button style="background:#3ee0d4;border-bottom: 3.5px solid #3ee0d4" class="btn-survey"  (click)="costEstimation()">ReEstimateCost</button>
+      </div>
+
+      <div *ngIf="status == 'Pending Approval' && is_super == false">
+        <button class="btn-survey" (click)="saveSurvey(true, 'yes','approve','Pending Approval')">Approve</button>
+        <button style="background:#615050;border-bottom: 3.5px solid #796666;width: auto;" class="btn-survey" (click)="saveSurvey(true, 'yes', 'Draft','Draft')">Move
+          to Draft</button>
+      </div>
+
+      <div *ngIf="is_super == false && status == 'create'">
+        <button class="btn-survey" (click)="saveSurvey(true, 'yes','status','Draft')">Save</button>
+        <button style="background:#e66565;border-bottom: 3.5px solid #af4141;width: auto;" class="btn-survey" (click)="saveSurvey(true, 'yes', 'Pending Approval','Pending Approval')">
+            Submit For Approval</button>
+            <button style="background:#3ee0d4;border-bottom: 3.5px solid #3ee0d4" class="btn-survey"  (click)="costEstimation()">ReEstimateCost</button>
+      </div>
+
+      <!-- <div *ngIf="is_super == true">
+        <button class="btn-survey" (click)="saveSurvey(true, 'yes','status')">Save</button>
+      </div> -->
+      <!-- By Vikram-->
+      <div *ngIf="status == 'Pending Approval' && is_super == true">
+        <button class="btn-survey" (click)="saveSurvey(false, 'yes','status','Pending Approval')">Save</button>
+        <button style="background:#e66565;border-bottom: 3.5px solid #af4141;width: auto;" class="btn-survey" (click)="saveSurvey(true, 'admin', 'Pending Approval','Pending Payment')">
+          Approve</button>
+      </div>
+    </div>
+
+  </div>
+</form>
+
+<!-- ToolKit End -->

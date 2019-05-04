@@ -1,0 +1,169 @@
+<div class="header">
+  <div class="main">
+    <div class="cent">
+      <h1>Steps to get started.</h1>
+      <div class="wrap">
+        <div class="top">
+          <div class="num active one">1</div>
+          <div class="num two">2</div>
+          <div class="num three">3</div>
+          <div class="num four">4</div>
+        </div>
+        <br>
+
+        <div class="layer act" id="one">
+          <img src="static/angular/assets/img/start1.png">
+          <h2>Fill your details</h2>
+          <form [formGroup]="clientProfileExtra">
+            <div class="row">
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="First Name" [formControlName]="'first_name'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Middle Name" [formControlName]="'middle_name'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Last Name" [formControlName]="'last_name'">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="City" [formControlName]="'city'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="State" [formControlName]="'state'">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-4 right" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Pincode" [formControlName]="'pincode'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Country" [formControlName]="'country'">
+                </div>
+              </div>
+            </div>
+
+
+            <!-- <p>Professional Details</p><br>
+            <div class="row">
+              <div class="col-lg-4 right" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Company Name" [formControlName]="'company_name'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Email Office" [formControlName]="'email_office'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Designation" [formControlName]="'designation'">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Address" [formControlName]="'address_street'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Your Phone Number" [formControlName]="'phone'">
+                </div>
+              </div>
+            </div>
+            <br> -->
+          </form>
+          <a (click)="skip(1)">
+            <button>NEXT <i class="fa fa-arrow-right"></i></button>
+          </a><br><br>
+          <!-- <p style="color: black;">JSON Output (Need to remove)</p>
+          <div>
+            <pre><code style="color: black;">{{ clientProfileExtra?.value | json }}</code></pre>
+          </div> -->
+        </div>
+        <!-- =================== -->
+        <div class="layer" id="two">
+          <img src="static/angular/assets/img/start2.png">
+          <h2>Professional Details</h2>
+          <form [formGroup]="clientProfileExtra">
+            <div class="row">
+              <div class="col-lg-4 right" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Company Name" [formControlName]="'company_name'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Email Office" [formControlName]="'email_office'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Designation" [formControlName]="'designation'">
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-lg-6" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Address" [formControlName]="'address'">
+                </div>
+              </div>
+              <div class="col-lg-4" style="padding: 7px;">
+                <div class="part">
+                  <input type="text" placeholder="Your Phone Number" [formControlName]="'phone'">
+                </div>
+              </div>
+            </div>
+            <br>
+          </form>
+          <a (click)="skip(2)">
+            <button>NEXT <i class="fa fa-arrow-right"></i></button>
+          </a>
+        </div>
+        <!-- =================== -->
+        <div class="layer" id="three">
+          <img src="static/angular/assets/img/start3.png">
+          <h2>Get your first 100 bucks</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus ea, nihil, numquam accusamus odio
+            officiis iure nulla laboriosam maiores impedit nostrum tenetur sequi provident corrupti quo quasi quis
+            dignissimos deleniti.</p>
+          <a (click)="skip(3)">
+            <button>NEXT <i class="fa fa-arrow-right"></i></button>
+          </a><br><br>
+        </div>
+        <div class="layer" id="four">
+          <img src="static/angular/assets/img/start3.png">
+          <h2>Begin your survey</h2>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus ea, nihil, numquam accusamus odio
+            officiis iure nulla laboriosam maiores impedit nostrum tenetur sequi provident corrupti quo quasi quis
+            dignissimos deleniti.</p>
+          <a (click)="submit()">
+            <button>START YOUR JOURNEY</button>
+          </a><br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+<div *ngFor="let res of responses">
+  <h3>Response {{res.id}}</h3>
+  <p>By- {{res.user}}</p>
+  <p>{{res.created}}</p>
+  <br>
+  <a routerLink="/response/{{res.id}}">View this response</a>
+  <br><br><br>
+</div>

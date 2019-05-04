@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+
+<div class="example">
+  <div class="row">
+    <div class="col-xs-12 col-md-12">
+      <div class="input-group" style="float: left;margin:0 10px;">
+        <label style="float: left;">Gender: </label>
+        <select class="form-control" [(ngModel)]="gender_selected" (change)="searchRespondent()">
+          <option value="">---------</option>
+          <option *ngFor="let gender of gender_list" value="{{gender.option_detail}}">
+            {{gender.option_detail}}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-group" style="float: left;margin:0 10px;">
+        <label style="float: left;">Age: </label>
+        <select class="form-control" [(ngModel)]="age_selected" (change)="searchRespondent()">
+          <option value="">---------</option>
+          <option *ngFor="let age of age_list" value="{{age.id}}">
+            {{age.name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-group" style="float: left;margin:0 10px;">
+        <label style="float: left;">State: </label>
+        <select class="form-control" [(ngModel)]="state_selected" (change)="searchRespondent()">
+          <option value="">---------</option>
+          <option *ngFor="let i of states" value="{{i.state_id}}">
+            {{i.state_name}}
+          </option>
+        </select>
+      </div>
+
+      <div class="input-group" style="float: left;margin:0 10px;">
+        <label style="float: left;">City: </label>
+        <select class="form-control" [(ngModel)]="city_selected" (change)="searchRespondent()">
+          <option value="">---------</option>
+          <option *ngFor="let i of cities" value="{{i.city_name}}">
+            {{i.city_name}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <!-- <div class="col-xs-6 col-md-4" style="float: right;">
+      <div class="input-group">
+        <input #ref type="text" class="form-control" placeholder="Search...">
+        <div class="input-group-btn">
+          <button class="btn btn-primary" (click)="submit(ref.value)">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </div>
+      </div>
+
+      not in use
+      <select class="search_placeholder" [(ngModel)]="searchValue">
+        <option>Select Options</option>
+        <option *ngFor="let choice of searchCriteria" value="{{choice.answer_desc}}">
+          {{choice.answer_desc}}
+        </option>
+      </select>
+      <button (click)="submit(searchValue)">Search</button>
+    </div> -->
+  </div>
+
+  <!-- <div class="row">
+    <div class="col-xs-12">
+      <input type="text">
+      <input type="text">
+      <input type="text">
+      <input type="text">
+    </div>
+  </div> -->
+</div>
+
+
+<div class="row">
+  <div class="card-container col-md-12 col-sm-12 col-xs-12">
+    <div class="survey">
+      <div class="survey-img">
+        <img src="{{survey?.img_src}}" alt="{{survey?.name}}"
+          onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+      </div>
+      <h1>{{survey?.name}}</h1><br>
+      <p title="{{survey?.description}}">
+        {{ (survey?.description.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+      </p>
+    </div>
+
+    <table class="table" *ngIf="dataFlag == true">
+      <thead>
+        <th>Survey Assigned Date</th>
+        <th>Respondent Name</th>
+        <th>Assign Surveys</th>
+        <th>Status</th>
+      </thead>
+      <tbody>
+        <ng-container *ngIf="clients.length > 0">
+          <tr *ngFor="let client of clients">
+            <td style="cursor:pointer;">{{client?.assign_date | date}}</td>
+            <td style="cursor:pointer;" routerLink="/super/search/profile/{{client?.user_id}}">
+              {{client?.name}}({{client?.user_id}})</td>
+            <td>
+              <input *ngIf="client?.assign == true && client?.status == 'Taken'" checked disabled type="checkbox">
+              <input *ngIf="client?.assign == true && client?.status == 'Assigned'" checked type="checkbox"
+                value="{{client?.user_id}}" (change)="changeCheckbox($event)">
+              <input *ngIf="client?.assign == false" type="checkbox" value="{{client?.user_id}}"
+                (change)="changeCheckbox($event)">
+            </td>
+            <td style="cursor:pointer;">{{client?.status}}</td>
+          </tr>
+        </ng-container>
+        <ng-container *ngIf="clients.length == 0">
+          <tr>
+            <td colspan="4" style="text-align: center;">No data found</td>
+          </tr>
+        </ng-container>
+      </tbody>
+      <tfoot *ngIf="clients.length > 0">
+        <tr>
+          <td colspan="4" style="text-align: right;">
+            <button class="view-id" (click)="assignSubmit()">Assign</button>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+    <!-- The actual snackbar -->
+    <div id="snackbar">{{message}}</div>
+  </div>
+</div>

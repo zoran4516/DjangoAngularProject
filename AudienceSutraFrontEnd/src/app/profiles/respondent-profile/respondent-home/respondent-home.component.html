@@ -1,0 +1,637 @@
+<div *ngIf="profile_survey?.flag == false">
+  <div routerLink="/signup/respondent/firstSurvey" class="message-box" style="cursor: pointer;width: auto;padding: 10px;float:right;font-size: 14px;font-family: sans-serif;">
+    Your first credit points are waiting for you!
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3 style="font-family: Verdana, sans-serif;">Profile Survey</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card-container col-md-3 col-sm-4 col-xs-12">
+      <div class="card">
+        <div class="image-container">
+          <img class="avatar-picture" src="/media/{{profile_survey?.img}}" onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+        </div>
+        <div class="card-body">
+          <div class="card-content">
+            Your profile survey is not Completed if you want to take extra point please take this survey.
+          </div>
+          <div class="card-footer">
+            <button style="width: 100%;" routerLink="/signup/respondent/firstSurvey">Take Survey</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============================ -->
+
+
+<div>
+  <div class="row">
+    <div class="col-md-12">
+      <h3 style="font-family: Verdana, sans-serif;">Active Surveys</h3>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="card-container col-md-3 col-sm-4 col-xs-12" *ngFor="let survey of surveys; let i=index">
+      <div class="card">
+        <div class="image-container">
+          <img id="imgSrc_{{i}}" class="avatar-picture" src="{{survey?.survey_img}}" alt="{{survey?.name}}" onerror="this.src='https://www.w3schools.com/w3css/img_london.jpg';">
+          <div class="title" title="{{survey?.name}}">
+            {{ (survey?.name.length > 12)? (survey?.name | slice:0:12)+'...':(survey?.name) }}
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="amount">
+            <label class="{{survey?.status}}">{{survey?.status}}</label>
+
+            <!-- <label style="float:right;">$200.00</label> -->
+          </div>
+          <div class="card-content" title="{{survey?.description}}">
+            {{ (survey?.description.length > 30)? (survey?.description | slice:0:30)+'...':(survey?.description) }}
+          </div>
+          <div class="card-footer">
+            <button style="width: 100%;" routerLink="/respondent/respondToSurvey/{{survey?.id}}">Take Survey</button>
+            <!-- <button style="width: 100%;" routerLink="/respondent/survey/{{survey?.id}}">Take Survey</button> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="content">
+    <div class="wrap">
+      <h1>Hi Sriit S Madhavan</h1>
+      <p>Welcome to AudienceSutra</p>
+  
+  
+      <div class="quick_stats">
+        <h1>Quick Stats</h1>
+  
+        <div class="row">
+          <div class="col-lg-2 col-xs-12">
+  
+            <div class="box">
+              <div class="block">
+                <div class="wrap-sm">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-8">
+                      <div class="box">
+                        <h1>Credits Earned</h1>
+                        <p>₹ 200</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-4">
+                      <div class="box" style="float: right;">
+                        <div class="icon" style="background: #e03e92;">
+                          <i class="rup">₹</i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+  
+              <div class="block">
+                <div class="wrap-sm">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-8">
+                      <div class="box">
+                        <h1>Survey Completed</h1>
+                        <p>15</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-4">
+                      <div class="box" style="float: right;">
+                        <div class="icon" style="background: #741a47;">
+                          <i class="material-icons">receipt</i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+  
+              <div class="block">
+                <div class="wrap-sm">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-8">
+                      <div class="box">
+                        <h1>Survey Pending</h1>
+                        <p>07</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-xs-4">
+                      <div class="box" style="float: right;">
+                        <div class="icon" style="background: #2a0e3c;">
+                          <i class="material-icons">info</i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="col-lg-2 col-xs-12">
+            <div class="box">
+              <div class="redeem">
+                <div class="text">
+                  <h1>CREDIT SCORE</h1>
+                  <p>₹ 200</p>
+                </div>
+                <div class="button">
+                  <button>REDEEM CREDITS</button>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+      
+  
+      
+      <div class="recommend">
+        <h1>Recomendation</h1>
+        <a href="survey.html">
+          <div class="row">
+  
+  
+            <div class="col-lg-3 col-xs-12">
+              <div class="box">
+  
+                <div class="wrap-rec">
+                  <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                  <div class="lower">
+                    <div class="row">
+                      <div class="col-lg-8 col-xs-8">
+                        <div class="box">
+                          <h1>Survey Name</h1>
+                          <p>Pepsi Co.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4  col-xs-4">
+                        <div class="box">
+                          <h2>₹ 200</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12  col-xs-12 description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                          consequat [...]</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-xs-12">
+              <div class="box">
+  
+                <div class="wrap-rec">
+                  <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                  <div class="lower">
+                    <div class="row">
+                      <div class="col-lg-8 col-xs-8">
+                        <div class="box">
+                          <h1>Survey Name</h1>
+                          <p>Pepsi Co.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4  col-xs-4">
+                        <div class="box">
+                          <h2>₹ 200</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12  col-xs-12 description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                          consequat [...]</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-xs-12">
+              <div class="box">
+  
+                <div class="wrap-rec">
+                  <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                  <div class="lower">
+                    <div class="row">
+                      <div class="col-lg-8 col-xs-8">
+                        <div class="box">
+                          <h1>Survey Name</h1>
+                          <p>Pepsi Co.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4  col-xs-4">
+                        <div class="box">
+                          <h2>₹ 200</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12  col-xs-12 description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                          consequat [...]</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-xs-12">
+              <div class="box">
+  
+                <div class="wrap-rec">
+                  <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                  <div class="lower">
+                    <div class="row">
+                      <div class="col-lg-8 col-xs-8">
+                        <div class="box">
+                          <h1>Survey Name</h1>
+                          <p>Pepsi Co.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4  col-xs-4">
+                        <div class="box">
+                          <h2>₹ 200</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12  col-xs-12 description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                          consequat [...]</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-xs-12">
+              <div class="box">
+  
+                <div class="wrap-rec">
+                  <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                  <div class="lower">
+                    <div class="row">
+                      <div class="col-lg-8 col-xs-8">
+                        <div class="box">
+                          <h1>Survey Name</h1>
+                          <p>Pepsi Co.</p>
+                        </div>
+                      </div>
+                      <div class="col-lg-4  col-xs-4">
+                        <div class="box">
+                          <h2>₹ 200</h2>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-12  col-xs-12 description">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                          tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                          consequat [...]</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+              </div>
+            </div>
+  
+  
+          </div>
+        </a>
+      </div>
+      
+  
+    </div>
+  </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="content">
+  <div class="wrap">
+    <h1>Hi Sriit S Madhavan</h1>
+    <p>Welcome to AudienceSutra</p>
+
+
+    <div class="quick_stats">
+      <h1>Quick Stats</h1>
+
+      <div class="row">
+        <div class="col-lg-2 col-xs-12">
+
+          <div class="box">
+            <div class="block">
+              <div class="wrap-sm">
+                <div class="row">
+                  <div class="col-lg-8 col-xs-8">
+                    <div class="box">
+                      <h1>Credits Earned</h1>
+                      <p>₹ 200</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-xs-4">
+                    <div class="box" style="float: right;">
+                      <div class="icon" style="background: #e03e92;">
+                        <i class="rup">₹</i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="block">
+              <div class="wrap-sm">
+                <div class="row">
+                  <div class="col-lg-8 col-xs-8">
+                    <div class="box">
+                      <h1>Survey Completed</h1>
+                      <p>15</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-xs-4">
+                    <div class="box" style="float: right;">
+                      <div class="icon" style="background: #741a47;">
+                        <i class="material-icons">receipt</i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="block">
+              <div class="wrap-sm">
+                <div class="row">
+                  <div class="col-lg-8 col-xs-8">
+                    <div class="box">
+                      <h1>Survey Pending</h1>
+                      <p>07</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4 col-xs-4">
+                    <div class="box" style="float: right;">
+                      <div class="icon" style="background: #2a0e3c;">
+                        <i class="material-icons">info</i>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 col-xs-12">
+          <div class="box">
+            <div class="redeem">
+              <div class="text">
+                <h1>CREDIT SCORE</h1>
+                <p>₹ 200</p>
+              </div>
+              <div class="button">
+                <button>REDEEM CREDITS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+    
+
+    
+    <div class="recommend">
+      <h1>Recomendation</h1>
+      <a href="survey.html">
+        <div class="row">
+
+
+          <div class="col-lg-3 col-xs-12">
+            <div class="box">
+
+              <div class="wrap-rec">
+                <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                <div class="lower">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-8">
+                      <div class="box">
+                        <h1>Survey Name</h1>
+                        <p>Pepsi Co.</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4  col-xs-4">
+                      <div class="box">
+                        <h2>₹ 200</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12  col-xs-12 description">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        consequat [...]</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-xs-12">
+            <div class="box">
+
+              <div class="wrap-rec">
+                <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                <div class="lower">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-8">
+                      <div class="box">
+                        <h1>Survey Name</h1>
+                        <p>Pepsi Co.</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4  col-xs-4">
+                      <div class="box">
+                        <h2>₹ 200</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12  col-xs-12 description">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        consequat [...]</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-xs-12">
+            <div class="box">
+
+              <div class="wrap-rec">
+                <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                <div class="lower">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-8">
+                      <div class="box">
+                        <h1>Survey Name</h1>
+                        <p>Pepsi Co.</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4  col-xs-4">
+                      <div class="box">
+                        <h2>₹ 200</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12  col-xs-12 description">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        consequat [...]</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-xs-12">
+            <div class="box">
+
+              <div class="wrap-rec">
+                <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                <div class="lower">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-8">
+                      <div class="box">
+                        <h1>Survey Name</h1>
+                        <p>Pepsi Co.</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4  col-xs-4">
+                      <div class="box">
+                        <h2>₹ 200</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12  col-xs-12 description">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        consequat [...]</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-xs-12">
+            <div class="box">
+
+              <div class="wrap-rec">
+                <div class="upper" style="background:url('https://wherediditallgorightblog.files.wordpress.com/2011/05/pepsico_headquarters.jpg'); background-size: cover;"></div>
+                <div class="lower">
+                  <div class="row">
+                    <div class="col-lg-8 col-xs-8">
+                      <div class="box">
+                        <h1>Survey Name</h1>
+                        <p>Pepsi Co.</p>
+                      </div>
+                    </div>
+                    <div class="col-lg-4  col-xs-4">
+                      <div class="box">
+                        <h2>₹ 200</h2>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-12  col-xs-12 description">
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                        tempor incididunt ut labore et dolore magna aliqua. Ut enim
+                        consequat [...]</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </a>
+    </div>
+    
+
+  </div>
+</div> -->

@@ -1,0 +1,9 @@
+<h3>Response {{response.id}}</h3>
+<p>By- {{response.user}}</p>
+<p>{{response.created}}</p>
+<br>
+<div *ngFor="let ans of answers">
+  <h5>Answer {{ans.id}} for Question {{ans.question}}</h5>
+  <p>{{ans.body}}</p>
+  <p>{{ans.created}}</p>
+</div>

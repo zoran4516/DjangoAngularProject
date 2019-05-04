@@ -1,0 +1,105 @@
+<div [formGroup]="group" class="question" data-type="dropbox" data-set="optionSet">
+  <a class="delete-question" *ngIf="main == true" href="javascript: void(0);">
+    <i class="material-icons survey_q_delete" (click)="removeQuestion(parentGroup, index)">close</i>
+  </a>
+
+  <div class="row">
+    <div class="col-lg-1">
+      <div class="box">
+        <div class="qno" id="survey_qno">
+          {{ index + 1 }}
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-11 main_seg">
+      <div class="box">
+        <input type="text" class="survey_question" placeholder="Question Here" [formControlName]="'text'">
+        <br>
+        <div class="option_sets">
+          <div class="option_set">
+
+            <div formArrayName="choices">
+              <div class="form-group" *ngFor="let h of group.controls.choices.controls; let i = index">
+                <input type="text" class="survey_text" placeholder="Options Here" formControlName="{{i}}">
+                <i class="material-icons del" (click)="group.get('choices').removeAt(i); group.get('tabNames').removeAt(i);">close</i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <br>
+        <button class="survey_add" (click)="group.get('choices').push(addChoices())">ADD</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row requirments end-lg">
+
+    <div class="col-lg-2 col-md-2 start-lg">
+      <button id="survey_type">dropbox</button>
+      <br>
+      <br>
+      <div class="box">
+        Required
+        <label class="req">
+          <input type="checkbox" class="check survey_required" checked [formControlName]="'required'">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+      <div class="box" *ngIf="is_admin == true">
+        Admin Question
+        <label class="req">
+          <input type="checkbox" class="check survey_required" [formControlName]="'admin_question'">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+    <div class="col-lg-5 col-md-5 right-lg">
+      <div class="box">
+
+        <label>Dependent Question</label>
+        <div *ngIf="main == true">
+          <select class="survey_placeholder" (change)="updateSpecial($event.target.value)" [formControlName]="'dependentQuestion'"
+            style="width: 100%;font-size: 15px;font-weight: normal;">
+            <option *ngIf="group.get('dependentQuestion').value == ''">Select</option>
+            <option *ngFor="let x of generateArray(index)" [selected]="group.get('dependentQuestion').value == x.index">{{x.index}}-
+              {{x.question}}</option>
+          </select>
+          <div *ngFor="let x of another; let j = index">
+            <div class="opt">
+              <label class="req">
+                <input class="check survey_required" type="checkbox" value="{{x}}" (change)="checkbox(x)" [checked]="checkboxStatus(j, x)">
+                <span class="checkmark"></span>
+              </label>
+              <input class="survey_placeholder" value="{{x}}" type="text" disabled style="margin-left: 10px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-5 col-md-5 right-lg">
+      <!-- <div class="box">
+
+        <label>Tricky Question</label>
+        <div *ngIf="main == true">
+          <select class="survey_placeholder" (change)="updateSpecial($event.target.value)" [formControlName]="'dependentQuestion'"
+            style="width: 100%;font-size: 15px;font-weight: normal;">
+            <option *ngIf="group.get('dependentQuestion').value == ''">Select</option>
+            <option *ngFor="let x of generateArray(index)" [selected]="group.get('dependentQuestion').value == x.index">{{x.index}}-
+              {{x.question}}</option>
+          </select>
+          <div *ngFor="let x of another; let j = index">
+            <div class="opt">
+              <label class="req">
+                <input class="check survey_required" type="checkbox" value="{{x}}" (change)="checkbox(x)" [checked]="checkboxStatus(j, x)">
+                <span class="checkmark"></span>
+              </label>
+              <input class="survey_placeholder" value="{{x}}" type="text" disabled style="margin-left: 10px;">
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

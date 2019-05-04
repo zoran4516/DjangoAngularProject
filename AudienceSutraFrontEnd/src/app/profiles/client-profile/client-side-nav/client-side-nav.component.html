@@ -1,0 +1,22 @@
+<div class="nav animated">
+  <div class="postition:relative;">
+    <div style="text-align: center;">
+      <div class="opt" [ngClass]="{'active-o': page == 'home'}">
+        <a routerLink="/client/{{userId}}/profile"><i class="material-icons">home</i><br>
+          <p>HOME</p></a>
+      </div>
+      <div class="opt" [ngClass]="{'active-o': page == 'activeSurvey'}">
+        <a routerLink="/client/{{userId}}/activeSurvey"><i class="material-icons">receipt</i><br>
+          <p>ACTIVE<br> SURVEY</p></a>
+      </div>
+      <div class="opt" [ngClass]="{'active-o': page == 'feedback'}">
+        <a routerLink="/client/{{userId}}/feedback"><i class="material-icons">feedback</i><br>
+          <p>FEEDBACK</p></a>
+      </div>
+      <div class="opt" [ngClass]="{'active-o': page == 'help'}">
+        <a routerLink="/client/{{userId}}/help"><i class="material-icons">help</i><br>
+          <p>HELP</p></a>
+      </div>
+    </div>
+  </div>
+</div>

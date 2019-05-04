@@ -1,0 +1,223 @@
+* {box-sizing: border-box}
+
+/* Set height of body and the document to 100% */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial;
+}
+
+/* Style tab links */
+.tablink {
+    background-color: #555;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width:25%;
+}
+
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+
+#Home {background-color: red;}
+#News {background-color: green;}
+#Contact {background-color: blue;}
+#About {background-color: orange;}
+
+
+
+
+
+
+
+.card-container {
+  margin-bottom: 50px;
+  .card {
+      max-width: 300px;
+      /* border: 1px solid red; */
+      box-shadow: 0 4px 10px 0 rgba(0,0,0,0.2), 0 4px 20px 0 rgba(0,0,0,0.19);
+  }
+  .card,
+  .card img,
+  .image-container {
+      border-radius: 5px 5px 0px 0px;
+  }
+
+  .card .title {
+      bottom:0px;
+      box-sizing:border-box;
+      color:rgb(255, 255, 255);
+      display:block;
+      font-family:Verdana, sans-serif;
+      font-size:35px;
+      height:52px;
+      left:0px;
+      line-height:36px;
+      padding-bottom:8px;
+      padding-left:16px;
+      padding-right:16px;
+      padding-top:8px;
+      position:absolute;
+      text-size-adjust:100%;
+  }
+  .image-container{
+      box-sizing:border-box;
+      color:rgb(255, 255, 255);
+      display:block;
+      font-family:Verdana, sans-serif;
+      font-size:15px;
+      max-height:200px;
+      height: 200px;
+      line-height:22.5px;
+      position:relative;
+      text-size-adjust:100%;
+  }
+
+/* mixin for multiline */
+  @mixin multiLineEllipsis($lineHeight: 1.2em, $lineCount: 1, $bgColor: white){
+      overflow: hidden;
+      position: relative;
+      line-height: $lineHeight;
+      max-height: $lineHeight * $lineCount; 
+      text-align: justify;
+      margin-right: -1em;
+      padding-right: 1em;
+      width: 95%;
+      margin: 10px auto;
+      &:before {
+        content: '...';
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+      &:after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 1em;
+        height: 1em;
+        margin-top: 0.2em;
+        background: $bgColor;
+      }
+    }
+  
+    .card-content {
+      @include multiLineEllipsis($lineHeight: 1.2em, $lineCount: 3, $bgColor: white);  
+    }
+
+    .card-footer {
+      background-color:#e03e92;
+      button{
+          width:30%;
+          background-color: #e03e92; /* Green background */
+          border: 1px solid #e03e92; /* Green border */
+          color: white; /* White text */
+          padding: 5px; /* Some padding */
+          cursor: pointer; /* Pointer/hand icon */
+          border-left: 1px inset #e03e92;
+          height: 50px;
+        }
+      
+      button:first-child {
+          border-left: none !important;
+      }
+    }
+
+  .amount {
+      text-align: right;
+      font-size: 24px;
+      // padding: 0px 15px;
+      color: #e03e92;
+      overflow: hidden;
+  }
+
+  .card-body {
+    padding: 5%;
+    font-family: Verdana, sans-serif;
+  }
+
+  .avatar-picture {
+    width: 100%;
+    max-height: 200px;
+    vertical-align: top;
+    cursor: pointer;
+  }
+  .hide {
+    display: none !important;
+  }
+
+  .Active {
+    float:left;
+    color: green;
+  }
+  .Paid {
+    float:left;
+    color:#e03e92;
+  }
+  .Approved {
+    float:left;
+    color: #e03e92;
+  }
+  .Pending {
+    float:left;
+    color: red;
+  }
+
+}
+
+// .avatar-picture:hover {
+//   content: url('http://dummyimage.com/100x100/eb00eb/fff');
+// }
+
+.avatar-wrapper {
+  position: relative;
+}
+
+.image {
+  opacity: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: .5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+  cursor: pointer;
+}
+
+.avatar-wrapper:hover .image {
+  opacity: 0.3;
+}
+
+.avatar-wrapper:hover .middle {
+  opacity: 1;
+}
+
+.text {
+  background-color: #e03e92;
+  color: white;
+  font-size: 16px;
+  padding: 14px;
+}

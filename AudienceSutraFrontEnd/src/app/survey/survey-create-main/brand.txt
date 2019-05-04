@@ -1,0 +1,196 @@
+{
+  "creator": "1",
+  "name": "",
+  "description": "",
+  "isPublished": "False",
+  "needLoggedUser": "False",
+  "displayByQuestion": "False",
+  "surveyQuestions": [
+    {
+      "type": "dropbox",
+      "text": "When you think of __________, (product category) which brand comes to mind ?",
+      "choices": [
+        "____________ competitor 1",
+        "____________ competitor 2",
+        "____________ competitor 3"
+      ],
+      "tabNames": [
+        ""
+      ],
+      "required": "true",
+      "tag": "dropbox",
+      "setType": "optionSet",
+      "survey": "null",
+      "order": "1",
+      "tab": "",
+      "dependentQuestion": "",
+      "dependentOption": ""
+    },
+    {
+      "type": "radio",
+      "text": "Are you aware of ___________? (Product/Brand name)",
+      "choices": [
+        "Yes",
+        "No"
+      ],
+      "tabNames": [
+        "1",
+        ""
+      ],
+      "required": "true",
+      "tag": "radio",
+      "setType": "optionSet",
+      "survey": "null",
+      "order": "1",
+      "tab": "",
+      "dependentQuestion": "",
+      "dependentOption": ""
+    }
+  ],
+  "tabs": [
+    {
+      "questions": [
+        {
+          "type": "checkbox",
+          "text": "Where have you heard of __________? (Product/Brand name) ",
+          "choices": [
+            "Friends",
+            "Ads on Facebook / Instagram / Youtube",
+            "Online ads at other websites",
+            "Saw an ad while searching",
+            "TV ad",
+            "Print ad",
+            "Radio ad",
+            "Outdoor hoarding",
+            "Promotional material in shops"
+          ],
+          "tabNames": [
+            ""
+          ],
+          "required": "true",
+          "tag": "checkbox",
+          "setType": "optionSet",
+          "survey": "null",
+          "order": "1",
+          "tab": "",
+          "dependentQuestion": "",
+          "dependentOption": ""
+        },
+        {
+          "type": "radio",
+          "text": "Have you had the chance to buy ________? (Product/Brand name)",
+          "choices": [
+            "Yes",
+            "No"
+          ],
+          "tabNames": [
+            "",
+            ""
+          ],
+          "required": "true",
+          "tag": "radio",
+          "setType": "optionSet",
+          "survey": "null",
+          "order": "1",
+          "tab": "",
+          "dependentQuestion": "",
+          "dependentOption": ""
+        },
+        {
+          "type": "radio",
+          "text": "Have you had a chance to buy ___________ again?",
+          "choices": [
+            "Yes, I am a regular buyer",
+            "Yes, I buy it sometimes",
+            "Yes, I bought it once",
+            "Not bought again"
+          ],
+          "tabNames": [
+            "",
+            "",
+            "",
+            ""
+          ],
+          "required": "true",
+          "tag": "radio",
+          "setType": "optionSet",
+          "survey": "null",
+          "order": "1",
+          "tab": "",
+          "dependentQuestion": "",
+          "dependentOption": ""
+        },
+        {
+          "type": "radio",
+          "text": "How would you qualify your experience with ______________?",
+          "choices": [
+            "Great",
+            "Good",
+            "Ok",
+            "Not so Good",
+            "Not good at all"
+          ],
+          "tabNames": [
+            "",
+            "",
+            "",
+            "",
+            ""
+          ],
+          "required": "true",
+          "tag": "radio",
+          "setType": "optionSet",
+          "survey": "null",
+          "order": "1",
+          "tab": "",
+          "dependentQuestion": "",
+          "dependentOption": ""
+        },
+        {
+          "type": "checkbox",
+          "text": "What are the aspects of the brand that you like the most?",
+          "choices": [
+            "Love the brand & what it stands for",
+            "It has quite a brag value in my circle",
+            "Quality of the product",
+            "Stylish and innovative packaging",
+            "Love the taste & look"
+          ],
+          "tabNames": [
+            ""
+          ],
+          "required": "true",
+          "tag": "checkbox",
+          "setType": "optionSet",
+          "survey": "null",
+          "order": "1",
+          "tab": "",
+          "dependentQuestion": "",
+          "dependentOption": ""
+        },
+        {
+          "type": "radio",
+          "text": "Would you recommend __________ to your family & friends?",
+          "choices": [
+            "Would love to recommend it",
+            "Not sure",
+            "Would not recommend"
+          ],
+          "tabNames": [
+            "",
+            "",
+            ""
+          ],
+          "required": "true",
+          "tag": "radio",
+          "setType": "optionSet",
+          "survey": "null",
+          "order": "1",
+          "tab": "",
+          "dependentQuestion": "",
+          "dependentOption": ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+.table, tr, th, td {
+    max-width: 65%;
+    border: 1px solid #d2cccc;
+    border-collapse: collapse;
+    font-family: sans-serif;
+    padding: 8px 10px;
+    /* margin: 0 auto; */
+  }

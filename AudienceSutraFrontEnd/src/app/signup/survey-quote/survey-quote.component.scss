@@ -1,0 +1,152 @@
+// ********************************
+
+
+.set-account-modal {
+    display:none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+}
+
+.message-box-new {
+    width: 350px;
+    height: 200px;
+    background: #fff;
+    margin: 0px auto;
+    border-radius:10px;
+    padding:5px;
+    text-align:center;
+    color: #424242;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.message-box{
+  text-align: center;
+  background: transparent;
+  margin-top: 150px;
+.col-btn-primery{
+  border: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 7px 20px;
+  border-radius: 4px;
+  line-height: 1.45;
+  text-shadow: 1px 1px 1px #47525d;
+  font-weight: 600;
+  background: #007bff;
+}
+}
+.message-box-new h3 {
+    padding-top: 50px;
+}
+
+.lds-ripple {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+
+.lds-ripple div {
+  position: absolute;
+  border: 4px solid #cef;
+  opacity: 1;
+  border-radius: 50%;
+  animation: lds-ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.lds-ripple div:nth-child(2) {
+  animation-delay: -0.5s;
+}
+.lower{
+  border-right: 2px solid #333;
+  min-height: 100vh;
+}
+.col-cost-wrapper{
+  padding: 50px;
+  position: fixed;
+  width: 30%;
+  right: 36px;
+  top: 200px;
+  min-height: 100%;
+  z-index: 1111111;
+}
+.survey_builder{
+  //margin-top: 172px;
+  .header{
+    position: fixed;
+    left: 175px;
+    width: calc(100% - 231px);
+    top: 95px;
+    z-index: 11;
+  }
+}
+#survey_type[_ngcontent-c1] {
+  background: transparent;
+  color: #333;
+  font-weight: 600;
+  margin-top: 0;
+  font-size: 13px;
+  text-transform: capitalize;
+  padding: 0px 0px; 
+  border: none;
+  letter-spacing: 1px;
+}
+@keyframes lds-ripple {
+  0% {
+    top: 28px;
+    left: 28px;
+    width: 0;
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    top: -1px;
+    left: -1px;
+    width: 58px;
+    height: 58px;
+    opacity: 0;
+  }
+}
+
+.col-lg-11.main_seg{
+  h1.survey_question{
+    font-size: 18px!important;
+     width: 100%!important; 
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+  }
+}
+.tool{ 
+  .box {
+  cursor: pointer;
+  width: auto; 
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+}
+}
+.tool {
+  z-index: 111111111;
+}
+
+
+@media screen and (max-width: 992px){
+  .tool button{
+    font-size: 16px;
+  }
+  
+}
+@media screen and (max-width: 767px){
+  .tool .row {
+    margin: 0 0 0 12%;
+    width: auto;
+  }
+  
+}

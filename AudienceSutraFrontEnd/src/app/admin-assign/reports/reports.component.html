@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3 style="font-family: Verdana, sans-serif;">Assigned Survey</h3>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 2%;">
+  <div class="card-container col-md-12 col-sm-12 col-xs-12">
+    <table class="table">
+      <thead>
+        <th>Client Name</th>
+        <th>Survey Name</th>
+        <th>Respondent Name</th>
+        <th>Status</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let survey of survey_list">
+          <td>{{survey.creator_user.name}}</td>
+          <td>{{survey.name}}</td>
+          <td>{{survey.assign_user.name}}</td>
+          <td>{{survey.status}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

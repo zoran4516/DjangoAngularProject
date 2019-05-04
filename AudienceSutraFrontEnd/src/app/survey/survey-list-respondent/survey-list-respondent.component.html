@@ -1,0 +1,13 @@
+<p>
+  survey-list-respondent works!
+</p>
+
+<!--<h5>Following is a list of arbitrary surveys. Just for testing the flow.</h5><br>-->
+<!--<p>In the final version there would be the relevant surveys listed here. </p>-->
+
+<!--<a routerLink="../respondToSurvey/1">Respond to Survey 1</a><br>-->
+<!--<a routerLink="../respondToSurvey/2">Respond to Survey 2</a>-->
+
+<div *ngFor="let s of surveys">
+  <a routerLink="../respondToSurvey/{{s.id}}">Respond to Survey {{s.id}}</a>
+</div>

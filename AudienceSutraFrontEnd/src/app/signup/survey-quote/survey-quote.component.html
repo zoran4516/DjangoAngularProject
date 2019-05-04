@@ -1,0 +1,165 @@
+<!-- Survey Builder Canvas -->
+
+<div class="survey_builder">
+  <div class="header">
+    <div class="content">
+      <!-- <input type="text" id="survey_header" value="Initial Survey" disabled><br> -->
+      <div id="survey_description" style="font-size: 4rem;">
+        Survey Cost Estimate.
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-8 col-md-8">
+    <div class="lower">
+      <div class="message-box" *ngIf="questionCount == -1">
+        <button class="col-btn-primery" (click)="nextQuestion(true)" *ngIf="complete != true && questionCount == -1">START</button>
+      </div>
+      <div>
+
+        <div *ngFor="let question of questionArray; let i = index;">
+          <div id="question-{{i}}">
+            <div data-type="para" data-set="textSet" [ngClass]="('question ' + ( (tempCount >= (i+1) || i > tempCount) ? 'disabledbutton' : ''))">
+              <div class="row">
+                <div class="col-lg-1">
+                  <div class="box">
+                    <div class="qno">
+                      {{i+1}}
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-11 main_seg">
+                  <h1 class="survey_question">{{question.question}}</h1><br>
+
+                  <!-- SHORT -->
+                  <div *ngIf="question.options_type == 'Single Line Text'">
+                    <input class="survey_placeholder" type="text" [(ngModel)]="question.answer" (keyup.enter)="nextQuestion(false)"
+                      autofocus>
+                  </div>
+
+                  <!-- Multiline -->
+                  <div *ngIf="question.options_type == 'Multiple Choice'">
+                    <div *ngFor="let choice of question.choices">
+                      <div class="opt">
+                        <label class="req">
+                          <input class="check survey_required" type="checkbox" [checked]="choice.selected" (change)="updateCheckbox($event, choice)">
+                          <span class="checkmark"></span>
+                          <input class="survey_placeholder" value="{{choice.option_detail}}" type="text" style="margin-left: 10px;">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- RADIO -->
+
+                  <div *ngIf="question.options_type == 'Single Choice'">
+                    <div *ngFor="let choice of question.choices">
+                      <div class="opt">
+                        <label class="req">
+                          <input class="check" value="{{choice.option_detail}}" type="radio" [(ngModel)]="question.answer"
+                            (click)="nextQuestion(false)">
+                          <span class="checkmark2"></span>
+                          <input class="survey_placeholder" value="{{choice.option_detail}}" type="text" style="margin-left: 10px;">
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- CHECKBOX -->
+
+                  <!-- <div *ngIf="question.options_type == 'Multiple Choice'">
+                  <div *ngFor="let choice of question.choices">
+                    <div class="opt">
+                      <label class="req">
+                        <input class="check" value="{{choice.option_detail}}" type="checkbox" [(ngModel)]="question.answer"
+                          (click)="nextQuestion(false)">
+                        <span class="checkmark1"></span>
+                        <input class="survey_placeholder" value="{{choice.option_detail}}" type="text" style="margin-left: 10px;">
+                      </label>
+                    </div>
+                  </div>
+                </div> -->
+                  <!-- DROPDOWN -->
+                  <div *ngIf="question.options_type == 'Dropdown'">
+                    <select class="survey_placeholder" [(ngModel)]="question.answer" (change)="nextQuestion(false)">
+                      <option value="">Select Options</option>
+                      <option *ngFor="let choice of question.choices" value="{{choice.option_detail}}">
+                        {{choice.option_detail}}
+                      </option>
+                    </select>
+                  </div>
+
+                  <div *ngIf="question.options_type == 'Date'">
+                    <input class="survey_placeholder" type="date" [(ngModel)]="question.answer">
+                  </div>
+
+
+
+                  <div class="row requirments end-lg" *ngIf="question.is_required">
+                    <div class="col-lg-3 right-lg">
+                      <div class="box">
+                        <button id="survey_type">Required</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+
+        <div class="space"></div>
+        <!-- ToolKit -->
+
+        <div class="tool">
+          <div class="row end-lg">
+
+            <div class="col-sm-3 col-md-3 col-lg-2 center-lg">
+              <div class="box">
+                <button style="width:auto;" (click)="previousQuestion()" *ngIf="tempCount >= 1">PREVIOUS</button>
+              </div>
+            </div>
+
+            <div class="col-sm-2 col-md-2 col-lg-2 center-lg">
+              <div class="box">
+                <button (click)="nextQuestion(false)" *ngIf="complete != true && tempCount >= 0" [disabled]="checkValidity()">NEXT</button>
+
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-7 col-md-7 col-lg-7 center-lg">
+              <div class="box">
+                <button (click)="submit()" style="background:#e66565;border-bottom: 3.5px solid #af4141;width: 100%;"
+                  *ngIf="checkValidity()">Cost Approval for Survey Creation</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- ToolKit End -->
+        <!-- show diloag -->
+        <div class="set-account-modal">
+          <div class="message-box-new">
+            <h3>Please wait...</h3>
+            <div class="lds-ripple">
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </div>
+        <!-- end diloag -->
+
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-sm-4 col-md-4">
+    <div class="col-cost-wrapper">
+      <h1> {{textCost}}: ₹ {{costOfSurvey}}<br>
+        <span style="font-size:13px">* This estimate is exclusive of government taxes/levies</span> </h1>
+
+    </div>
+  </div>
+</div>
